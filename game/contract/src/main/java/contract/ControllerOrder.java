@@ -3,7 +3,7 @@ package contract;
 /**
  * The Enum ControllerOrder.
  *
- * @author Jean-Aymeric Diet
+ * @author Doc0160
  */
 public enum ControllerOrder {
 	NULL,
@@ -12,4 +12,5 @@ public enum ControllerOrder {
 	LEFT,
 	RIGHT,
 	TICK,
+	RAINBOW_FIREBALL,
 }
