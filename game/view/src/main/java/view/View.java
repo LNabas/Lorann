@@ -50,15 +50,15 @@ public class View implements IView, Runnable {
 			default:
 				return ControllerOrder.English;*/
 			case KeyEvent.VK_UP:
-				return ControllerOrder.English;
+				return ControllerOrder.UP;
 			case KeyEvent.VK_DOWN:
-				return ControllerOrder.English;
+				return ControllerOrder.DOWN;
 			case KeyEvent.VK_LEFT:
-				return ControllerOrder.English;
+				return ControllerOrder.LEFT;
 			case KeyEvent.VK_RIGHT:
-				return ControllerOrder.English;
+				return ControllerOrder.RIGHT;
 			default:
-				return ControllerOrder.English;
+				return ControllerOrder.NULL;
 		}
 	}
 
