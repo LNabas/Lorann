@@ -12,7 +12,7 @@ import contract.IView;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author Doc0160
  */
 public class View implements IView, Runnable {
 
@@ -39,7 +39,7 @@ public class View implements IView, Runnable {
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_G:
+			/*case KeyEvent.VK_G:
 				return ControllerOrder.English;
 			case KeyEvent.VK_F:
 				return ControllerOrder.Francais;
@@ -47,6 +47,16 @@ public class View implements IView, Runnable {
 				return ControllerOrder.Deutsch;
 			case KeyEvent.VK_I:
 				return ControllerOrder.Indonesia;
+			default:
+				return ControllerOrder.English;*/
+			case KeyEvent.VK_UP:
+				return ControllerOrder.English;
+			case KeyEvent.VK_DOWN:
+				return ControllerOrder.English;
+			case KeyEvent.VK_LEFT:
+				return ControllerOrder.English;
+			case KeyEvent.VK_RIGHT:
+				return ControllerOrder.English;
 			default:
 				return ControllerOrder.English;
 		}

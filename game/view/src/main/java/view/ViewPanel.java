@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
 
