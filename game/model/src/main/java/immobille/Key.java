@@ -7,6 +7,6 @@ package immobille;
  * @author Maxence
  *
  */
-public class Key {
-
+public class Key extends ItemGood{
+ 
 }

@@ -3,11 +3,13 @@
  */
 package mobile;
 
+import immobille.IEntity;
+
 /**
  * @author Maxence
  *
  */
-public class Player {
+public class Player implements IEntity{
 	private int Lives
 	
 }

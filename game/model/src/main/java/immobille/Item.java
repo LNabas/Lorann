@@ -7,6 +7,6 @@ package immobille;
  * @author Maxence
  *
  */
-public class Item {
+public class Item implements IEntity{
 
 }

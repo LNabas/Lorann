@@ -3,10 +3,12 @@
  */
 package mobile;
 
+import immobille.IEntity;
+
 /**
  * @author Maxence
  *
  */
-public class Fireball {
+public class Fireball implements IEntity{
 
 }
