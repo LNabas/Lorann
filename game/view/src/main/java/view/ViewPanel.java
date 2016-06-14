@@ -5,8 +5,10 @@ import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
+import jaco.mp3.player.*;
 
 import javax.swing.JPanel;
 enum ViewPanelState{
@@ -25,6 +27,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 	private Menu menu_principal;
+	private MP3Player music;
 
 	/**
 	 * Instantiates a new view panel.
@@ -85,6 +88,8 @@ class ViewPanel extends JPanel implements Observer {
 			    		.addButton("Start", new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
 			    		.addButton("Options", new Button(ressources).setText("Options").setState(ButtonState.LOCKED))
 			    		.addButton("Quit", new Button(ressources).setText("Quit"));
+			    music = new MP3Player(ressources.getSound("BTTF"));
+			    music.play();
 			}
 		    int width = this.getWidth();
 		    int height = this.getHeight();
