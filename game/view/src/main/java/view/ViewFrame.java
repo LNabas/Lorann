@@ -1,9 +1,11 @@
 package view;
 
+import java.awt.FontFormatException;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -33,6 +35,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the model
 	 * @throws HeadlessException
 	 *           the headless exception
+	 * @throws FontFormatException 
 	 */
 	public ViewFrame(final IModel model) throws HeadlessException {
 		this.buildViewFrame(model);
@@ -45,6 +48,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the model
 	 * @param gc
 	 *          the gc
+	 * @throws FontFormatException 
 	 */
 	public ViewFrame(final IModel model, final GraphicsConfiguration gc) {
 		super(gc);
@@ -60,6 +64,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the title
 	 * @throws HeadlessException
 	 *           the headless exception
+	 * @throws FontFormatException 
 	 */
 	public ViewFrame(final IModel model, final String title) throws HeadlessException {
 		super(title);
@@ -75,6 +80,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the title
 	 * @param gc
 	 *          the gc
+	 * @throws FontFormatException 
 	 */
 	public ViewFrame(final IModel model, final String title, final GraphicsConfiguration gc) {
 		super(title, gc);
@@ -124,16 +130,27 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param model
 	 *          the model
+	 * @throws FontFormatException 
 	 */
 	private void buildViewFrame(final IModel model) {
 		this.setModel(model);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//this.setResizable(false);
 		this.addKeyListener(this);
-		this.setContentPane(new ViewPanel(this));
-		this.setSize(400 + this.getInsets().left + this.getInsets().right, 
+		ViewPanel vp;
+		try {
+			vp = new ViewPanel(this);
+			this.setContentPane(vp);
+			this.setSize(400 + this.getInsets().left + this.getInsets().right, 
 				400 + this.getInsets().top + this.getInsets().bottom);
-		this.setLocationRelativeTo(null);
+			this.setLocationRelativeTo(null);
+		} catch (IOException e) {
+			this.printMessage("Can't load internal asset!");
+			e.printStackTrace();
+		} catch (FontFormatException e) {
+			this.printMessage("Incorect font format!");
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -143,7 +160,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the message
 	 */
 	public void printMessage(final String message) {
-		//JOptionPane.showMessageDialog(null, message);
+		JOptionPane.showMessageDialog(null, message);
 	}
 
 	/*

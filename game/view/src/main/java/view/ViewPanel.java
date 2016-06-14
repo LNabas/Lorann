@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.CropImageFilter;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
-	private SpritesLoader sprites;
+	private RessourcesLoader ressources;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
@@ -30,15 +31,12 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @param viewFrame
 	 *          the view frame
+	 * @throws IOException 
+	 * @throws FontFormatException 
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
+	public ViewPanel(final ViewFrame viewFrame) throws IOException, FontFormatException {
 		this.setViewFrame(viewFrame);
-		try {
-			sprites = new SpritesLoader();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ressources = new RessourcesLoader();
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
@@ -47,6 +45,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @return the view frame
 	 */
+	@SuppressWarnings("unused")
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}
@@ -79,7 +78,7 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.setColor(Color.BLACK);
 	    graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-	    Image g = new Menu().setSprites(sprites).paint();
+	    Image g = new Menu(ressources).getImage();
 	    int min = (this.getWidth() < this.getHeight()) ? this.getWidth() : this.getHeight();
 	    int margin_x = (this.getWidth() - min)/2;
 	    int margin_y = (this.getHeight() - min)/2;
