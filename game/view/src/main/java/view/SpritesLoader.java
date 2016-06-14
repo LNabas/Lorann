@@ -1,12 +1,17 @@
 package view;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SpritesLoader {
-	private ArrayList<Sprite> sprites;
+	private Map<String, Sprite> sprites;
 	public SpritesLoader() throws IOException{
-		sprites = new ArrayList<Sprite>();
-		sprites.add(new Sprite("LockedButton"));
+		sprites = new HashMap<String, Sprite>();
+		sprites.put("LockedButton", new Sprite("LockedButton"));
+	}
+	public BufferedImage getSprite(String name){
+		return sprites.get(name).getImage();
 	}
 }

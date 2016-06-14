@@ -1,6 +1,12 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.CropImageFilter;
+import java.awt.image.FilteredImageSource;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -71,8 +77,8 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.drawString("Yeah !!!", 10, 20);
-		graphics.drawRect(100, 100, 10, 10);
+	    graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+	    Image g = new Menu().setSprites(sprites).paint();
+	    graphics.drawImage(g, 0, 0, this.getWidth(), this.getHeight(), null);
 	}
 }
