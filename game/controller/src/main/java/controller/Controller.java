@@ -65,23 +65,53 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-		/*switch (controllerOrder) {
-			case English:
+		switch (controllerOrder) {
+			case UP:
 				this.model.loadMessage("GB");
 				break;
-			case Francais:
+			case DOWN:
 				this.model.loadMessage("FR");
 				break;
-			case Deutsch:
+			case LEFT:
 				this.model.loadMessage("DE");
 				break;
-			case Indonesia:
+			case RIGHT:
 				this.model.loadMessage("ID");
 				break;
-
+			case TICK:
+				this.model.loadMessage("ID");
+				break;
+			case RAINBOW_FIREBALL:
+				this.model.loadMessage("ID");
+				break;
 			default:
 				break;
-		}*/
+		}
 	}
-
+	
+	public void checkCase(final ControllerOrder controllerOrder){
+		switch(controllerOrder){
+		case UP:
+			model.Player.get
+			break;
+		case DOWN:
+			this.model.loadMessage("FR");
+			break;
+		case LEFT:
+			this.model.loadMessage("DE");
+			break;
+		case RIGHT:
+			this.model.loadMessage("ID");
+			break;
+		case TICK:
+			this.model.loadMessage("ID");
+			break;
+		case RAINBOW_FIREBALL:
+			this.model.loadMessage("ID");
+			break;
+		default:
+			break;
+	}
+		
+}
 }

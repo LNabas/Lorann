@@ -19,4 +19,6 @@ public interface IEntity {
 	public boolean hit();
 	
 	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y);
+	
+	public Permeability getPermeability();
 }
