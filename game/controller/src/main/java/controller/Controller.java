@@ -63,22 +63,22 @@ public class Controller implements IController {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * https://www.youtube.com/watch?v=FQiyOuqrk68
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case UP:
-				this.model.loadMessage("GB");
+				checkCase(model.getPlayer(), 0, -1);
 				break;
 			case DOWN:
-				this.model.loadMessage("FR");
+				checkCase(model.getPlayer(), 0, 1);
 				break;
 			case LEFT:
-				this.model.loadMessage("DE");
+				checkCase(model.getPlayer(), 1, 0);
 				break;
 			case RIGHT:
-				this.model.loadMessage("ID");
+				checkCase(model.getPlayer(), -1, 0);
 				break;
 			case TICK:
 				this.model.loadMessage("ID");
@@ -103,6 +103,9 @@ public class Controller implements IController {
 				model.getPlayer().setX(target_entity.getX());
 				break;
 			case IMPERMEABLE:
+				if(target_entity.hit()){
+					entity.die();
+				}
 				break;
 			default:
 				break;

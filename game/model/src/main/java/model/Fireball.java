@@ -11,7 +11,7 @@ import contract.Permeability;
  * @author Maxence
  *
  */
-public class Fireball implements contract.IEntity{
+public class Fireball extends Entity{
 	
 	
 	public void Fire_direction(){

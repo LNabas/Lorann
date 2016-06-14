@@ -1,6 +1,8 @@
 package contract;
 
-enum TypeMobile{DEMON,
+public enum TypeEntity{
+	UNKOWN,
+	DEMON,
 	ITEMBAD,
 	PLAYER,
 	RFB,

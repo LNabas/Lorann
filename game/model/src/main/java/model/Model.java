@@ -10,7 +10,7 @@ import contract.IModel;
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author somebody maybe
  */
 public class Model extends Observable implements IModel {
 
@@ -23,6 +23,13 @@ public class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
+		// TODO(doc): 
+			// * connect to bdd
+			// * instantiate the map in "map"
+			// * load the map from bdd
+			// * find player on the "map" and store it in "player"
+			// * it's dangerous to go alone! Take this.
+				// https://www.youtube.com/watch?v=Eb6cGHK4_yc
 		this.message = "";
 	}
 
