@@ -1,11 +1,9 @@
 /**
  * 
  */
-package model;
+package contract;
 
 import java.util.ArrayList;
-
-import contract.Permeability;
 
 /**
  * @author Maxence
@@ -13,10 +11,9 @@ import contract.Permeability;
  */
 public interface IEntity {
 	
-	TypeMobile Type;
-	ISprite Sprite;
+	/*TypeMobile Type;
 	int PositionX;
-	int PositionY;
+	int PositionY;*/
 	
 	public boolean hit();
 	

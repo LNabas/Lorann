@@ -5,8 +5,8 @@ package mobile;
 
 import java.util.ArrayList;
 
+import contract.IEntity;
 import contract.Permeability;
-import model.IEntity;
 
 /**
  * @author Maxence

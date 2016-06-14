@@ -1,3 +1,4 @@
+package contract;
 
 enum TypeMobile{DEMON,
 	ITEMBAD,
