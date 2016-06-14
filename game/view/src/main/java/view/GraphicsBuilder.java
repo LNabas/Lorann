@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -30,5 +31,12 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 	}
 	public void drawString(String s, int x, int y) {
 		graphics.drawString(s, x, y);
+	}
+	public void drawCenteredString(String s, int x, int y, Font f){
+		FontMetrics metrics = graphics.getFontMetrics(f);
+		x -= metrics.stringWidth(s)/2;
+		// TODO(doc): correct that
+		//y -= metrics.getHeight()/2;
+		drawString( s, x, y, f);
 	}
 }

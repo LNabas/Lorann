@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.image.BufferedImage;
@@ -8,12 +9,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RessourcesLoader {
-	private Map<String, Sprite> sprites;
-	private Map<String, CFont> fonts;
+	private Map<String, Sprite> sprites = new HashMap<String, Sprite>();
+	private Map<String, CFont> fonts = new HashMap<String, CFont>();
+	private Map<String, Color> colors = new HashMap<String, Color>();
 	public RessourcesLoader() throws IOException, FontFormatException{
-		sprites = new HashMap<String, Sprite>();
-		fonts = new HashMap<String, CFont>();
+		loadColor("Gold", 255, 255, 0);
+		loadColor("Black", 0, 0, 0);
+		loadColor("White", 255, 255, 255);
+		//
 		loadFont("StraightToHellBB");
+		//
 		loadSprite("LockedButton");
 		loadSprite("NormalButton");
 		loadSprite("ClickedButton");
@@ -32,5 +37,11 @@ public class RessourcesLoader {
 	}
 	public void loadFont(String s) throws IOException, FontFormatException{
 		fonts.put(s, new CFont(s));
+	}
+	public void loadColor(String s, int r, int g, int b) throws IOException, FontFormatException{
+		colors.put(s, new Color(r,g,b));
+	}
+	public Color getColor(String s){
+		return colors.get(s);
 	}
 }

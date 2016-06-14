@@ -1,30 +1,30 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.CropImageFilter;
-import java.awt.image.FilteredImageSource;
-import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
-
+enum ViewPanelState{
+	MENU,
+};
 /**
  * The Class ViewPanel.
  *
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
+	private ViewPanelState state = ViewPanelState.MENU;
 	private RessourcesLoader ressources;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	private Menu menu_principal;
 
 	/**
 	 * Instantiates a new view panel.
@@ -77,15 +77,26 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.setColor(Color.BLACK);
-	    graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-	    Image g = new Menu(ressources)
-	    		.addButton(new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
-	    		.addButton(new Button(ressources).setText("Options").setState(ButtonState.LOCKED))
-	    		.addButton(new Button(ressources).setText("Quit"))
-	    		.getImage();
-	    int min = (this.getWidth() < this.getHeight()) ? this.getWidth() : this.getHeight();
-	    int margin_x = (this.getWidth() - min)/2;
-	    int margin_y = (this.getHeight() - min)/2;
-	    graphics.drawImage(g, margin_x, margin_y, min, min, null);
+		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
+		switch(state){
+		case MENU:
+			if(menu_principal == null){
+			    menu_principal = new Menu(ressources).setOffset(30).setMarginIncrement(7)
+			    		.addButton("Start", new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
+			    		.addButton("Options", new Button(ressources).setText("Options").setState(ButtonState.LOCKED))
+			    		.addButton("Quit", new Button(ressources).setText("Quit"));
+			}
+		    int width = this.getWidth();
+		    int height = this.getHeight();
+		    if(this.getWidth() < this.getHeight()){
+		    	height = width;
+		    }else if(this.getWidth() > this.getHeight()){
+		    	width = height;
+		    }
+		    int margin_x = (this.getWidth() - width)/2;
+		    int margin_y = (this.getHeight() - height)/2;
+		    graphics.drawImage(menu_principal.getImage(), margin_x, margin_y, width, height, null);
+		    break;
+		}
 	}
 }

@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
  */
 public class Button extends GraphicsBuilder{
 	private String text = "";
-	private Color color;
+	private Color color = new Color(0,0,0);
 	private ButtonState state = ButtonState.NORMAL;
 	public Button setState(ButtonState s){
 		state = s;
@@ -19,7 +19,7 @@ public class Button extends GraphicsBuilder{
 	}
 	public Button(RessourcesLoader r){
 		super(r);
-		setColor(new Color(240,240,240));
+		this.color = ressources.getColor("Gold");
 	}
 	public Image getImage() {
 		BufferedImage b = ressources.getSprite("LockedButton");
@@ -40,10 +40,10 @@ public class Button extends GraphicsBuilder{
 		drawImage(b, 0, 0);
 		//
 		graphics.setColor(color);
-		int button_height = getHeight();
 		int button_width = getWidth();
+		int button_height = getHeight();
 		Font font = ressources.getFont("StraightToHellBB", 100);
-		drawString(text, button_width/2, button_height/2, font);
+		drawCenteredString(text, button_width/2, button_height/2, font);
 		//
 		return bufferImage;
 	}
