@@ -10,5 +10,11 @@ import immobille.IEntity;
  *
  */
 public class Fireball implements IEntity{
-
+	
+	
+	public void Fire_direction(){
+		
+		
+		
+	}
 }

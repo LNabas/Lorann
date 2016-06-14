@@ -7,6 +7,7 @@ package immobille;
  * @author Maxence
  *
  */
-public class ItemBad extends Item{
+public class DoorClose extends Door{
 	this.setPermeability("MORTAL");
+	
 }
