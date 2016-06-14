@@ -11,6 +11,7 @@ import jaco.mp3.player.*;
 import javax.swing.JPanel;
 enum ViewPanelState{
 	MENU,
+	LEVEL,
 };
 /**
  * The Class ViewPanel.
@@ -93,6 +94,10 @@ class ViewPanel extends JPanel implements Observer {
 			    		.addButton("Quit", new Button(ressources).setText("Quit"));
 			    music = new MP3Player();
 			    music.setShuffle(true);
+			    music.setRepeat(true);
+			    music.addToPlayList(ressources.getSound("ESG"));
+			    music.addToPlayList(ressources.getSound("WiL"));
+			    music.addToPlayList(ressources.getSound("DDHO"));
 			    music.addToPlayList(ressources.getSound("DDH"));
 			    music.addToPlayList(ressources.getSound("BTTF"));
 			    music.addToPlayList(ressources.getSound("IndianaJones"));
@@ -109,6 +114,8 @@ class ViewPanel extends JPanel implements Observer {
 		    int margin_y = (this.getHeight() - height)/2;
 		    graphics.drawImage(menu_principal.getImage(), margin_x, margin_y, width, height, null);
 		    break;
+		default:
+			break;
 		}
 	}
 }

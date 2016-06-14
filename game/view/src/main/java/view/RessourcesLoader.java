@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -15,24 +18,68 @@ public class RessourcesLoader {
 	private Map<String, Color> colors = new HashMap<String, Color>();
 	private Map<String, URL> sounds = new HashMap<String, URL>();
 	public RessourcesLoader() throws IOException, FontFormatException{
-		loadColor("Gold", 255, 255, 0);
-		loadColor("DarkMetal", 200, 200, 200);
-		loadColor("Metal", 240, 240, 240);
-		loadColor("Black", 0, 0, 0);
-		loadColor("White", 255, 255, 255);
-		//
-		loadFont("StraightToHellBB");
-		loadFont("StraightToHellSBB", "StraightToHellSinnerBB");
-		loadFont("GROBOLD");
-		//
-		loadSound("BTTF", "Back to the Future Theme 8 Bit");
-		loadSound("IndianaJones");
-		loadSound("DDH", "DiggyDiggyHole");
-		//
-		loadSprite("LockedButton");
-		loadSprite("NormalButton");
-		loadSprite("ClickedButton");
-		loadSprite("Logo");
+		loadColors();
+		loadFonts();
+		loadSounds();
+		loadSprites();
+	}
+	public void loadColors(){
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("colors").getFile()));
+		    for(String line; (line = br.readLine()) != null; ) {
+		        String array[] = line.split(":");
+		        colors.put(array[0], new Color(Integer.parseInt(array[1]),Integer.parseInt(array[2]),Integer.parseInt(array[3])));
+		    }
+		    br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void loadSounds(){
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("sounds").getFile()));
+		    for(String line; (line = br.readLine()) != null; ) {
+		        String array[] = line.split(":");
+		        sounds.put(array[0], this.getClass().getClassLoader().getResource(array[1]));
+		    }
+		    br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	private void loadSprites() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("sprites").getFile()));
+		    for(String line; (line = br.readLine()) != null; ) {
+		        String array[] = line.split(":");
+		        sprites.put(array[0], new Sprite(array[1]));
+		    }
+		    br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void loadFonts(){
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("fonts").getFile()));
+		    for(String line; (line = br.readLine()) != null; ) {
+		        String array[] = line.split(":");
+		        fonts.put(array[0], new CFont(array[1]));
+		    }
+		    br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (FontFormatException e) {
+			e.printStackTrace();
+		}
 	}
 	public BufferedImage getSprite(String name){
 		return sprites.get(name).getImage();
@@ -43,26 +90,11 @@ public class RessourcesLoader {
 	public Font getFont(String name, int size){
 		return fonts.get(name).getFont().deriveFont((float)size);
 	}
-	public void loadSprite(String s) throws IOException{
-		sprites.put(s, new Sprite(s));
-	}
-	public void loadFont(String s) throws IOException, FontFormatException{
-		loadFont(s, s);
-	}
-	public void loadFont(String s, String s2) throws IOException, FontFormatException{
-		fonts.put(s, new CFont(s2));
-	}
 	public void loadColor(String s, int r, int g, int b) throws IOException, FontFormatException{
 		colors.put(s, new Color(r,g,b));
 	}
 	public Color getColor(String s){
 		return colors.get(s);
-	}
-	public void loadSound(String s){
-		loadSound(s, s);
-	}
-	public void loadSound(String name, String s){
-		sounds.put(name, this.getClass().getClassLoader().getResource(s+".mp3"));
 	}
 	public URL getSound(String name){
 		return sounds.get(name);

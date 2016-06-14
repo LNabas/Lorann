@@ -46,7 +46,6 @@ public class Menu extends GraphicsBuilder{
 		for(String v : button_order){
 			if(max < buttons.get(v).getImage().getWidth(null)){
 				max = buttons.get(v).getImage().getWidth(null);
-				System.out.println(max);
 			}
 		}
 		return max;
