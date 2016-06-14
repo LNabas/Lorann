@@ -3,9 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
 import jaco.mp3.player.*;
@@ -26,8 +24,8 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
-	private Menu menu_principal;
-	private MP3Player music;
+	public Menu menu_principal;
+	public MP3Player music;
 
 	/**
 	 * Instantiates a new view panel.
@@ -70,6 +68,10 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
+	}
+	
+	public Menu getMenu(){
+		return menu_principal;
 	}
 
 	/*

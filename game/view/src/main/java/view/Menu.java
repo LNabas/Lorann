@@ -16,18 +16,25 @@ public class Menu extends GraphicsBuilder{
 	}
 	public Menu setOffset(int x){
 		offset_x = x;
+		need_redraw = true;
 		return this;
 	}
 	public Menu setMarginIncrement(int x){
 		margin_increment_x = x;
+		need_redraw=true;
 		return this;
 	}
+	public void changeButtonState(String name, ButtonState state){
+		this.buttons.get(name).setState(state);
+		need_redraw=true;
+	}
 	public Image getImage(){
+		int loc_offx = offset_x;
 		if(need_redraw){
 			setSize(400,600);
 			for(String v : button_order){
-				drawImage(buttons.get(v).getImage(), 0, offset_x);
-				offset_x += buttons.get(v).getHeight()+margin_increment_x;
+				drawImage(buttons.get(v).getImage(), 0, loc_offx);
+				loc_offx += buttons.get(v).getHeight()+margin_increment_x;
 			}
 			need_redraw = false;
 		}
