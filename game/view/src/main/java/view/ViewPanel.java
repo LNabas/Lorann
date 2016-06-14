@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Graphics;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -12,7 +13,7 @@ import javax.swing.JPanel;
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
-
+	private SpritesLoader sprites;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
@@ -26,6 +27,12 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
+		try {
+			sprites = new SpritesLoader();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
