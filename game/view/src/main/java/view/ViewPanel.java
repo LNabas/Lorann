@@ -79,6 +79,9 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 	    graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 	    Image g = new Menu().setSprites(sprites).paint();
+	    if(this.getWidth() > this.getHeight()){
+	    	
+	    }
 	    graphics.drawImage(g, 0, 0, this.getWidth(), this.getHeight(), null);
 	}
 }
