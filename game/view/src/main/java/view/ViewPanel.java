@@ -86,14 +86,19 @@ class ViewPanel extends JPanel implements Observer {
 		switch(state){
 		case MENU:
 			if(menu_principal == null){
-			    menu_principal = new Menu(ressources).setOffset(30).setMarginIncrement(7)
+			    menu_principal = new Menu(ressources).setOffset(0).setMarginIncrement(7)
+			    		.addButton("Logo", new Logo(ressources))
 			    		.addButton("Start", new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
 			    		.addButton("Options", new Button(ressources).setText("Options").setState(ButtonState.LOCKED))
 			    		.addButton("Quit", new Button(ressources).setText("Quit"));
-			    music = new MP3Player(ressources.getSound("BTTF"));
+			    music = new MP3Player();
+			    music.setShuffle(true);
+			    music.addToPlayList(ressources.getSound("DDH"));
+			    music.addToPlayList(ressources.getSound("BTTF"));
+			    music.addToPlayList(ressources.getSound("IndianaJones"));
 			    music.play();
 			}
-		    int width = this.getWidth();
+			int width = this.getWidth();
 		    int height = this.getHeight();
 		    if(this.getWidth() < this.getHeight()){
 		    	height = width;

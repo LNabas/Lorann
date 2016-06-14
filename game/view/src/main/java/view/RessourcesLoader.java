@@ -16,17 +16,23 @@ public class RessourcesLoader {
 	private Map<String, URL> sounds = new HashMap<String, URL>();
 	public RessourcesLoader() throws IOException, FontFormatException{
 		loadColor("Gold", 255, 255, 0);
+		loadColor("DarkMetal", 200, 200, 200);
+		loadColor("Metal", 240, 240, 240);
 		loadColor("Black", 0, 0, 0);
 		loadColor("White", 255, 255, 255);
 		//
 		loadFont("StraightToHellBB");
+		loadFont("StraightToHellSBB", "StraightToHellSinnerBB");
+		loadFont("GROBOLD");
 		//
 		loadSound("BTTF", "Back to the Future Theme 8 Bit");
 		loadSound("IndianaJones");
+		loadSound("DDH", "DiggyDiggyHole");
 		//
 		loadSprite("LockedButton");
 		loadSprite("NormalButton");
 		loadSprite("ClickedButton");
+		loadSprite("Logo");
 	}
 	public BufferedImage getSprite(String name){
 		return sprites.get(name).getImage();
@@ -41,7 +47,10 @@ public class RessourcesLoader {
 		sprites.put(s, new Sprite(s));
 	}
 	public void loadFont(String s) throws IOException, FontFormatException{
-		fonts.put(s, new CFont(s));
+		loadFont(s, s);
+	}
+	public void loadFont(String s, String s2) throws IOException, FontFormatException{
+		fonts.put(s, new CFont(s2));
 	}
 	public void loadColor(String s, int r, int g, int b) throws IOException, FontFormatException{
 		colors.put(s, new Color(r,g,b));

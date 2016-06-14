@@ -8,19 +8,19 @@ import java.util.Map;
 public class Menu extends GraphicsBuilder{
 	private Map<String, Button> buttons = new HashMap<String, Button>();
 	private ArrayList<String> button_order = new ArrayList<String>();
-	private int offset_x = 0;
-	private int margin_increment_x = 5;
+	private int offset_y = 0;
+	private int margin_increment_y = 5;
 	private boolean need_redraw = true;
 	public Menu(RessourcesLoader r) {
 		super(r);
 	}
-	public Menu setOffset(int x){
-		offset_x = x;
+	public Menu setOffset(int y){
+		offset_y = y;
 		need_redraw = true;
 		return this;
 	}
-	public Menu setMarginIncrement(int x){
-		margin_increment_x = x;
+	public Menu setMarginIncrement(int y){
+		margin_increment_y = y;
 		need_redraw=true;
 		return this;
 	}
@@ -29,16 +29,34 @@ public class Menu extends GraphicsBuilder{
 		need_redraw=true;
 	}
 	public Image getImage(){
-		int loc_offx = offset_x;
+		int loc_offy = offset_y;
 		if(need_redraw){
-			setSize(400,600);
+			int width = calWidth();
+			setSize(width,calHeight());
 			for(String v : button_order){
-				drawImage(buttons.get(v).getImage(), 0, loc_offx);
-				loc_offx += buttons.get(v).getHeight()+margin_increment_x;
+				drawImage(buttons.get(v).getImage(), width/2 - buttons.get(v).getWidth()/2, loc_offy);
+				loc_offy += buttons.get(v).getHeight()+margin_increment_y;
 			}
 			need_redraw = false;
 		}
 		return bufferImage;
+	}
+	private int calWidth(){
+		int max = 0;
+		for(String v : button_order){
+			if(max < buttons.get(v).getImage().getWidth(null)){
+				max = buttons.get(v).getImage().getWidth(null);
+				System.out.println(max);
+			}
+		}
+		return max;
+	}
+	private int calHeight(){
+		int h = 0;
+		for(String v : button_order){
+			h += buttons.get(v).getImage().getHeight(null)+margin_increment_y;
+		}
+		return h;
 	}
 	public Menu addButton(String string, Button b){
 		need_redraw = true;
