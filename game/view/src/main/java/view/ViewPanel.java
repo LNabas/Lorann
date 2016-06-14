@@ -77,11 +77,12 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-	    graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		graphics.setColor(Color.BLACK);
+	    graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
 	    Image g = new Menu().setSprites(sprites).paint();
-	    if(this.getWidth() > this.getHeight()){
-	    	
-	    }
-	    graphics.drawImage(g, 0, 0, this.getWidth(), this.getHeight(), null);
+	    int min = (this.getWidth() < this.getHeight()) ? this.getWidth() : this.getHeight();
+	    int margin_x = (this.getWidth() - min)/2;
+	    int margin_y = (this.getHeight() - min)/2;
+	    graphics.drawImage(g, margin_x, margin_y, min, min, null);
 	}
 }
