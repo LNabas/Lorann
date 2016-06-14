@@ -1,7 +1,7 @@
 /**
  * 
  */
-package immobille;
+package model;
 
 /**
  * @author Maxence

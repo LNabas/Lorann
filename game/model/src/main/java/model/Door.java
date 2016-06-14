@@ -1,8 +1,7 @@
 /**
  * 
  */
-package mobile;
-
+package model;
 import java.util.ArrayList;
 import contract.IEntity;
 import contract.Permeability;
@@ -11,11 +10,9 @@ import contract.Permeability;
  * @author Maxence
  *
  */
-public class Player implements IEntity{
-	private int Lives;
+public class Door extends Entity{
 
 	public boolean hit() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -25,8 +22,7 @@ public class Player implements IEntity{
 	}
 
 	public Permeability getPermeability() {
-		// TODO Auto-generated method stub
-		return null;
+		return Permeability.IMPERMEABLE;
 	}
 
 	public int getX() {
@@ -48,5 +44,5 @@ public class Player implements IEntity{
 		// TODO Auto-generated method stub
 		
 	}
-	
+ 
 }

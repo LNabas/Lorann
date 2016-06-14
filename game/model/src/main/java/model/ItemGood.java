@@ -1,12 +1,12 @@
 /**
  * 
  */
-package immobille;
+package model;
 
 /**
  * @author Maxence
  *
  */
-public class Key extends ItemGood{
+public class ItemGood extends Item{
 	
 }

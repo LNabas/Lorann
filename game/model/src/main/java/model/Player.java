@@ -1,11 +1,9 @@
 /**
  * 
  */
-package mobile;
+package model;
 
 import java.util.ArrayList;
-import java.util.Random;
-
 import contract.IEntity;
 import contract.Permeability;
 
@@ -13,13 +11,8 @@ import contract.Permeability;
  * @author Maxence
  *
  */
-public class Demon implements IEntity{
-	
-	private int x;
-	private int y;
-	private Random randomGenerator = new Random();
-	private int c;
-
+public class Player implements IEntity{
+	private int Lives;
 
 	public boolean hit() {
 		// TODO Auto-generated method stub
@@ -27,20 +20,23 @@ public class Demon implements IEntity{
 	}
 
 	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y) {
-		x += randomGenerator.nextInt(3)-1;// minimum -1, max 1
-		y += randomGenerator.nextInt(3)-1;
+		// TODO Auto-generated method stub
+		
 	}
 
 	public Permeability getPermeability() {
-		return Permeability.IMPERMEABLE;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public int getX() {
-		return x;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	public int getY() {
-		return y;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	public void setX(int x) {
@@ -52,7 +48,5 @@ public class Demon implements IEntity{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 	
 }

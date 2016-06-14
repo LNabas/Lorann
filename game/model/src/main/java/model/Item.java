@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mobile;
+package model;
 
 import java.util.ArrayList;
 import contract.IEntity;
@@ -11,17 +11,9 @@ import contract.Permeability;
  * @author Maxence
  *
  */
-public class Fireball implements contract.IEntity{
-	
-	
-	public void Fire_direction(){
-		
-		
-		
-	}
+public class Item implements IEntity{
 
 	public boolean hit() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -54,4 +46,5 @@ public class Fireball implements contract.IEntity{
 		// TODO Auto-generated method stub
 		
 	}
+
 }

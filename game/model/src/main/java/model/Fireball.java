@@ -1,7 +1,8 @@
 /**
  * 
  */
-package immobille;
+package model;
+
 import java.util.ArrayList;
 import contract.IEntity;
 import contract.Permeability;
@@ -10,7 +11,14 @@ import contract.Permeability;
  * @author Maxence
  *
  */
-public class Door implements IEntity{
+public class Fireball implements contract.IEntity{
+	
+	
+	public void Fire_direction(){
+		
+		
+		
+	}
 
 	public boolean hit() {
 		// TODO Auto-generated method stub
@@ -46,5 +54,4 @@ public class Door implements IEntity{
 		// TODO Auto-generated method stub
 		
 	}
- 
 }
