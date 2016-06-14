@@ -11,7 +11,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
+/*
+ * Awesome RessourceLoader !!!
+ * @author Doc0160
+ */
 public class RessourcesLoader {
 	private Map<String, Sprite> sprites = new HashMap<String, Sprite>();
 	private Map<String, CFont> fonts = new HashMap<String, CFont>();

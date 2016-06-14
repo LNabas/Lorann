@@ -8,5 +8,5 @@ package immobille;
  *
  */
 public class DoorOpen extends Door{
-	this.setPermeability("PERMEABLE");
+	
 }

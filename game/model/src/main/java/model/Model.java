@@ -3,6 +3,8 @@ package model;
 import java.sql.SQLException;
 import java.util.Observable;
 
+import contract.IEntity;
+import contract.IMap;
 import contract.IModel;
 
 /**
@@ -14,6 +16,8 @@ public class Model extends Observable implements IModel {
 
 	/** The message. */
 	private String message;
+	private IEntity player;
+	private IMap map;
 
 	/**
 	 * Instantiates a new model.
@@ -64,5 +68,13 @@ public class Model extends Observable implements IModel {
 	 */
 	public Observable getObservable() {
 		return this;
+	}
+
+	public IEntity getPlayer() {
+		return player;
+	}
+
+	public IMap getMap() {
+		return map;
 	}
 }

@@ -20,4 +20,9 @@ public interface IEntity {
 	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y);
 	
 	public Permeability getPermeability();
+
+	public int getX();
+	public int getY();
+	public void setX(int x);
+	public void setY(int y);
 }

@@ -8,6 +8,7 @@ package immobille;
  *
  */
 public class DoorClose extends Door{
-	this.setPermeability("MORTAL");
-	
+	public boolean hit(){
+		return true;
+	}
 }

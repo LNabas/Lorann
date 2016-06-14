@@ -8,5 +8,7 @@ package immobille;
  *
  */
 public class ItemBad extends Item{
-	this.setPermeability("MORTAL");
+	public boolean hit(){
+		return true;
+	}
 }

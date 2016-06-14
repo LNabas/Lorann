@@ -2,6 +2,7 @@ package controller;
 
 import contract.ControllerOrder;
 import contract.IController;
+import contract.IEntity;
 import contract.IModel;
 import contract.IView;
 import contract.Permeability;
@@ -90,40 +91,22 @@ public class Controller implements IController {
 		}
 	}
 	
-	public void checkCase(final ControllerOrder controllerOrder){
-		int offset_x = 0;
-		int offset_y = 0;
-		switch(controllerOrder){
-		case UP:
-			offset_y--;
-			break;
-		case DOWN:
-			offset_y++;
-			break;
-		case LEFT:
-			offset_x--;
-			break;
-		case RIGHT:
-			offset_x++;
-			break;
-		default:
-			break;
-		}
-
-		int posx = model.Player.getPosx();
-		int posy = model.Player.getPosy();
-		Permeability permeability = model.map.get(posx+offset_x).get(posy+offset_y).getPermeability()
+	public void checkCase(IEntity entity, int offset_x, int offset_y){
+		int posx = model.getPlayer().getX();
+		int posy = model.getPlayer().getY();
+		IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
+		Permeability permeability = target_entity.getPermeability();
 		
-				switch(permeability){
+		switch(permeability){
 			case PERMEABLE:
-				posx += offset_x;
-				posy += offset_y;
+				model.getPlayer().setY(target_entity.getY());
+				model.getPlayer().setX(target_entity.getX());
 				break;
 			case IMPERMEABLE:
 				break;
-			case MORTAL:
+			default:
 				break;
-				}
+		}
 		
 	}
 }

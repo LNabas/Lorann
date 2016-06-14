@@ -8,6 +8,5 @@ package immobille;
  *
  */
 public class ItemGood extends Item{
-	this.setPermeability("PERMEABLE");
 	
 }
