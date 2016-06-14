@@ -3,26 +3,20 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  * @author Maxence
  *
  */
 public interface IEntity {
 	
-	private TypeMobile Type;
-	private ISprite Sprite;
-	private int PositionX;
-	private int PositionY;
+	TypeMobile Type;
+	ISprite Sprite;
+	int PositionX;
+	int PositionY;
 	
-	Public bool hit(){
-		
-		
-		
-	}
+	public boolean hit();
 	
-	public move(){
-		
-		
-		
-	}
+	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y);
 }
