@@ -1,0 +1,6 @@
+P = porte
+F = clef
+| = os_vert
+= = os_horiz
+* = crane/caillou
+T = tombe
