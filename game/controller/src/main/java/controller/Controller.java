@@ -4,6 +4,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.Permeability;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -90,28 +91,39 @@ public class Controller implements IController {
 	}
 	
 	public void checkCase(final ControllerOrder controllerOrder){
+		int offset_x = 0;
+		int offset_y = 0;
 		switch(controllerOrder){
 		case UP:
-			model.Player.get
+			offset_y--;
 			break;
 		case DOWN:
-			this.model.loadMessage("FR");
+			offset_y++;
 			break;
 		case LEFT:
-			this.model.loadMessage("DE");
+			offset_x--;
 			break;
 		case RIGHT:
-			this.model.loadMessage("ID");
-			break;
-		case TICK:
-			this.model.loadMessage("ID");
-			break;
-		case RAINBOW_FIREBALL:
-			this.model.loadMessage("ID");
+			offset_x++;
 			break;
 		default:
 			break;
-	}
+		}
+
+		int posx = model.Player.getPosx();
+		int posy = model.Player.getPosy();
+		Permeability permeability = model.map.get(posx+offset_x).get(posy+offset_y).getPermeability()
 		
-}
+				switch(permeability){
+			case PERMEABLE:
+				posx += offset_x;
+				posy += offset_y;
+				break;
+			case IMPERMEABLE:
+				break;
+			case MORTAL:
+				break;
+				}
+		
+	}
 }

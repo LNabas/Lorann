@@ -1,4 +1,4 @@
-package model;
+package contract;
 
 public enum Permeability {
 	PERMEABLE,
