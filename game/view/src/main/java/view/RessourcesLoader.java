@@ -16,6 +16,7 @@ public class RessourcesLoader {
 		loadFont("StraightToHellBB");
 		loadSprite("LockedButton");
 		loadSprite("NormalButton");
+		loadSprite("ClickedButton");
 	}
 	public BufferedImage getSprite(String name){
 		return sprites.get(name).getImage();

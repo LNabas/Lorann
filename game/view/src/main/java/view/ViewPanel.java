@@ -78,7 +78,11 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.setColor(Color.BLACK);
 	    graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-	    Image g = new Menu(ressources).getImage();
+	    Image g = new Menu(ressources)
+	    		.addButton(new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
+	    		.addButton(new Button(ressources).setText("Options").setState(ButtonState.LOCKED))
+	    		.addButton(new Button(ressources).setText("Quit"))
+	    		.getImage();
 	    int min = (this.getWidth() < this.getHeight()) ? this.getWidth() : this.getHeight();
 	    int margin_x = (this.getWidth() - min)/2;
 	    int margin_y = (this.getHeight() - min)/2;
