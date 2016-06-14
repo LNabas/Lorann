@@ -22,6 +22,7 @@ public class RessourcesLoader {
 		loadFont("StraightToHellBB");
 		//
 		loadSound("BTTF", "Back to the Future Theme 8 Bit");
+		loadSound("IndianaJones");
 		//
 		loadSprite("LockedButton");
 		loadSprite("NormalButton");
