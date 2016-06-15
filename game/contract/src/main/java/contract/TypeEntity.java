@@ -7,6 +7,7 @@ public enum TypeEntity{
 	PLAYER,
 	RFB,
 	ITEMGOOD,
-	DOOR,
+	DOOROPEN,
+	DOORCLOSE,
 	KEY
 } ; 

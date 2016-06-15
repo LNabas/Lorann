@@ -8,16 +8,26 @@ import java.awt.image.BufferedImage;
 import contract.ButtonState;
 
 /**
+ * Awesome Button !
  * @author Doc0160
  *
  */
 public class Button extends GraphicsBuilder{
 	private String text = "";
 	private ButtonState state = ButtonState.NORMAL;
+	/**
+	 * set state
+	 * @param s ButtonState
+	 * @return
+	 */
 	public Button setState(ButtonState s){
 		state = s;
 		return this;
 	}
+	/**
+	 * Constructor
+	 * @param r RessourcesLoader
+	 */
 	public Button(RessourcesLoader r){
 		super(r);
 	}

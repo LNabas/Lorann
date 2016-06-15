@@ -17,7 +17,7 @@ import jaco.mp3.player.MP3Player;
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
-	private States state = States.GAME;
+	private States state = States.MENU;
 	private RessourcesLoader ressources;
 	/** The view frame. */
 	private ViewFrame					viewFrame;

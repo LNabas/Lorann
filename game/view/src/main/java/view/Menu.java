@@ -20,14 +20,14 @@ public class Menu extends GraphicsBuilder implements IMenu{
 	private boolean need_redraw = true;
 	/**
 	 * Constructor
-	 * @param r ressource
+	 * @param r resource
 	 */
 	public Menu(RessourcesLoader r) {
 		super(r);
 	}
 	/**
 	 * set y offset
-	 * @param y offeset y
+	 * @param y offset y
 	 * @return this
 	 */
 	public Menu setOffset(int y){
