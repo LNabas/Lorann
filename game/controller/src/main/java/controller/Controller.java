@@ -21,7 +21,7 @@ public class Controller implements IController {
 
 	/** The model. */
 	private IModel	model;
-
+	private int posMenu = 0;
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -34,14 +34,14 @@ public class Controller implements IController {
 		this.setView(view);
 		this.setModel(model);
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		//this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
 	}
 
 	/**
@@ -70,14 +70,16 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	private void orderPerformMenu(final ControllerOrder controllerOrder){
-		view.setState(States.MENU);
-		int posMenu = 0;
+		view.getMenu().changeButtonState(posMenu+1, ButtonState.NORMAL);
 		switch(controllerOrder){
 		case UP:
-			posMenu++;
+			posMenu--;
 			break;
 		case DOWN:
-			posMenu--;
+			posMenu++;
+			break;
+		case SPACE:
+			view.setState(States.GAME);
 			break;
 		default:
 			break;
@@ -88,10 +90,10 @@ public class Controller implements IController {
 		else if(posMenu > 2){
 			posMenu = 0;
 		}
-	view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
+		
+	view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
 	}
 	private void orderPerformJeu(final ControllerOrder controllerOrder){
-		view.setState(States.JEU);
 		switch (controllerOrder) {
 			case UP:
 				checkCase(model.getPlayer(), 0, -1);
@@ -117,7 +119,6 @@ public class Controller implements IController {
 	}
 	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
-		view.setState(States.MENU_OPTIONS);
 		int posMenu = 0;
 		switch(controllerOrder){
 		case UP:
