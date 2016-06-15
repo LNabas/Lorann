@@ -48,8 +48,6 @@ public class View implements IView, Runnable {
 			return keyCodeToControllerOrderGame(keyCode);
 		case MENU:
 			return keyCodeToControllerOrderMenu(keyCode);
-		case MENU_OPTIONS:
-			return keyCodeToControllerOrderNULL(keyCode);
 		default:
 			return keyCodeToControllerOrderNULL(keyCode);
 		}

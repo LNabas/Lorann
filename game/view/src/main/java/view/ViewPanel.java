@@ -26,6 +26,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 	public Menu menu_principal;
+	public Menu menu_options; 
 	public MP3Player music;
 
 	/**
@@ -73,7 +74,9 @@ class ViewPanel extends JPanel implements Observer {
 	public Menu getMenu(){
 		return menu_principal;
 	}
-
+	public Menu getOptions(){
+		return menu_options;
+	}
 	/*
 	 * (non-Javadoc)
 	 *
@@ -81,6 +84,20 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
+		if(music == null){
+			 music = new MP3Player();
+			 music.setShuffle(true);
+			 music.setRepeat(true);
+			 music.addToPlayList(ressources.getSound("TESV"));
+			 music.addToPlayList(ressources.getSound("WiL"));
+			 music.addToPlayList(ressources.getSound("DDHO"));
+			 music.addToPlayList(ressources.getSound("DDH"));
+			 music.addToPlayList(ressources.getSound("BTTF"));
+			 music.addToPlayList(ressources.getSound("IndianaJones"));
+			 music.addToPlayList(ressources.getSound("SSBM"));
+			 music.addToPlayList(ressources.getSound("ESG"));
+			 music.play();
+		}
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
 		switch(state){
@@ -89,23 +106,22 @@ class ViewPanel extends JPanel implements Observer {
 			    menu_principal = new Menu(ressources).setOffset(0).setMarginIncrement(7)
 			    		.addButton("Logo", new Logo(ressources))
 			    		.addButton("Start", new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
-			    		.addButton("Options", new Button(ressources).setText("Options").setState(ButtonState.LOCKED))
+			    		.addButton("Options", new Button(ressources).setText("Options"))
 			    		.addButton("Quit", new Button(ressources).setText("Quit"));
-			    music = new MP3Player();
-			    music.setShuffle(true);
-			    music.setRepeat(true);
-			    music.addToPlayList(ressources.getSound("TESV"));
-			    music.addToPlayList(ressources.getSound("WiL"));
-			    music.addToPlayList(ressources.getSound("DDHO"));
-			    music.addToPlayList(ressources.getSound("DDH"));
-			    music.addToPlayList(ressources.getSound("BTTF"));
-			    music.addToPlayList(ressources.getSound("IndianaJones"));
-			    music.addToPlayList(ressources.getSound("SSBM"));
-			    music.addToPlayList(ressources.getSound("ESG"));
-			    music.play();
+			   
 			}
 			draw(menu_principal.getImage(), graphics);
 		    break;
+		case MENU_OPTIONS:
+			if(menu_options == null){
+				menu_options = new Menu(ressources).setOffset(0)
+			    		.addButton("1", new Button(ressources).setText("Bites").setState(ButtonState.CLICKED))
+			    		.addButton("2", new Button(ressources).setText("Seins"))
+			    		.addButton("3", new Button(ressources).setText("Couilles"));
+			}
+			draw(menu_options.getImage(), graphics);
+		    break;
+		    
 		case GAME:
 			draw(new Map(ressources).getImage(), graphics);
 			break;
