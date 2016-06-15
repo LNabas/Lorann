@@ -8,6 +8,7 @@ package model;
  *
  */
 public class Player extends Entity{
+	@SuppressWarnings("unused")
 	private int Lives;
 	
 }

@@ -20,7 +20,7 @@ public class RessourcesLoader {
 	private Map<String, CFont> fonts = new HashMap<String, CFont>();
 	private Map<String, Color> colors = new HashMap<String, Color>();
 	private Map<String, URL> sounds = new HashMap<String, URL>();
-	public RessourcesLoader() throws IOException, FontFormatException{
+	public RessourcesLoader(){
 		loadColors();
 		loadFonts();
 		loadSounds();
@@ -93,7 +93,7 @@ public class RessourcesLoader {
 	public Font getFont(String name, int size){
 		return fonts.get(name).getFont().deriveFont((float)size);
 	}
-	public void loadColor(String s, int r, int g, int b) throws IOException, FontFormatException{
+	public void loadColor(String s, int r, int g, int b){
 		colors.put(s, new Color(r,g,b));
 	}
 	public Color getColor(String s){
