@@ -123,7 +123,7 @@ public class Controller implements IController {
 				checkCase(model.getPlayer(), -1, 0);
 				break;
 			case RETURN:
-				
+				view.setState(States.MENU);
 				break;
 
 			default:
@@ -142,6 +142,9 @@ public class Controller implements IController {
 			break;
 		case SPACE:
 			break;
+		case RETURN:
+			view.setState(States.MENU);
+			break;
 		default:
 			break;
 		}
@@ -151,6 +154,7 @@ public class Controller implements IController {
 		else if(posMenu > 2){
 			posMenu = 0;
 		}
+
 	}
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch(view.getState()){
