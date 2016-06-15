@@ -3,6 +3,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 import contract.IEntity;
 
 /**
@@ -10,39 +12,28 @@ import contract.IEntity;
  *
  */
 public class Map extends IMap{
-	public void kill(){
+	public void kill(ArrayList<ArrayList<IEntity>> map, int x, int y){
 		
 		
 	}
 	
 	public void move(){
 		
-				
+		
 	}
 	
 	
 	public IEntity get(){
 		
-				
-	}
-	
-	public int getWidth(){
-		
 		
 	}
 	
+	public int getWidth();
+		
+	public int getHeight();
 	
-	public int getHeight(){
-		
-		
-		
-	}
 	
 	public IEntity getPlayer(){
 		
-		
-		
-		
 	}
-	
 }

@@ -7,30 +7,56 @@ import java.util.Map;
 
 import contract.ButtonState;
 import contract.IMenu;
-
+/**
+ * Menu builder
+ * @author Doc0160
+ *
+ */
 public class Menu extends GraphicsBuilder implements IMenu{
 	private Map<String, Button> buttons = new HashMap<String, Button>();
 	private ArrayList<String> button_order = new ArrayList<String>();
 	private int offset_y = 0;
 	private int margin_increment_y = 5;
 	private boolean need_redraw = true;
+	/**
+	 * Constructor
+	 * @param r ressource
+	 */
 	public Menu(RessourcesLoader r) {
 		super(r);
 	}
+	/**
+	 * set y offset
+	 * @param y offeset y
+	 * @return this
+	 */
 	public Menu setOffset(int y){
 		offset_y = y;
 		need_redraw = true;
 		return this;
 	}
+	/**
+	 * set the y increment between buttons
+	 * @param y increment
+	 * @return this
+	 */
 	public Menu setMarginIncrement(int y){
 		margin_increment_y = y;
 		need_redraw=true;
 		return this;
 	}
+	/**
+	 * Change the internal state of a button selected by name
+	 * @param name name of the button
+	 * @param state the ButtonState
+	 */
 	public void changeButtonState(String name, ButtonState state){
 		this.buttons.get(name).setState(state);
 		need_redraw=true;
 	}
+	/**
+	 * Return the visual for the entire menu
+	 */
 	public Image getImage(){
 		int loc_offy = offset_y;
 		if(need_redraw){
@@ -60,14 +86,25 @@ public class Menu extends GraphicsBuilder implements IMenu{
 		}
 		return h;
 	}
+	/**
+	 * Add a button
+	 * @param string name of the button
+	 * @param b the button
+	 * @return Menu
+	 */
 	public Menu addButton(String string, Button b){
 		need_redraw = true;
 		buttons.put(string, b);
 		button_order.add(string);
 		return this;
 	}
+	/**
+	 * Change state button by position
+	 * @param pos position
+	 * @param state the ButtonState
+	 */
 	public void changeButtonState(int pos, ButtonState state) {
-		// TODO Auto-generated method stub
-		
+		buttons.get(button_order.get(pos)).setState(state);
+		this.need_redraw=true;
 	}
 }

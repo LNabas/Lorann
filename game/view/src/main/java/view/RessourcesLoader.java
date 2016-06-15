@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-/*
+/**
  * Awesome RessourceLoader !!!
  * @author Doc0160
  */
@@ -26,7 +26,7 @@ public class RessourcesLoader {
 		loadSounds();
 		loadSprites();
 	}
-	public void loadColors(){
+	private void loadColors(){
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("colors").getFile()));
 		    for(String line; (line = br.readLine()) != null; ) {
@@ -40,7 +40,7 @@ public class RessourcesLoader {
 			e.printStackTrace();
 		}
 	}
-	public void loadSounds(){
+	private void loadSounds(){
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("sounds").getFile()));
 		    for(String line; (line = br.readLine()) != null; ) {
@@ -68,7 +68,7 @@ public class RessourcesLoader {
 			e.printStackTrace();
 		}
 	}
-	public void loadFonts(){
+	private void loadFonts(){
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("fonts").getFile()));
 		    for(String line; (line = br.readLine()) != null; ) {
@@ -84,21 +84,44 @@ public class RessourcesLoader {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * get a spirte
+	 * @param name of the sprite
+	 * @return BuffuredImage
+	 */
 	public BufferedImage getSprite(String name){
 		return sprites.get(name).getImage();
 	}
+	/**
+	 * get a font
+	 * @param name of the font
+	 * @return Font
+	 */
 	public Font getFont(String name){
 		return fonts.get(name).getFont();
 	}
+	/**
+	 * get a font with a size
+	 * @param name name of the font
+	 * @param size size of the font
+	 * @return Font
+	 */
 	public Font getFont(String name, int size){
 		return fonts.get(name).getFont().deriveFont((float)size);
 	}
-	public void loadColor(String s, int r, int g, int b){
-		colors.put(s, new Color(r,g,b));
-	}
+	/**
+	 * get a color
+	 * @param s name of color
+	 * @return Color
+	 */
 	public Color getColor(String s){
 		return colors.get(s);
 	}
+	/**
+	 * get url to a sound
+	 * @param name of sound
+	 * @return URL
+	 */
 	public URL getSound(String name){
 		return sounds.get(name);
 	}

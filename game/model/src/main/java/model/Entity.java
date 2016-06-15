@@ -9,7 +9,7 @@ import contract.TypeEntity;
 /**
  * The Class Entity.
  *
- * @author Jean-Aymeric Diet
+ * @author Maxence
  */
 class Entity implements IEntity{
 	private int x;
@@ -49,6 +49,11 @@ class Entity implements IEntity{
 
 	public TypeEntity getType() {
 		return TypeEntity.UNKOWN;
+	}
+	
+	public void reboot(){
+		
+		
 	}
 
 }

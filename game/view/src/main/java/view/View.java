@@ -35,9 +35,6 @@ public class View implements IView, Runnable {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
-	public void setState(States s){
-		
-	}
 	/**
 	 * Key code to controller order.
 	 *
@@ -45,22 +42,45 @@ public class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		switch (keyCode) {
-			case KeyEvent.VK_UP:
-				return ControllerOrder.UP;
-			case KeyEvent.VK_DOWN:
-				return ControllerOrder.DOWN;
-			case KeyEvent.VK_LEFT:
-				return ControllerOrder.LEFT;
-			case KeyEvent.VK_RIGHT:
-				return ControllerOrder.RIGHT;
-			case KeyEvent.VK_SPACE:
-				return ControllerOrder.RAINBOW_FIREBALL;
-			default:
-				return ControllerOrder.NULL;
+	protected static ControllerOrder keyCodeToControllerOrder(States s, final int keyCode) {
+		switch (s) {
+		case GAME:
+			return keyCodeToControllerOrderGame(keyCode);
+		case MENU:
+			return keyCodeToControllerOrderMenu(keyCode);
+		default:
+			return null;
 		}
 	}
+	private static ControllerOrder keyCodeToControllerOrderMenu(int keyCode) {
+		switch (keyCode) {
+		case KeyEvent.VK_UP:
+			return ControllerOrder.UP;
+		case KeyEvent.VK_DOWN:
+			return ControllerOrder.DOWN;
+		case KeyEvent.VK_SPACE:
+			return ControllerOrder.RAINBOW_FIREBALL;
+		default:
+			return ControllerOrder.NULL;
+		}
+	}
+	protected static ControllerOrder keyCodeToControllerOrderGame(final int keyCode) {
+		switch (keyCode) {
+		case KeyEvent.VK_UP:
+			return ControllerOrder.UP;
+		case KeyEvent.VK_DOWN:
+			return ControllerOrder.DOWN;
+		case KeyEvent.VK_LEFT:
+			return ControllerOrder.LEFT;
+		case KeyEvent.VK_RIGHT:
+			return ControllerOrder.RIGHT;
+		case KeyEvent.VK_SPACE:
+			return ControllerOrder.RAINBOW_FIREBALL;
+		default:
+			return ControllerOrder.NULL;
+		}
+	}
+	
 
 	/*
 	 * (non-Javadoc)
@@ -91,6 +111,9 @@ public class View implements IView, Runnable {
 	}
 	public States getState() {
 		return this.viewFrame.getViewPanel().getState();
+	}
+	public void setState(States s){
+		this.viewFrame.getViewPanel().setState(s);
 	}
 	public IMenu getMenu() {
 		// TODO Auto-generated method stub
