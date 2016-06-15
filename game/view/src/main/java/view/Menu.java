@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import contract.ButtonState;
+
 public class Menu extends GraphicsBuilder{
 	private Map<String, Button> buttons = new HashMap<String, Button>();
 	private ArrayList<String> button_order = new ArrayList<String>();

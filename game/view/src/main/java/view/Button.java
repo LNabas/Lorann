@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
+import contract.ButtonState;
+
 /**
  * @author Doc0160
  *
@@ -61,8 +63,3 @@ public class Button extends GraphicsBuilder{
 	}
 	
 }
-enum ButtonState{
-	NORMAL,
-	LOCKED,
-	CLICKED,
-};
