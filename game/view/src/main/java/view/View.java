@@ -69,9 +69,10 @@ public class View implements IView, Runnable {
 		}
 	}
 	private static ControllerOrder keyCodeToControllerOrderNULL(int keyCode) {
+		System.out.println(keyCode);
 		switch (keyCode) {
-		case KeyEvent.VK_BACK_SPACE:
-		case KeyEvent.VK_ESCAPE:
+		case 27:
+		case 8:
 			return ControllerOrder.RETURN;
 		default:
 			return ControllerOrder.NULL;
