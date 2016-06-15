@@ -9,6 +9,8 @@ import java.util.Observer;
 import jaco.mp3.player.*;
 
 import javax.swing.JPanel;
+
+import contract.ButtonState;
 enum ViewPanelState{
 	MENU,
 	LEVEL,

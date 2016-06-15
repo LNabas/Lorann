@@ -10,6 +10,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.States;
 
 /**
  * The Class View.
@@ -33,7 +34,9 @@ public class View implements IView, Runnable {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
-
+	public void setState(States s){
+		
+	}
 	/**
 	 * Key code to controller order.
 	 *
