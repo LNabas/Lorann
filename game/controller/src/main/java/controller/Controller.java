@@ -79,7 +79,16 @@ public class Controller implements IController {
 			posMenu++;
 			break;
 		case SPACE:
-			view.setState(States.GAME);
+			switch(posMenu){
+			case 0:
+				view.setState(States.GAME);
+				break;
+			case 1:
+				view.setState(States.MENU_OPTIONS);	
+				break;
+			case 2:
+				System.exit(0);
+			}
 			break;
 		default:
 			break;
@@ -126,6 +135,8 @@ public class Controller implements IController {
 			break;
 		case DOWN:
 			posMenu--;
+			break;
+		case SPACE:
 			break;
 		default:
 			break;
