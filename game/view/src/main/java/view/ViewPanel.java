@@ -126,16 +126,21 @@ class ViewPanel extends JPanel implements Observer {
 		}
 	}
 	private void draw(Image img, Graphics g){
-		int width = this.getWidth();
-	    int height = this.getHeight();
-	    if(this.getWidth() < this.getHeight()){
-	    	height = width;
+		float width = this.getWidth();
+		float height = this.getHeight();
+		float img_width = img.getWidth(null);
+		float img_height = img.getHeight(null);
+	    float img_ratio = 0;
+	    if(width < height){
+	    	img_ratio = img_height/img_width;
+	    	height = width*img_ratio;
 	    }else if(this.getWidth() > this.getHeight()){
-	    	width = height;
+	    	img_ratio = img_width/img_height;
+	    	width = height*img_ratio;
 	    }
-	    int margin_x = (this.getWidth() - width)/2;
-	    int margin_y = (this.getHeight() - height)/2;
-	    g.drawImage(img, margin_x, margin_y, width, height, null);
+	    float margin_x = (this.getWidth() - width)/2;
+	    float margin_y = (this.getHeight() - height)/2;
+	    g.drawImage(img, (int)margin_x, (int)margin_y, (int)width, (int)height, null);
 	}
 	/**
 	 * Return the current view state
