@@ -9,7 +9,7 @@ public class Map extends GraphicsBuilder{
 		super(r);
 	}
 	public Image getImage() {
-		BufferedImage sol = ressources.getSprite("Sol");
+		BufferedImage sol = ressources.getSprite("Paul");
 		setSize(sol.getWidth(), sol.getHeight());
 		drawImage(sol, 0, 0);
 		return bufferImage;
