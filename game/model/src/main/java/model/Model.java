@@ -16,7 +16,6 @@ public class Model extends Observable implements IModel {
 
 	/** The message. */
 	private String message;
-	private IEntity player;
 	private IMap map;
 
 	/**
@@ -78,7 +77,7 @@ public class Model extends Observable implements IModel {
 	}
 
 	public IEntity getPlayer() {
-		return player;
+		return getMap().getPlayer();
 	}
 
 	public IMap getMap() {
