@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map.Entry;
@@ -43,6 +42,19 @@ class ViewPanel extends JPanel implements Observer {
 		this.setViewFrame(viewFrame);
 		ressources = new RessourcesLoader();
 		viewFrame.getModel().getObservable().addObserver(this);
+		 music = new MP3Player();
+		 music.setShuffle(true);
+		 music.setRepeat(true);
+		 for(Entry<String, URL> v : ressources.getSounds().entrySet()){
+			 music.addToPlayList(ressources.getSound(v.getKey()));
+		 }
+		 music.play();
+		 //
+		 menu_principal = new Menu(ressources).setOffset(0).setMarginIncrement(7)
+				 .addButton("Logo", new Logo(ressources))
+				 .addButton("Start", new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
+				 .addButton("Options", new Button(ressources).setText("Options"))
+				 .addButton("Quit", new Button(ressources).setText("Quit")); 
 	}
 
 	/**
@@ -50,6 +62,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @return the view frame
 	 */
+	@SuppressWarnings("unused")
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}
@@ -86,25 +99,11 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		if(music == null){
-			 music = new MP3Player();
-			 music.setShuffle(true);
-			 music.setRepeat(true);
-			 for(Entry<String, URL> v : ressources.getSounds().entrySet()){
-				 music.addToPlayList(ressources.getSound(v.getKey()));
-			 }
-			 music.play();
-		}
 		graphics.setColor(Color.BLACK);
 		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
 		switch(state){
 		case MENU:
 			if(menu_principal == null){
-			    menu_principal = new Menu(ressources).setOffset(0).setMarginIncrement(7)
-			    		.addButton("Logo", new Logo(ressources))
-			    		.addButton("Start", new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
-			    		.addButton("Options", new Button(ressources).setText("Options"))
-			    		.addButton("Quit", new Button(ressources).setText("Quit"));
 			   
 			}
 			draw(menu_principal.getImage(), graphics);
@@ -114,11 +113,11 @@ class ViewPanel extends JPanel implements Observer {
 				menu_options = new Menu(ressources).setOffset(0)
 			    		.addButton("1", new Button(ressources).setText("Yeux").setState(ButtonState.CLICKED))
 			    		.addButton("2", new Button(ressources).setText("Seins"))
-			    		.addButton("3", new Button(ressources).setText("Vagin"));
+			    		.addButton("3", new Button(ressources).setText("Vagin"))
+	    				.addButton("4", new Button(ressources).setText("Cul"));
 			}
 			draw(menu_options.getImage(), graphics);
-		    break;
-		    
+		    break;    
 		case GAME:
 			draw(new Map(ressources).getImage(), graphics);
 			break;
@@ -126,7 +125,6 @@ class ViewPanel extends JPanel implements Observer {
 			break;
 		}
 	}
-	
 	private void draw(Image img, Graphics g){
 		int width = this.getWidth();
 	    int height = this.getHeight();

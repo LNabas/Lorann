@@ -10,8 +10,12 @@ public class Map extends GraphicsBuilder{
 	}
 	public Image getImage() {
 		BufferedImage sol = ressources.getSprite("Paul");
-		setSize(sol.getWidth(), sol.getHeight());
-		drawImage(sol, 0, 0);
+		int max = 10;
+		setSize(sol.getWidth()*max, sol.getHeight()*max);
+		for(int i = 0; i<max; i++){
+			drawImage(sol, i*sol.getWidth(), i*sol.getHeight());
+			drawImage(sol, (9-i)*sol.getWidth(), i*sol.getHeight());
+		}
 		return bufferImage;
 	}
 }

@@ -18,7 +18,7 @@ public class Button extends GraphicsBuilder{
 	/**
 	 * set state
 	 * @param s ButtonState
-	 * @return
+	 * @return Button
 	 */
 	public Button setState(ButtonState s){
 		state = s;

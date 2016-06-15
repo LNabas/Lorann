@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.FontFormatException;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 
@@ -28,8 +27,6 @@ public class View implements IView, Runnable {
 	 *
 	 * @param model
 	 *          the model
-	 * @throws FontFormatException 
-	 * @throws HeadlessException 
 	 */
 	public View(final IModel model) throws HeadlessException {
 		this.viewFrame = new ViewFrame(model);
