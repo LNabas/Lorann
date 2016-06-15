@@ -120,4 +120,8 @@ class ViewPanel extends JPanel implements Observer {
 	public States getState() {
 		return this.state;
 	}
+
+	public void setState(States s) {
+		state=s;
+	}
 }

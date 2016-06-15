@@ -35,9 +35,6 @@ public class View implements IView, Runnable {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
-	public void setState(States s){
-		
-	}
 	/**
 	 * Key code to controller order.
 	 *
@@ -91,6 +88,9 @@ public class View implements IView, Runnable {
 	}
 	public States getState() {
 		return this.viewFrame.getViewPanel().getState();
+	}
+	public void setState(States s){
+		this.viewFrame.getViewPanel().setState(s);
 	}
 	public IMenu getMenu() {
 		// TODO Auto-generated method stub
