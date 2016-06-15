@@ -8,6 +8,7 @@ import contract.IModel;
 import contract.IView;
 import contract.Permeability;
 import contract.States;
+import contract.TypeEntity;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -140,9 +141,9 @@ public class Controller implements IController {
 		case MENU:
 			orderPerformMenu(controllerOrder);
 			break;
-		case MENU_OPTION:
+		case MENU_OPTIONS:
 			break;
-		case MENU_QUIT;
+		case MENU_QUIT:
 			break;
 		case JEU:
 			orderPerformJeu(controllerOrder);
@@ -159,11 +160,16 @@ public class Controller implements IController {
 			case PERMEABLE:
 				model.getPlayer().setY(target_entity.getY());
 				model.getPlayer().setX(target_entity.getX());
+				if(entity.getType()==TypeEntity.DOOROPEN){
+					view.setState(States.MENU);
+				}
+				
 				break;
 			case IMPERMEABLE:
 				if(target_entity.hit()){
 					entity.die();
 					if(entity.isAlive()){
+						//Refresh
 					}
 					else{
 						view.setState(States.MENU);
