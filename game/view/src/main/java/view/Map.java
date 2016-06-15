@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import contract.IMap;
+import contract.TypeEntity;
+import contract.tEsTMap;
 /**
  * Graphical Map
  * @author Doc0160
@@ -31,7 +33,28 @@ public class Map extends GraphicsBuilder{
 		henry.getGraphics().drawImage(ressources.getSprite("Henry"), 0, 0, null);
 		BufferedImage pierre = ressources.getSpriteCopy("Sol");
 		pierre.getGraphics().drawImage(ressources.getSprite("Pierre"), 0, 0, null);
-		int max = 10;
+		BufferedImage purse = ressources.getSpriteCopy("Sol");
+		purse.getGraphics().drawImage(ressources.getSprite("Purse"), 0, 0, null);
+		tEsTMap m = new tEsTMap();
+		setSize(paul.getWidth()*m.getWidth(), paul.getHeight()*m.getHeight());
+		for(int i = 0; i < m.getWidth(); i++){
+			for(int j = 0; j < m.getWidth(); j++){
+				TypeEntity t = m.get(i, j).getType();
+				//drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+				switch(t){
+				case PAUL:
+					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
+					break;
+				case ITEMGOOD:
+					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
+					break;
+				default:
+					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					break;
+				}
+			}
+		}
+		/*int max = 10;
 		Random randomGenerator = new Random();
 		setSize(paul.getWidth()*max, paul.getHeight()*max);
 		for(int x = 0; x<max; x++){
@@ -58,7 +81,7 @@ public class Map extends GraphicsBuilder{
 				break;
 				}
 			}
-		}
+		}*/
 		return bufferImage;
 	}
 }

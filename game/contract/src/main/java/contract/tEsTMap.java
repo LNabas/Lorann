@@ -57,6 +57,111 @@ public class tEsTMap implements IMap{
 		}
 		
 	}
+	private class Paul implements IEntity{
+
+		public boolean hit() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public void move(ArrayList<ArrayList<IEntity>> map, int x, int y) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public Permeability getPermeability() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public int getX() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		public int getY() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		public void setX(int x) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void setY(int y) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public boolean isAlive() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public TypeEntity getType() {
+			// TODO Auto-generated method stub
+			return TypeEntity.PAUL;
+		}
+
+		public void die() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	private class Sol implements IEntity{
+
+		public boolean hit() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public void move(ArrayList<ArrayList<IEntity>> map, int x, int y) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public Permeability getPermeability() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public int getX() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		public int getY() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		public void setX(int x) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void setY(int y) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public boolean isAlive() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public TypeEntity getType() {
+			return TypeEntity.UNKOWN;
+		}
+
+		public void die() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
 	public tEsTMap(){
 		/*"*-----------------*
 		*------------------*
@@ -67,13 +172,15 @@ public class tEsTMap implements IMap{
 		*------------------*
 		*------------------*
 		*------------------*"*/
-		/*for(int i = 0; i<20; i++){
-			ArrayList<IEntity> m = new ArrayList<IEntity>();
-			for(int j = 0; i<20; i++){
-				m.set(j, new Item());
+		for(int i = 0; i<20; i++){
+			ArrayList<IEntity> m = new ArrayList<IEntity>(20);
+			for(int j = 0; j<20; j++){
+				m.add(new Sol());
 			}
-			map.set(i, m);
-		}*/
+			map.add(m);
+		}
+		map.get(5).set(2, new Item());
+		map.get(5).set(6, new Paul());
 
 	}
 	public IEntity get(int x, int y) {

@@ -9,5 +9,9 @@ public enum TypeEntity{
 	ITEMGOOD,
 	DOOROPEN,
 	DOORCLOSE,
-	KEY
+	KEY,
+	PIERRE,
+	PAUL,
+	CHARLES,
+	HENRY
 } ; 
