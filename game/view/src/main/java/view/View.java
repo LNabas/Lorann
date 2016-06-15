@@ -116,7 +116,6 @@ public class View implements IView, Runnable {
 		this.viewFrame.getViewPanel().setState(s);
 	}
 	public IMenu getMenu() {
-		// TODO Auto-generated method stub
-		return null;
+		return viewFrame.getViewPanel().getMenu();
 	}
 }
