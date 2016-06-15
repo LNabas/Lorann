@@ -70,6 +70,7 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	private void orderPerformMenu(final ControllerOrder controllerOrder){
+		System.out.println(controllerOrder);
 		view.getMenu().changeButtonState(posMenu+1, ButtonState.NORMAL);
 		switch(controllerOrder){
 		case UP:
@@ -133,6 +134,7 @@ public class Controller implements IController {
 	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
 		int posMenu = 0;
+		
 		switch(controllerOrder){
 		case UP:
 			posMenu++;
@@ -162,10 +164,11 @@ public class Controller implements IController {
 			orderPerformMenu(controllerOrder);
 			break;
 		case MENU_OPTIONS:
+			orderPerformOption(controllerOrder);
 			break;
 		case MENU_QUIT:
 			break;
-		case JEU:
+		case GAME:
 			orderPerformJeu(controllerOrder);
 		}
 	}
