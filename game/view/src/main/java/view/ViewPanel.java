@@ -112,9 +112,9 @@ class ViewPanel extends JPanel implements Observer {
 		case MENU_OPTIONS:
 			if(menu_options == null){
 				menu_options = new Menu(ressources).setOffset(0)
-			    		.addButton("1", new Button(ressources).setText("Bites").setState(ButtonState.CLICKED))
+			    		.addButton("1", new Button(ressources).setText("Yeux").setState(ButtonState.CLICKED))
 			    		.addButton("2", new Button(ressources).setText("Seins"))
-			    		.addButton("3", new Button(ressources).setText("Couilles"));
+			    		.addButton("3", new Button(ressources).setText("Vagin"));
 			}
 			draw(menu_options.getImage(), graphics);
 		    break;
