@@ -94,14 +94,14 @@ class ViewPanel extends JPanel implements Observer {
 			    music = new MP3Player();
 			    music.setShuffle(true);
 			    music.setRepeat(true);
-			    music.addToPlayList(ressources.getSound("ESG"));
+			    music.addToPlayList(ressources.getSound("TESV"));
 			    music.addToPlayList(ressources.getSound("WiL"));
 			    music.addToPlayList(ressources.getSound("DDHO"));
 			    music.addToPlayList(ressources.getSound("DDH"));
 			    music.addToPlayList(ressources.getSound("BTTF"));
 			    music.addToPlayList(ressources.getSound("IndianaJones"));
 			    music.addToPlayList(ressources.getSound("SSBM"));
-			    music.addToPlayList(ressources.getSound("TESV"));
+			    music.addToPlayList(ressources.getSound("ESG"));
 			    music.play();
 			}
 			draw(menu_principal.getImage(), graphics);
