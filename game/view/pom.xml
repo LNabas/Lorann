@@ -13,5 +13,12 @@
   		<artifactId>contract</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>jaco</groupId>
+         <artifactId>jaco</artifactId>
+         <scope>system</scope>
+         <version>0.93</version>
+         <systemPath>${basedir}\src\lib\jaco-mp3-player-0.9.3.jar</systemPath>
+  	</dependency>
   </dependencies>
 </project>
