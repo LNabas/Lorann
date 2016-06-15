@@ -46,6 +46,7 @@ public class View implements IView, Runnable {
 		switch (s) {
 		case GAME:
 			return keyCodeToControllerOrderGame(keyCode);
+		case MENU_OPTIONS:
 		case MENU:
 			return keyCodeToControllerOrderMenu(keyCode);
 		default:
