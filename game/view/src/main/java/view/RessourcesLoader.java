@@ -95,6 +95,12 @@ public class RessourcesLoader {
 	public BufferedImage getSprite(String name){
 		return sprites.get(name).getImage();
 	}
+	public BufferedImage getSpriteCopy(String name){
+		BufferedImage img = sprites.get(name).getImage();
+		BufferedImage b = new BufferedImage(img.getWidth(),img.getHeight(),BufferedImage.TYPE_INT_ARGB);
+		b.getGraphics().drawImage(img, 0, 0, null);
+		return b;
+	}
 	/**
 	 * get a font
 	 * @param name of the font

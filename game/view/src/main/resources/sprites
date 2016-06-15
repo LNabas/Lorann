@@ -4,3 +4,5 @@ ClickedButton:ClickedButton
 Logo:Logo
 Sol:sol
 Paul:paul
+DO:gate_open
+DC:gate_closed
