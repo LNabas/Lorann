@@ -10,6 +10,10 @@ public class Sprite {
 	public Sprite(String name) throws IOException{
 		image = ImageIO.read(this.getClass().getClassLoader().getResource(name+".png"));
 	}
+	/**
+	 * retrun image
+	 * @return BufferedImage
+	 */
 	public BufferedImage getImage(){
 		return image;
 	}

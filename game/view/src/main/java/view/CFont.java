@@ -11,6 +11,10 @@ public class CFont {
 		font = Font.createFont(Font.TRUETYPE_FONT, is);
 		is.close();
 	}
+	/**
+	 * get font
+	 * @return Font
+	 */
 	public Font getFont(){
 		return font;
 	}
