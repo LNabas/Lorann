@@ -6,10 +6,10 @@ import java.awt.Graphics;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-import jaco.mp3.player.*;
 import javax.swing.JPanel;
 import contract.ButtonState;
 import contract.States;
+import jaco.mp3.player.MP3Player;
 
 /**
  * The Class ViewPanel.
