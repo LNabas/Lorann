@@ -17,7 +17,7 @@ import jaco.mp3.player.MP3Player;
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
-	private States state = States.MENU;
+	private States state = States.GAME;
 	private RessourcesLoader ressources;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
@@ -45,7 +45,6 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @return the view frame
 	 */
-	@SuppressWarnings("unused")
 	private ViewFrame getViewFrame() {
 		return this.viewFrame;
 	}
@@ -116,11 +115,17 @@ class ViewPanel extends JPanel implements Observer {
 			break;
 		}
 	}
-
+	/**
+	 * Return the current view state
+	 * @return internal state of the panel
+	 */
 	public States getState() {
 		return this.state;
 	}
-
+	/**
+	 * Set current view state
+	 * @param state
+	 */
 	public void setState(States s) {
 		state=s;
 	}
