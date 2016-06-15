@@ -17,7 +17,8 @@ public enum ControllerOrder {
 	// shoot
 	RAINBOW_FIREBALL,
 	// emitted at certain interval
-	TICK,
+	TICK, 
+	SPACE,
 	//
 	
 }
