@@ -7,6 +7,7 @@ import contract.IEntity;
 import contract.IModel;
 import contract.IView;
 import contract.Permeability;
+import contract.States;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -88,6 +89,7 @@ public class Controller implements IController {
 	view.getFrame().getPanel().getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
 	}
 	private void orderPerformJeu(final ControllerOrder controllerOrder){
+		view.setState(States.JEU);
 		switch (controllerOrder) {
 			case UP:
 				checkCase(model.getPlayer(), 0, -1);
