@@ -89,6 +89,9 @@ public class View implements IView, Runnable {
 			return ControllerOrder.RIGHT;
 		case KeyEvent.VK_SPACE:
 			return ControllerOrder.RAINBOW_FIREBALL;
+		case KeyEvent.VK_BACK_SPACE:
+		case KeyEvent.VK_ESCAPE:
+			return ControllerOrder.RETURN;
 		default:
 			return ControllerOrder.NULL;
 		}
