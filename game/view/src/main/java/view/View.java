@@ -49,7 +49,7 @@ public class View implements IView, Runnable {
 		case MENU:
 			return keyCodeToControllerOrderMenu(keyCode);
 		default:
-			return keyCodeToControllerOrderNULL(keyCode);
+			return keyCodeToControllerOrderGame(keyCode);
 		}
 	}
 	private static ControllerOrder keyCodeToControllerOrderMenu(int keyCode) {
@@ -69,10 +69,9 @@ public class View implements IView, Runnable {
 		}
 	}
 	private static ControllerOrder keyCodeToControllerOrderNULL(int keyCode) {
-		System.out.println(keyCode);
 		switch (keyCode) {
-		case 27:
-		case 8:
+		case KeyEvent.VK_BACK_SPACE:
+		case KeyEvent.VK_ESCAPE:
 			return ControllerOrder.RETURN;
 		default:
 			return ControllerOrder.NULL;
