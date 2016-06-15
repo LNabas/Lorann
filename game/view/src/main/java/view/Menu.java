@@ -6,8 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import contract.ButtonState;
+import contract.IMenu;
 
-public class Menu extends GraphicsBuilder{
+public class Menu extends GraphicsBuilder implements IMenu{
 	private Map<String, Button> buttons = new HashMap<String, Button>();
 	private ArrayList<String> button_order = new ArrayList<String>();
 	private int offset_y = 0;

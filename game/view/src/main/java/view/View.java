@@ -8,6 +8,7 @@ import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder;
 import contract.IController;
+import contract.IMenu;
 import contract.IModel;
 import contract.IView;
 import contract.States;
@@ -87,5 +88,12 @@ public class View implements IView, Runnable {
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
+	}
+	public States getState() {
+		return this.viewFrame.getViewPanel().getState();
+	}
+	public IMenu getMenu() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

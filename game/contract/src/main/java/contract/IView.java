@@ -3,7 +3,7 @@ package contract;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Doc0160
  */
 public interface IView {
 
@@ -15,4 +15,6 @@ public interface IView {
 	 */
 	void printMessage(final String message);
 	void setState(States s);
+	States getState();
+	IMenu getMenu();
 }

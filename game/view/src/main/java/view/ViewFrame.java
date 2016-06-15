@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import contract.IController;
 import contract.IModel;
+import contract.IView;
 
 /**
  * The Class ViewFrame.
@@ -191,5 +192,9 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyReleased(final KeyEvent e) {
 
+	}
+
+	public ViewPanel getViewPanel() {
+		return this.viewPanel;
 	}
 }

@@ -7,21 +7,17 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import jaco.mp3.player.*;
-
 import javax.swing.JPanel;
-
 import contract.ButtonState;
-enum ViewPanelState{
-	MENU,
-	LEVEL,
-};
+import contract.States;
+
 /**
  * The Class ViewPanel.
  *
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
-	private ViewPanelState state = ViewPanelState.MENU;
+	private States state = States.MENU;
 	private RessourcesLoader ressources;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
@@ -119,5 +115,9 @@ class ViewPanel extends JPanel implements Observer {
 		default:
 			break;
 		}
+	}
+
+	public States getState() {
+		return this.state;
 	}
 }
