@@ -55,6 +55,11 @@ class ViewPanel extends JPanel implements Observer {
 				 .addButton("Start", new Button(ressources).setText("Start").setState(ButtonState.CLICKED))
 				 .addButton("Options", new Button(ressources).setText("Options"))
 				 .addButton("Quit", new Button(ressources).setText("Quit")); 
+		 menu_options = new Menu(ressources).setOffset(0)
+				 .addButton("1", new Button(ressources).setText("Yeux").setState(ButtonState.CLICKED))
+				 .addButton("2", new Button(ressources).setText("Seins"))
+				 .addButton("3", new Button(ressources).setText("Vagin"))
+				 .addButton("4", new Button(ressources).setText("Cul"));
 	}
 
 	/**
@@ -103,19 +108,9 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.fillRect(0, 0, this.getWidth(), this.getHeight());
 		switch(state){
 		case MENU:
-			if(menu_principal == null){
-			   
-			}
 			draw(menu_principal.getImage(), graphics);
 		    break;
 		case MENU_OPTIONS:
-			if(menu_options == null){
-				menu_options = new Menu(ressources).setOffset(0)
-			    		.addButton("1", new Button(ressources).setText("Yeux").setState(ButtonState.CLICKED))
-			    		.addButton("2", new Button(ressources).setText("Seins"))
-			    		.addButton("3", new Button(ressources).setText("Vagin"))
-	    				.addButton("4", new Button(ressources).setText("Cul"));
-			}
 			draw(menu_options.getImage(), graphics);
 		    break;    
 		case GAME:
@@ -126,21 +121,21 @@ class ViewPanel extends JPanel implements Observer {
 		}
 	}
 	private void draw(Image img, Graphics g){
-		float width = this.getWidth();
-		float height = this.getHeight();
+		int width = this.getWidth();
+		int height = this.getHeight();
 		float img_width = img.getWidth(null);
 		float img_height = img.getHeight(null);
 	    float img_ratio = 0;
 	    if(width < height){
 	    	img_ratio = img_height/img_width;
-	    	height = width*img_ratio;
+	    	height = (int)(width*img_ratio);
 	    }else if(this.getWidth() > this.getHeight()){
 	    	img_ratio = img_width/img_height;
-	    	width = height*img_ratio;
+	    	width = (int)(height*img_ratio);
 	    }
-	    float margin_x = (this.getWidth() - width)/2;
-	    float margin_y = (this.getHeight() - height)/2;
-	    g.drawImage(img, (int)margin_x, (int)margin_y, (int)width, (int)height, null);
+	    int margin_x = (this.getWidth() - width)/2;
+	    int margin_y = (this.getHeight() - height)/2;
+	    g.drawImage(img, margin_x, margin_y, width, height, null);
 	}
 	/**
 	 * Return the current view state
