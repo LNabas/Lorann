@@ -19,7 +19,13 @@ public abstract class Main {
 	 */
 	public static void main(final String[] args) {
 		final Model model = new Model();
+		/**
+		 * View
+		 */
 		final View view = new View(model);
+		/**
+		 * Controller
+		 */
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
 		controller.control();

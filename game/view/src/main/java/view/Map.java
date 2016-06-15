@@ -26,7 +26,6 @@ public class Map extends GraphicsBuilder{
 		for(int x = 0; x<max; x++){
 			for(int y = 0; y<max; y++){
 				int r = randomGenerator.nextInt(10);
-				System.out.println(r);
 				switch(r){
 				case 0:
 				drawImage(paul, x*paul.getWidth(), y*paul.getHeight());
