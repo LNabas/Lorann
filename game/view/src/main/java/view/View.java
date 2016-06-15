@@ -55,11 +55,11 @@ public class View implements IView, Runnable {
 	private static ControllerOrder keyCodeToControllerOrderMenu(int keyCode) {
 		switch (keyCode) {
 		case KeyEvent.VK_UP:
-			return ControllerOrder.MENU_UP;
+			return ControllerOrder.UP;
 		case KeyEvent.VK_DOWN:
-			return ControllerOrder.MENU_DOWN;
+			return ControllerOrder.DOWN;
 		case KeyEvent.VK_SPACE:
-			return ControllerOrder.VALIDATE;
+			return ControllerOrder.RAINBOW_FIREBALL;
 		default:
 			return ControllerOrder.NULL;
 		}
