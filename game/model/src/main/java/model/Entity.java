@@ -11,7 +11,7 @@ import contract.TypeEntity;
  *
  * @author Maxence
  */
-class Entity implements IEntity{
+abstract class Entity implements IEntity{
 	private int x;
 	private int y;
 
@@ -49,11 +49,6 @@ class Entity implements IEntity{
 
 	public TypeEntity getType() {
 		return TypeEntity.UNKOWN;
-	}
-	
-	public void reboot(){
-		
-		
 	}
 
 }

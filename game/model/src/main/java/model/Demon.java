@@ -32,6 +32,4 @@ public class Demon extends Entity{
 		
 	}
 	
-	
-	
 }
