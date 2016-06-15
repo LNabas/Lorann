@@ -88,7 +88,7 @@ public class RessourcesLoader {
 		}
 	}
 	/**
-	 * get a spirte
+	 * get a sprite
 	 * @param name of the sprite
 	 * @return BuffuredImage
 	 */
