@@ -67,7 +67,6 @@ public class Menu extends GraphicsBuilder implements IMenu{
 		return this;
 	}
 	public void changeButtonState(int pos, ButtonState state) {
-		// TODO Auto-generated method stub
-		
+		buttons.get(button_order.get(pos)).setState(state);
 	}
 }
