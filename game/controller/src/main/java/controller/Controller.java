@@ -122,6 +122,10 @@ public class Controller implements IController {
 			case RAINBOW_FIREBALL:
 				checkCase(model.getPlayer(), -1, 0);
 				break;
+			case RETURN:
+				
+				break;
+
 			default:
 				break;
 		}
