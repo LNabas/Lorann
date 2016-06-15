@@ -66,7 +66,27 @@ public class Controller implements IController {
 	 * https://www.youtube.com/watch?v=FQiyOuqrk68
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
+	private void orderPerformMenu(final ControllerOrder controllerOrder){
+		int posMenu = 0;
+		switch(controllerOrder){
+		case UP:
+			posMenu++;
+			break;
+		case DOWN:
+			posMenu--;
+			break;
+		default:
+			break;
+		}
+		if(posMenu < 0){
+			posMenu = 2;
+		}
+		else if(posMenu > 2){
+			posMenu = 0;
+		}
+	view.getFrame().getPanel().getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
+	}
+	private void orderPerformJeu(final ControllerOrder controllerOrder){
 		switch (controllerOrder) {
 			case UP:
 				checkCase(model.getPlayer(), 0, -1);
@@ -84,10 +104,23 @@ public class Controller implements IController {
 				this.model.loadMessage("ID");
 				break;
 			case RAINBOW_FIREBALL:
-				this.model.loadMessage("ID");
+				checkCase(model.getPlayer(), -1, 0);
 				break;
 			default:
 				break;
+		}
+	}
+	public void orderPerform(final ControllerOrder controllerOrder) {
+		switch(view.getState()){
+		case MENU:
+			orderPerformMenu(controllerOrder);
+			break;
+		case MENU_OPTION:
+			break;
+		case MENU_QUIT;
+			break;
+		case JEU:
+			orderPerformJeu(controllerOrder);
 		}
 	}
 	
