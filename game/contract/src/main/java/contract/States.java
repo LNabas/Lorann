@@ -4,5 +4,6 @@ public enum States {
 	MENU,
 	MENU_OPTIONS,
 	MENU_QUIT,
-	GAME,
+	GAME, 
+	JEU,
 }

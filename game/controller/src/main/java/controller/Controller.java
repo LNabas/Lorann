@@ -140,7 +140,7 @@ public class Controller implements IController {
 		case MENU:
 			orderPerformMenu(controllerOrder);
 			break;
-		case MENU_OPTION:
+		case MENU_OPTIONS:
 			break;
 		case MENU_QUIT;
 			break;
