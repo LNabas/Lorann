@@ -5,18 +5,22 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-
+/**
+ * I build graphics !
+ * @author Doc0160
+ *
+ */
 public class GraphicsBuilder implements IGraphicsBuilder{
 	protected RessourcesLoader ressources;
-	BufferedImage bufferImage;
-	Graphics graphics;
+	protected BufferedImage bufferImage;
+	protected Graphics graphics;
 	public GraphicsBuilder(RessourcesLoader r) {
 		ressources = r;
 		bufferImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB); 
 		graphics = bufferImage.getGraphics();
 	}
 	public Image getImage() {
-		return null;
+		return bufferImage;
 	}
 	public void drawImage(Image image, int i, int j) {
 		graphics.drawImage(image, i, j, null);

@@ -3,6 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -100,20 +102,27 @@ class ViewPanel extends JPanel implements Observer {
 			    music.addToPlayList(ressources.getSound("IndianaJones"));
 			    music.play();
 			}
-			int width = this.getWidth();
-		    int height = this.getHeight();
-		    if(this.getWidth() < this.getHeight()){
-		    	height = width;
-		    }else if(this.getWidth() > this.getHeight()){
-		    	width = height;
-		    }
-		    int margin_x = (this.getWidth() - width)/2;
-		    int margin_y = (this.getHeight() - height)/2;
-		    graphics.drawImage(menu_principal.getImage(), margin_x, margin_y, width, height, null);
+			draw(menu_principal.getImage(), graphics);
 		    break;
+		case GAME:
+			draw(new Map(ressources).getImage(), graphics);
+			break;
 		default:
 			break;
 		}
+	}
+	
+	private void draw(Image img, Graphics g){
+		int width = this.getWidth();
+	    int height = this.getHeight();
+	    if(this.getWidth() < this.getHeight()){
+	    	height = width;
+	    }else if(this.getWidth() > this.getHeight()){
+	    	width = height;
+	    }
+	    int margin_x = (this.getWidth() - width)/2;
+	    int margin_y = (this.getHeight() - height)/2;
+	    g.drawImage(img, margin_x, margin_y, width, height, null);
 	}
 	/**
 	 * Return the current view state
