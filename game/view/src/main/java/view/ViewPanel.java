@@ -100,6 +100,8 @@ class ViewPanel extends JPanel implements Observer {
 			    music.addToPlayList(ressources.getSound("DDH"));
 			    music.addToPlayList(ressources.getSound("BTTF"));
 			    music.addToPlayList(ressources.getSound("IndianaJones"));
+			    music.addToPlayList(ressources.getSound("SSBM"));
+			    music.addToPlayList(ressources.getSound("TESV"));
 			    music.play();
 			}
 			draw(menu_principal.getImage(), graphics);
