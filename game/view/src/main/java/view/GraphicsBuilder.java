@@ -14,6 +14,10 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 	protected RessourcesLoader ressources;
 	protected BufferedImage bufferImage;
 	protected Graphics graphics;
+	/**
+	 * Constructor
+	 * @param r RessourceLoader
+	 */
 	public GraphicsBuilder(RessourcesLoader r) {
 		ressources = r;
 		bufferImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB); 
@@ -29,6 +33,13 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 		bufferImage = new BufferedImage(x, y, BufferedImage.TYPE_INT_ARGB); 
 		graphics = bufferImage.getGraphics();
 	}
+	/**
+	 * Draw String
+	 * @param s text
+	 * @param x pos x
+	 * @param y pos y
+	 * @param f font
+	 */
 	public void drawString(String s, int x, int y, Font f) {
 		graphics.setFont(f);
 		graphics.drawString(s, x, y);
@@ -36,6 +47,13 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 	public void drawString(String s, int x, int y) {
 		graphics.drawString(s, x, y);
 	}
+	/**
+	 * Draw Centered Text
+	 * @param s text
+	 * @param x pos x
+	 * @param y pos y
+	 * @param f font
+	 */
 	public void drawCenteredString(String s, int x, int y, Font f){
 		FontMetrics metrics = graphics.getFontMetrics(f);
 		x -= metrics.stringWidth(s)/2;

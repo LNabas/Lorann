@@ -4,9 +4,20 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import contract.IMap;
+/**
+ * Graphical Map
+ * @author Doc0160
+ *
+ */
 public class Map extends GraphicsBuilder{
+	@SuppressWarnings("unused")
+	private IMap map;
 	public Map(RessourcesLoader r) {
 		super(r);
+	}
+	public void setMap(IMap m){
+		map = m;
 	}
 	public Image getImage() {
 		BufferedImage sol = ressources.getSpriteCopy("Sol");
