@@ -69,6 +69,7 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	private void orderPerformMenu(final ControllerOrder controllerOrder){
+		view.setState(States.MENU);
 		int posMenu = 0;
 		switch(controllerOrder){
 		case UP:
@@ -86,7 +87,7 @@ public class Controller implements IController {
 		else if(posMenu > 2){
 			posMenu = 0;
 		}
-	view.getFrame().getPanel().getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
+	view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
 	}
 	private void orderPerformJeu(final ControllerOrder controllerOrder){
 		view.setState(States.JEU);
@@ -111,6 +112,27 @@ public class Controller implements IController {
 				break;
 			default:
 				break;
+		}
+	}
+	
+	private void orderPerformOption(final ControllerOrder controllerOrder){
+		view.setState(States.MENU_OPTIONS);
+		int posMenu = 0;
+		switch(controllerOrder){
+		case UP:
+			posMenu++;
+			break;
+		case DOWN:
+			posMenu--;
+			break;
+		default:
+			break;
+		}
+		if(posMenu < 0){
+			posMenu = 2;
+		}
+		else if(posMenu > 2){
+			posMenu = 0;
 		}
 	}
 	public void orderPerform(final ControllerOrder controllerOrder) {
@@ -141,6 +163,11 @@ public class Controller implements IController {
 			case IMPERMEABLE:
 				if(target_entity.hit()){
 					entity.die();
+					if(entity.isAlive()){
+					}
+					else{
+						view.setState(States.MENU);
+					}
 				}
 				break;
 			default:
