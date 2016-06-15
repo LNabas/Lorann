@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
@@ -88,14 +90,9 @@ class ViewPanel extends JPanel implements Observer {
 			 music = new MP3Player();
 			 music.setShuffle(true);
 			 music.setRepeat(true);
-			 music.addToPlayList(ressources.getSound("TESV"));
-			 music.addToPlayList(ressources.getSound("WiL"));
-			 music.addToPlayList(ressources.getSound("DDHO"));
-			 music.addToPlayList(ressources.getSound("DDH"));
-			 music.addToPlayList(ressources.getSound("BTTF"));
-			 music.addToPlayList(ressources.getSound("IndianaJones"));
-			 music.addToPlayList(ressources.getSound("SSBM"));
-			 music.addToPlayList(ressources.getSound("ESG"));
+			 for(Entry<String, URL> v : ressources.getSounds().entrySet()){
+				 music.addToPlayList(ressources.getSound(v.getKey()));
+			 }
 			 music.play();
 		}
 		graphics.setColor(Color.BLACK);

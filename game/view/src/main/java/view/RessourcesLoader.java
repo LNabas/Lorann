@@ -26,6 +26,9 @@ public class RessourcesLoader {
 		loadSounds();
 		loadSprites();
 	}
+	public Map<String, URL> getSounds(){
+		return sounds;
+	}
 	private void loadColors(){
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(this.getClass().getClassLoader().getResource("colors").getFile()));
