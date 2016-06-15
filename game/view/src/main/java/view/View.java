@@ -49,7 +49,7 @@ public class View implements IView, Runnable {
 		case MENU:
 			return keyCodeToControllerOrderMenu(keyCode);
 		default:
-			return null;
+			return keyCodeToControllerOrderNULL(keyCode);
 		}
 	}
 	private static ControllerOrder keyCodeToControllerOrderMenu(int keyCode) {
@@ -58,8 +58,21 @@ public class View implements IView, Runnable {
 			return ControllerOrder.UP;
 		case KeyEvent.VK_DOWN:
 			return ControllerOrder.DOWN;
+		case KeyEvent.VK_ENTER:
 		case KeyEvent.VK_SPACE:
 			return ControllerOrder.SPACE;
+		case KeyEvent.VK_BACK_SPACE:
+		case KeyEvent.VK_ESCAPE:
+			return ControllerOrder.RETURN;
+		default:
+			return ControllerOrder.NULL;
+		}
+	}
+	private static ControllerOrder keyCodeToControllerOrderNULL(int keyCode) {
+		switch (keyCode) {
+		case KeyEvent.VK_BACK_SPACE:
+		case KeyEvent.VK_ESCAPE:
+			return ControllerOrder.RETURN;
 		default:
 			return ControllerOrder.NULL;
 		}
@@ -74,7 +87,6 @@ public class View implements IView, Runnable {
 			return ControllerOrder.LEFT;
 		case KeyEvent.VK_RIGHT:
 			return ControllerOrder.RIGHT;
-		case KeyEvent.VK_ENTER:
 		case KeyEvent.VK_SPACE:
 			return ControllerOrder.RAINBOW_FIREBALL;
 		default:
