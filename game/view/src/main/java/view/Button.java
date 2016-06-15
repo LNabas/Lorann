@@ -61,6 +61,11 @@ public class Button extends GraphicsBuilder{
 		//
 		return bufferImage;
 	}
+	/**
+	 * set text of button
+	 * @param t text
+	 * @return this
+	 */
 	public Button setText(String t){
 		text=t;
 		return this;

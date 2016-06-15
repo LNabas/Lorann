@@ -28,8 +28,8 @@ public interface IGraphicsBuilder {
 	public void drawString(String s, int x, int y);
 	/**
 	 * resize
-	 * @param x
-	 * @param y
+	 * @param x pos x
+	 * @param y pos y
 	 */
 	public void setSize(int x, int y);
 }
