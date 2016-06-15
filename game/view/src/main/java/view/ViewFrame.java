@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 
 import contract.IController;
 import contract.IModel;
-import contract.IView;
 
 /**
  * The Class ViewFrame.
