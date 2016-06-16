@@ -8,14 +8,16 @@ package model;
  *
  */
 public class Player extends Entity{
-	@SuppressWarnings("unused")
-	private int Lives;
+	private int Lives = 11;
 	
 	public boolean isAlive() {
 		return true;
 	}
 
-	public void die() {	}
+	public void die() {	
+		Lives = Lives - 1;
+		
+	}
 	
 	
 }
