@@ -107,4 +107,7 @@ public class Menu extends GraphicsBuilder implements IMenu{
 		buttons.get(button_order.get(pos)).setState(state);
 		this.need_redraw=true;
 	}
+	public ButtonState getButtonState(int pos) {
+		return buttons.get(button_order.get(pos)).getState();
+	}
 }
