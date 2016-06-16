@@ -6,6 +6,7 @@ package model;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.io.BufferedReader;
 import java.sql.CallableStatement;
 
 /**
@@ -39,7 +40,63 @@ public class DAOMap extends DAOEntity<Map> {
 				call.execute();
 				final ResultSet resultSet = call.getResultSet();
 				if (resultSet.first()) {
+				String str = resultSet.getString("map");
 				System.out.println(resultSet.getString("map"));
+				Map map = new Map();
+				for(int i = 0 ; i<str.length(); i++){
+					if(str.charAt(i) == '*'){ 
+						
+					}
+					else if (str.charAt(i) == '='){
+						
+						
+					}
+					else if (str.charAt(i) == '|'){
+						
+						
+					}
+					else if (str.charAt(i) == 'P'){
+						
+						
+					}
+					
+					
+					else if (str.charAt(i) == 'C'){
+						
+						
+					}
+					
+					
+					else if (str.charAt(i) == 'G'){
+						
+						
+					}
+					
+					else if (str.charAt(i) == 'F'){
+						
+						
+					}
+					
+					else if (str.charAt(i) == '3'){
+						
+						
+					}
+					
+					else if (str.charAt(i) == '4'){
+						
+						
+					}
+					
+					else if (str.charAt(i) == '9'){
+						
+						
+					}
+					
+					
+					
+					
+					
+				}
 				
 				}
 				return;
