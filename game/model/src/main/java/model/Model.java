@@ -58,10 +58,10 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadMessage(final String key) {
+	public void Mappy() {
 		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setMessage(daoHelloWorld.find(key).getMessage());
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			this.setMap(daoMap.find(1).getMap());
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -82,5 +82,10 @@ public class Model extends Observable implements IModel {
 
 	public IMap getMap() {
 		return map;
+	}
+
+	public IEntity getFireball() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -82,4 +82,9 @@ abstract class DAOEntity<E extends Entity> {
 	 */
 	public abstract E find(String key);
 
+	public void LoadMap(Map entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
