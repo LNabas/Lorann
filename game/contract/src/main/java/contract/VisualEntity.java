@@ -1,5 +1,9 @@
 package contract;
-
+/**
+ * a "Cosmetic" type
+ * @author Doc0160
+ *
+ */
 public enum VisualEntity {
 	PAUL,
 	PIERRE,
