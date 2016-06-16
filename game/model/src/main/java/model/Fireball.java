@@ -6,23 +6,16 @@ package model;
 import java.util.ArrayList;
 import contract.IEntity;
 import contract.Permeability;
+import contract.VisualEntity;
 
 /**
  * @author Maxence
  *
  */
 public class Fireball extends Entity{
-	
-	
-	public void Fire_direction(){
-		
-		
-		
-	}
 
 	public boolean hit() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y) {
@@ -53,5 +46,10 @@ public class Fireball extends Entity{
 	public void setY(int y) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public VisualEntity getVisualType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

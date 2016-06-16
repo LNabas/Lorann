@@ -28,7 +28,7 @@ public class Demon extends Entity{
 	}
 
 	public void die() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
