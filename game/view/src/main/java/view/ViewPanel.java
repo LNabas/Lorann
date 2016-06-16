@@ -101,9 +101,6 @@ class ViewPanel extends JPanel implements Observer {
 			return null;
 		}
 	}
-	public Menu getOptions(){
-		return menu_options;
-	}
 	/*
 	 * (non-Javadoc)
 	 *
