@@ -159,13 +159,13 @@ public class Controller implements IController {
 	}
 	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
-		view.getMenu().changeButtonState(posMenuOpt, ButtonState.CLICKED);
+		view.getMenu().changeButtonState(posMenuOpt, ButtonState.NORMAL);
 		switch(controllerOrder){
 		case UP:
-			posMenuOpt++;
+			posMenuOpt--;
 			break;
 		case DOWN:
-			posMenuOpt--;
+			posMenuOpt++;
 			break;
 		case SPACE:
 			break;
