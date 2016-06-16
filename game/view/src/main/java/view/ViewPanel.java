@@ -154,5 +154,6 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public void setState(States s) {
 		state=s;
+		this.repaint();
 	}
 }
