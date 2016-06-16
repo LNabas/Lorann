@@ -50,10 +50,5 @@ class Entity implements IEntity{
 	public TypeEntity getType() {
 		return TypeEntity.UNKOWN;
 	}
-	
-	public void reboot(){
-		
-		
-	}
 
 }

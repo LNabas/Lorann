@@ -36,4 +36,8 @@ public class Map extends IMap{
 	public IEntity getPlayer(){
 		
 	}
+
+	public void reboot(){
+				
+	}
 }
