@@ -12,7 +12,7 @@ import contract.IMap;
  *
  */
 public class Map extends FAILEntity implements IMap{
-	private ArrayList<ArrayList<IEntity>> map;
+	private ArrayList<ArrayList<IEntity>> map = new ArrayList<ArrayList<IEntity>>();
 
 	public IEntity get(int x, int y) {
 		return map.get(x).get(y);
@@ -21,7 +21,7 @@ public class Map extends FAILEntity implements IMap{
 		if(x>getWidth()){
 			setWidth(x);
 		}if(x>getHeight()){
-			setHeight(x);
+			setHeight(y);
 		}
 		return map.get(x).set(y, e);
 	}
@@ -63,7 +63,7 @@ public class Map extends FAILEntity implements IMap{
 	}
 
 	public void setWidth(int x) {
-		for(int i = map.size(); i<x; i++){
+		for(int i = map.size(); i<=x; i++){
 			map.add(new ArrayList<IEntity>());
 		}
 		setHeight(getHeight());
@@ -71,7 +71,7 @@ public class Map extends FAILEntity implements IMap{
 
 	public void setHeight(int y) {
 		for(int i = 0; i<map.size(); i++){
-			for(int j = map.get(i).size(); j<y; j++){
+			for(int j = map.get(i).size(); j<=y; j++){
 				map.get(i).add(null);
 			}
 		}
