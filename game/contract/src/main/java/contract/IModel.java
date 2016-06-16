@@ -5,7 +5,7 @@ import java.util.Observable;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Doc0160
  */
 public interface IModel {
 
@@ -15,11 +15,27 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
-	
+	/**
+	 * Is it necessary ?
+	 * @return Fireball
+	 */
 	IEntity getFireball();
+	/**
+	 * Is it necessary ?
+	 * @return Player
+	 */
 	IEntity getPlayer();
+	/**
+	 * Return the entire map
+	 * @return Map
+	 */
 	IMap getMap();
-
+	/**
+	 * Load next maps
+	 */
 	void LoadNextMap();
+	/**
+	 * Reload a fresh instance of the current map
+	 */
 	void RealoadMap();
 }
