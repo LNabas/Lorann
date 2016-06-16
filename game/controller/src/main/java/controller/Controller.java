@@ -45,8 +45,7 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		//this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
-	}
+		}
 
 	/**
 	 * Sets the view.
@@ -160,7 +159,7 @@ public class Controller implements IController {
 	}
 	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
-		view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
+		view.getMenu().changeButtonState(posMenuOpt, ButtonState.CLICKED);
 		switch(controllerOrder){
 		case UP:
 			posMenuOpt++;
@@ -182,7 +181,7 @@ public class Controller implements IController {
 		else if(posMenuOpt > 3){
 			posMenuOpt = 0;
 		}
-		view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
+		view.getMenu().changeButtonState(posMenuOpt, ButtonState.CLICKED);
 
 	}
 	public void orderPerform(final ControllerOrder controllerOrder) {
