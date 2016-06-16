@@ -118,7 +118,7 @@ class ViewPanel extends JPanel implements Observer {
 			draw(menu_options.getImage(), graphics);
 		    break;    
 		case GAME:
-			draw(new Map(ressources).getImage(), graphics);
+			//draw(new Map(ressources, new Map()).getImage(), graphics);
 			break;
 		default:
 			break;

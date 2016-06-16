@@ -4,17 +4,16 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import contract.IMap;
 import contract.VisualEntity;
-import contract.tEsTMap;
 /**
  * Graphical Map
  * @author Doc0160
  *
  */
 public class Map extends GraphicsBuilder{
-	@SuppressWarnings("unused")
 	private IMap map;
-	public Map(RessourcesLoader r) {
+	public Map(RessourcesLoader r, IMap map) {
 		super(r);
+		this.map = map;
 	}
 	public void setMap(IMap m){
 		map = m;
@@ -33,7 +32,7 @@ public class Map extends GraphicsBuilder{
 		pierre.getGraphics().drawImage(ressources.getSprite("Pierre"), 0, 0, null);
 		BufferedImage purse = ressources.getSpriteCopy("Sol");
 		purse.getGraphics().drawImage(ressources.getSprite("Purse"), 0, 0, null);
-		tEsTMap m = new tEsTMap();
+		/*tEsTMap m = new tEsTMap();
 		setSize(paul.getWidth()*m.getWidth(), paul.getHeight()*m.getHeight());
 		for(int i = 0; i < m.getWidth(); i++){
 			for(int j = 0; j < m.getHeight(); j++){
@@ -53,7 +52,7 @@ public class Map extends GraphicsBuilder{
 					break;
 				}
 			}
-		}
+		}*/
 		/*int max = 10;
 		Random randomGenerator = new Random();
 		setSize(paul.getWidth()*max, paul.getHeight()*max);

@@ -22,4 +22,5 @@ public interface IMap {
 	public void setHeight(int y);
 	public int getXof(IEntity e);
 	public int getYof(IEntity e);
+	public void set(int x, int y, IEntity e);
 }
