@@ -6,6 +6,7 @@ import java.util.Random;
 
 import contract.IMap;
 import contract.TypeEntity;
+import contract.VisualEntity;
 import contract.tEsTMap;
 /**
  * Graphical Map
@@ -39,13 +40,15 @@ public class Map extends GraphicsBuilder{
 		setSize(paul.getWidth()*m.getWidth(), paul.getHeight()*m.getHeight());
 		for(int i = 0; i < m.getWidth(); i++){
 			for(int j = 0; j < m.getWidth(); j++){
-				TypeEntity t = m.get(i, j).getType();
-				//drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+				VisualEntity t = m.get(i, j).getVisualType();
 				switch(t){
 				case PAUL:
 					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
 					break;
-				case ITEMGOOD:
+				case PLAYER:
+					drawImage(henry, i*henry.getWidth(), j*henry.getHeight());
+					break;
+				case KEY:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
 					break;
 				default:

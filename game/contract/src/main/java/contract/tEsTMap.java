@@ -55,6 +55,11 @@ public class tEsTMap implements IMap{
 			// TODO Auto-generated method stub
 			
 		}
+
+		public VisualEntity getVisualType() {
+			// TODO Auto-generated method stub
+			return VisualEntity.KEY;
+		}
 		
 	}
 	private class Paul implements IEntity{
@@ -108,6 +113,11 @@ public class tEsTMap implements IMap{
 			// TODO Auto-generated method stub
 			
 		}
+
+		public VisualEntity getVisualType() {
+			// TODO Auto-generated method stub
+			return VisualEntity.PAUL;
+		}
 		
 	}
 	private class Sol implements IEntity{
@@ -160,8 +170,71 @@ public class tEsTMap implements IMap{
 			// TODO Auto-generated method stub
 			
 		}
+
+		public VisualEntity getVisualType() {
+			// TODO Auto-generated method stub
+			return VisualEntity.FLOOR;
+		}
 		
 	}
+	private class Player implements IEntity{
+
+		public boolean hit() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public void move(ArrayList<ArrayList<IEntity>> map, int x, int y) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public Permeability getPermeability() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public int getX() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		public int getY() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		public void setX(int x) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void setY(int y) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public boolean isAlive() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		public TypeEntity getType() {
+			return TypeEntity.PLAYER;
+		}
+
+		public void die() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public VisualEntity getVisualType() {
+			// TODO Auto-generated method stub
+			return VisualEntity.PLAYER;
+		}
+		
+	}
+	
 	public tEsTMap(){
 		/*"*-----------------*
 		*------------------*
@@ -181,6 +254,7 @@ public class tEsTMap implements IMap{
 		}
 		map.get(5).set(2, new Item());
 		map.get(5).set(6, new Paul());
+		map.get(7).set(6, new Player());
 
 	}
 	public IEntity get(int x, int y) {
