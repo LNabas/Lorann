@@ -10,8 +10,5 @@ public enum TypeEntity{
 	DOOROPEN,
 	DOORCLOSE,
 	KEY,
-	PIERRE,
-	PAUL,
-	CHARLES,
-	HENRY
+	WALL,
 } ; 

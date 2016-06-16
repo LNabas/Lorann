@@ -101,7 +101,7 @@ public class tEsTMap implements IMap{
 
 		public TypeEntity getType() {
 			// TODO Auto-generated method stub
-			return TypeEntity.PAUL;
+			return TypeEntity.DEMON;
 		}
 
 		public void die() {
