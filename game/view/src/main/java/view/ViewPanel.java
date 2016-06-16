@@ -21,7 +21,7 @@ import jaco.mp3.player.MP3Player;
  */
 class ViewPanel extends JPanel implements Observer {
 	private States state = States.MENU;
-	private RessourcesLoader ressources;
+	public RessourcesLoader ressources;
 	/** The view frame. */
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
