@@ -34,21 +34,20 @@ public class Map extends FAILEntity implements IMap{
 	}
 
 	public void kill(int x, int y) {
-		// TODO Auto-generated method stub
-		
+		map.get(x).set(y, null);
 	}
 
 	public void move(int origin_x, int origin_y, int new_x, int new_y) {
-		// TODO Auto-generated method stub
 		
-	}
-
-	public void reload() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	public Object getMap() {
+		return map;
+	}
+
+	public IEntity getFireBall() {
 		// TODO Auto-generated method stub
 		return null;
 	}
