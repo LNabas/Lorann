@@ -176,7 +176,7 @@ public class Controller implements IController {
 			break;
 		}
 		if(posMenuOpt < 0){
-			posMenuOpt = 2;
+			posMenuOpt = 3;
 		}
 		else if(posMenuOpt > 3){
 			posMenuOpt = 0;
