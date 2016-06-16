@@ -14,6 +14,10 @@ public interface IView {
 	 *          the message
 	 */
 	void printMessage(final String message);
+	/**
+	 * set state
+	 * @param s state
+	 */
 	void setState(States s);
 	States getState();
 	IMenu getMenu();

@@ -130,7 +130,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @param model
 	 *          the model
-	 * @throws FontFormatException 
 	 */
 	private void buildViewFrame(final IModel model) {
 		this.setModel(model);
@@ -138,6 +137,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.addKeyListener(this);
 		try {
 			viewPanel = new ViewPanel(this);
+			this.setIconImage(viewPanel.ressources.getSprite("Paul"));
 			this.setContentPane(viewPanel);
 			this.setSize(400 + this.getInsets().left + this.getInsets().right, 
 				400 + this.getInsets().top + this.getInsets().bottom);

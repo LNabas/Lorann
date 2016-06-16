@@ -1,7 +1,17 @@
 package contract;
 
 public interface IMap {
+	/**
+	 * Get Entity in pos x,y
+	 * @param x pos x
+	 * @param y pos y
+	 * @return Entity
+	 */
 	public IEntity get(int x, int y);
+	/**
+	 * get Width
+	 * @return width
+	 */
 	public int getWidth();
 	public int getHeight();
 	public IEntity getPlayer();

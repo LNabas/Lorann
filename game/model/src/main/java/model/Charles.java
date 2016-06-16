@@ -1,5 +1,9 @@
 package model;
 
-public class Charles extends Demon {
+import contract.VisualEntity;
 
+public class Charles extends Demon {
+	public VisualEntity getVisualType(){
+			return VisualEntity.CHARLES;
+		}
 }
