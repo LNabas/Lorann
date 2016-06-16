@@ -4,13 +4,11 @@
 package model;
 
 import java.util.ArrayList;
-
 import contract.IEntity;
 import contract.IMap;
-import contract.VisualEntity;
 
 /**
- * @author Maxence
+ * @author Maxence, Doc0160
  *
  */
 public class Map extends FAILEntity implements IMap{
@@ -19,11 +17,17 @@ public class Map extends FAILEntity implements IMap{
 	public IEntity get(int x, int y) {
 		return map.get(x).get(y);
 	}
-
+	/**
+	 * get width
+	 * @return width
+	 */
 	public int getWidth() {
 		return map.size();
 	}
-
+	/**
+	 * get height
+	 * @return height
+	 */
 	public int getHeight() {
 		return map.get(0).size();
 	}
@@ -48,6 +52,41 @@ public class Map extends FAILEntity implements IMap{
 
 	public Object getMap() {
 		return map;
+	}
+
+	public void setWidth(int x) {
+		for(int i = map.size(); i<x; i++){
+			map.add(new ArrayList<IEntity>());
+		}
+		setHeight(getHeight());
+	}
+
+	public void setHeight(int y) {
+		for(int i = 0; i<map.size(); i++){
+			for(int j = map.get(i).size(); j<y; j++){
+				map.get(i).add(null);
+			}
+		}
+	}
+	public int getXof(IEntity e) {
+		for(int x = 0;x<getWidth(); x++){
+			for(int y = 0; y<getWidth(); y++){
+				if(map.get(x).get(y) == e){
+					return x;
+				}
+			}
+		}
+		return -1;
+	}
+	public int getYof(IEntity e) {
+		for(int x = 0;x<getWidth(); x++){
+			for(int y = 0; y<getWidth(); y++){
+				if(map.get(x).get(y) == e){
+					return y;
+				}
+			}
+		}
+		return -1;
 	}
 
 }

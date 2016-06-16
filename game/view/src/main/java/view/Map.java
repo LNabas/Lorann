@@ -2,10 +2,7 @@ package view;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.util.Random;
-
 import contract.IMap;
-import contract.TypeEntity;
 import contract.VisualEntity;
 import contract.tEsTMap;
 /**
@@ -39,7 +36,7 @@ public class Map extends GraphicsBuilder{
 		tEsTMap m = new tEsTMap();
 		setSize(paul.getWidth()*m.getWidth(), paul.getHeight()*m.getHeight());
 		for(int i = 0; i < m.getWidth(); i++){
-			for(int j = 0; j < m.getWidth(); j++){
+			for(int j = 0; j < m.getHeight(); j++){
 				VisualEntity t = m.get(i, j).getVisualType();
 				switch(t){
 				case PAUL:

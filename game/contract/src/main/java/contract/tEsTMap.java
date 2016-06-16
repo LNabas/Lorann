@@ -266,7 +266,7 @@ public class tEsTMap implements IMap{
 	}
 
 	public int getHeight() {
-		return 20;
+		return 12;
 	}
 
 	public IEntity getPlayer() {
@@ -287,6 +287,26 @@ public class tEsTMap implements IMap{
 	public void reload() {
 		// TODO Auto-generated method stub
 		
+	}
+	public IEntity getFireBall() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setWidth(int x) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setHeight(int y) {
+		// TODO Auto-generated method stub
+		
+	}
+	public int getXof(IEntity e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public int getYof(IEntity e) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
