@@ -31,14 +31,15 @@ public class DAOMap extends DAOEntity<Map> {
 		 * @see model.DAOEntity#create(model.Entity)
 		 */
 		@Override
-		public void LoadMap(final Map entity) {
+		public void LoadMap() {
 			try {
 				final String sql = "{call recup_map(?)}";
 				final CallableStatement call = this.getConnection().prepareCall(sql);
 				call.setInt(1, 1);
 				call.execute();
 				final ResultSet resultSet = call.getResultSet();
-				System.out.print(resultSet);
+				System.out.println("meh");
+				System.out.println(resultSet);
 				return;
 			} catch (final SQLException e) {
 				e.printStackTrace();

@@ -30,6 +30,7 @@ public class Model extends Observable implements IModel {
 			// * it's dangerous to go alone! Take this.
 				// https://www.youtube.com/watch?v=Eb6cGHK4_yc
 		this.message = "";
+		Mappy();
 	}
 
 	/*
@@ -37,8 +38,8 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage()
 	 */
-	public String getMessage() {
-		return this.message;
+	public IMap getMap() {
+		return this.map;
 	}
 
 	/**
@@ -47,8 +48,8 @@ public class Model extends Observable implements IModel {
 	 * @param message
 	 *          the new message
 	 */
-	private void setMessage(final String message) {
-		this.message = message;
+	private void setMap(final IMap map) {
+		this.map = map;
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -61,7 +62,8 @@ public class Model extends Observable implements IModel {
 	public void Mappy() {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setMap(daoMap.find(1).getMap());
+			daoMap.LoadMap();
+			//this.setMap(daoMap.find(1).getMap());
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
@@ -80,12 +82,18 @@ public class Model extends Observable implements IModel {
 		return getMap().getPlayer();
 	}
 
-	public IMap getMap() {
-		return map;
-	}
-
 	public IEntity getFireball() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void loadMessage(String key) {
+		// TODO Auto-generated method stub
+		
 	}
 }

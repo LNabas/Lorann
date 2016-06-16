@@ -7,41 +7,28 @@ import java.util.ArrayList;
 
 import contract.IEntity;
 import contract.IMap;
+import contract.VisualEntity;
 
 /**
  * @author Maxence
  *
  */
-public class Map extends Entity implements IMap{
-	public void kill(ArrayList<ArrayList<IEntity>> map, int x, int y){
-		
-		
-	}
-	
-	public void move(){
-		
-		
-	}
-	
-	public int getWidth() {
-		return 0;
-	}
-		
-	public int getHeight() {
-		return 0;
-	}
-	
-	
-	public IEntity getPlayer(){
-		return null;
-		
-	}
-
-	public void reboot(){
-				
-	}
+public class Map extends FAILEntity implements IMap{
+	private ArrayList<ArrayList<IEntity>> map;
 
 	public IEntity get(int x, int y) {
+		return map.get(x).get(y);
+	}
+
+	public int getWidth() {
+		return map.size();
+	}
+
+	public int getHeight() {
+		return map.get(0).size();
+	}
+
+	public IEntity getPlayer() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -60,4 +47,10 @@ public class Map extends Entity implements IMap{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public Object getMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

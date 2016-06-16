@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @param <E>
  *          the element type
  */
-abstract class DAOEntity<E extends Entity> {
+abstract class DAOEntity<E extends FAILEntity> {
 
 	/** The connection. */
 	private final Connection connection;
@@ -83,6 +83,11 @@ abstract class DAOEntity<E extends Entity> {
 	public abstract E find(String key);
 
 	public void LoadMap(Map entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void LoadMap() {
 		// TODO Auto-generated method stub
 		
 	}
