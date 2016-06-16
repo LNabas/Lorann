@@ -1,9 +1,12 @@
 package contract;
-
+/**
+ * Different states of the program
+ * @author Doc0160
+ *
+ */
 public enum States {
 	MENU,
 	MENU_OPTIONS,
-	MENU_QUIT,
 	GAME,
 	WIN,
 	LOSE,

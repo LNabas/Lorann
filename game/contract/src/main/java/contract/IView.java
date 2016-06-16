@@ -19,6 +19,10 @@ public interface IView {
 	 * @param s state
 	 */
 	void setState(States s);
+	/**
+	 * get state
+	 * @return States
+	 */
 	States getState();
 	IMenu getMenu();
 }

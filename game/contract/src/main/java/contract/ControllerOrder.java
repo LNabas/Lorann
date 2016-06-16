@@ -6,20 +6,42 @@ package contract;
  * @author Doc0160
  */
 public enum ControllerOrder {
-	// NOTE(doc):
-	// nothing 
+	/**
+	 * Nothing to do
+	 */
 	NULL,
-	// player moves
+	/**
+	 * player up
+	 */
 	UP,
+	/**
+	 * player down
+	 */
 	DOWN,
+	/**
+	 * player left
+	 */
 	LEFT,
+	/**
+	 * player right
+	 */
 	RIGHT,
-	// shoot
+	/**
+	 * play shoots a rainbow fireball
+	 */
 	RAINBOW_FIREBALL,
-	// emitted at certain interval
+	/**
+	 * game tick
+	 * emitted at regular interval
+	 */
 	TICK, 
+	/**
+	 * menu validation
+	 */
 	SPACE,
+	/**
+	 * return to previous menu
+	 */
 	RETURN,
-	//
 	
 }
