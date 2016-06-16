@@ -23,6 +23,7 @@ public interface IEntity {
 	public void setY(int y);
 	public boolean isAlive();
 	public TypeEntity getType();
+	public VisualEntity getVisualType();
 	public void die();
 	
 }
