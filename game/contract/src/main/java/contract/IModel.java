@@ -35,4 +35,6 @@ public interface IModel {
 	IMap getMap();
 
 	IEntity getFireball();
+	
+	void RealoadMap();
 }
