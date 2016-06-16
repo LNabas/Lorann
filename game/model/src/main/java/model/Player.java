@@ -13,7 +13,13 @@ public class Player extends Entity{
 	private int Lives = 11;
 	
 	public boolean isAlive() {
-		return true;
+		if(Lives >0){
+			return true;
+		}
+		else{
+			return false;
+		}
+		
 	}
 
 	public void die() {	
@@ -22,8 +28,7 @@ public class Player extends Entity{
 	}
 
 	public VisualEntity getVisualType() {
-		// TODO Auto-generated method stub
-		return null;
+		return VisualEntity.PLAYER;
 	}
 	
 	
