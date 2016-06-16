@@ -18,5 +18,12 @@
   		<artifactId>mysql-connector-java</artifactId>
   		<version>5.1.39</version>
   	</dependency>
+  	<dependency>
+  		<groupId>mariadb</groupId>
+         <artifactId>mariadb</artifactId>
+         <scope>system</scope>
+         <version>1.46</version>
+         <systemPath>${basedir}\src\lib\mariadb-java-client-1.4.6.jar</systemPath>
+  	</dependency>
   </dependencies>
 </project>
