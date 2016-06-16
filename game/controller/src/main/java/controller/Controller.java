@@ -98,16 +98,6 @@ public class Controller implements IController {
 		default:
 			break;
 		}
-		if(view.getMenu().getButonState(posMenu)==ButtonState.LOCKED){
-			switch(controllerOrder){
-			case UP:
-				posMenu--;
-				break;
-			case DOWN:
-				posMenu++;
-				break;
-			}
-		}
 		if(posMenu < 0){
 			posMenu = 2;
 		}
