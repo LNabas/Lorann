@@ -43,58 +43,61 @@ public class DAOMap extends DAOEntity<Map> {
 				String str = resultSet.getString("map");
 				System.out.println(resultSet.getString("map"));
 				Map map = new Map();
+				int ligne = 0;
+				int col = 0;
 				for(int i = 0 ; i<str.length(); i++){
-					if(str.charAt(i) == '*'){ 
-						
+					col++;
+					if(str.charAt(i) == '\n'){ 
+						ligne++;
+						col = 0;
 					}
-					else if (str.charAt(i) == '='){
+					//else if(str.charAt(i) == '*'){ 
+					//	
+					//}
+					//else if (str.charAt(i) == '='){
+					//	
+					//	
+					//}
+					//else if (str.charAt(i) == '|'){
+					//	map.set(col, ligne, new DoorOpen());
 						
-						
-					}
-					else if (str.charAt(i) == '|'){
-						
-						
-					}
+					//}
 					else if (str.charAt(i) == 'P'){
-						
+						map.set(col, ligne, new DoorOpen());
 						
 					}
 					
 					
 					else if (str.charAt(i) == 'C'){
-						
+						map.set(col, ligne, new Charles());
 						
 					}
 					
 					
 					else if (str.charAt(i) == 'G'){
-						
+						map.set(col, ligne, new ItemGood());
 						
 					}
 					
 					else if (str.charAt(i) == 'F'){
-						
+						map.set(col, ligne, new ItemGood());
 						
 					}
 					
 					else if (str.charAt(i) == '3'){
-						
+						map.set(col, ligne, new Pierre());
 						
 					}
 					
 					else if (str.charAt(i) == '4'){
-						
+						map.set(col, ligne, new Paul());
 						
 					}
 					
 					else if (str.charAt(i) == '9'){
-						
+						map.set(col, ligne, new Henry());
 						
 					}
-					
-					
-					
-					
 					
 				}
 				
