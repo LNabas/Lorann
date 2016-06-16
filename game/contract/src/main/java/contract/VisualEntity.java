@@ -12,4 +12,5 @@ public enum VisualEntity {
 	VERTICAL_BONE,
 	HORIZONTAL_BONE,
 	STONE,
+	FLOOR,
 }

@@ -24,6 +24,7 @@ public class Controller implements IController {
 	private int posMenu = 0;
 	private int xFireBall = 0;
 	private int yFireBall = 0;
+	private boolean munFireBall = true;
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -142,7 +143,11 @@ public class Controller implements IController {
 				this.model.loadMessage("ID");
 				break;
 			case RAINBOW_FIREBALL:
+				if (munFireBall){ 
+				munFireBall = false ;
 				checkCaseFireBall(model.getFireball(), xFireBall, yFireBall);
+				}
+				else{}
 				break;
 			case RETURN:
 				view.setState(States.MENU);
@@ -235,7 +240,6 @@ public class Controller implements IController {
 			case PERMEABLE:
 				model.getFireball().setY(target_entity.getY());
 				model.getFireball().setX(target_entity.getX());
-				checkCaseFireBall(entity, offset_x, offset_y);
 				break;
 			case IMPERMEABLE:
 				if(target_entity.hit()){
@@ -245,12 +249,10 @@ public class Controller implements IController {
 					if (offset_x == 1 || offset_y == 1 || offset_x == -1 || offset_y == -1 ){
 						offset_x *= -1;
 						offset_y *= -1;
-						checkCaseFireBall(entity, offset_x, offset_y);
 				}
 				}
 				break;
 			default:
-				checkCaseFireBall(entity, offset_x, offset_y);
 				break;
 		}
 		
