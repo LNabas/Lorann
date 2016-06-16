@@ -35,6 +35,7 @@ public class Map implements IMap{
 	
 	
 	public IEntity getPlayer(){
+		return null;
 		
 	}
 
