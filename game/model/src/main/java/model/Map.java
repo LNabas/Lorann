@@ -12,7 +12,7 @@ import contract.IMap;
  * @author Maxence
  *
  */
-public class Map implements IMap{
+public class Map extends IMap{
 	public void kill(ArrayList<ArrayList<IEntity>> map, int x, int y){
 		
 		
