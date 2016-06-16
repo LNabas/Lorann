@@ -98,6 +98,16 @@ public class Controller implements IController {
 		default:
 			break;
 		}
+		if(view.getMenu().getButonState(posMenu)==ButtonState.LOCKED){
+			switch(controllerOrder){
+			case UP:
+				posMenu--;
+				break;
+			case DOWN:
+				posMenu++;
+				break;
+			}
+		}
 		if(posMenu < 0){
 			posMenu = 2;
 		}
@@ -160,7 +170,7 @@ public class Controller implements IController {
 	}
 	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
-		
+		view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
 		switch(controllerOrder){
 		case UP:
 			posMenuOpt++;
@@ -182,6 +192,7 @@ public class Controller implements IController {
 		else if(posMenuOpt > 3){
 			posMenuOpt = 0;
 		}
+		view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
 
 	}
 	public void orderPerform(final ControllerOrder controllerOrder) {
