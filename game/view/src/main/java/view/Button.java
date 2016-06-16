@@ -76,5 +76,8 @@ public class Button extends GraphicsBuilder{
 	public int getHeight(){
 		return bufferImage.getHeight();
 	}
+	public ButtonState getState() {
+		return state;
+	}
 	
 }

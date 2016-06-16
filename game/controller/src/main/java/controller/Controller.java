@@ -25,6 +25,7 @@ public class Controller implements IController {
 	private int xFireBall = 0;
 	private int yFireBall = 0;
 	private boolean munFireBall = true;
+	private int posMenuOpt = 0;
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -97,6 +98,16 @@ public class Controller implements IController {
 		default:
 			break;
 		}
+		if(view.getMenu().getButonState(posMenu)==ButtonState.LOCKED){
+			switch(controllerOrder){
+			case UP:
+				posMenu--;
+				break;
+			case DOWN:
+				posMenu++;
+				break;
+			}
+		}
 		if(posMenu < 0){
 			posMenu = 2;
 		}
@@ -159,14 +170,13 @@ public class Controller implements IController {
 	}
 	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
-		int posMenu = 0;
-		
+		view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
 		switch(controllerOrder){
 		case UP:
-			posMenu++;
+			posMenuOpt++;
 			break;
 		case DOWN:
-			posMenu--;
+			posMenuOpt--;
 			break;
 		case SPACE:
 			break;
@@ -176,12 +186,13 @@ public class Controller implements IController {
 		default:
 			break;
 		}
-		if(posMenu < 0){
-			posMenu = 2;
+		if(posMenuOpt < 0){
+			posMenuOpt = 2;
 		}
-		else if(posMenu > 2){
-			posMenu = 0;
+		else if(posMenuOpt > 3){
+			posMenuOpt = 0;
 		}
+		view.getMenu().changeButtonState(posMenu, ButtonState.CLICKED);
 
 	}
 	public void orderPerform(final ControllerOrder controllerOrder) {
