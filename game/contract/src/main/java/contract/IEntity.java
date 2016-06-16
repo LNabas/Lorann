@@ -24,6 +24,5 @@ public interface IEntity {
 	public boolean isAlive();
 	public TypeEntity getType();
 	public void die();
-	public void reboot();
 	
 }

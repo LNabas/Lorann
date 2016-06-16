@@ -1,6 +1,11 @@
-LockedButton:LockedButton
-NormalButton:NormalButton
-ClickedButton:ClickedButton
-Logo:Logo
-Sol:sol
-Paul:paul
+LockedButton:LockedButton.png
+NormalButton:NormalButton.png
+ClickedButton:ClickedButton.png
+Logo:Logo.png
+Sol:sol.png
+Paul:paul.png
+Henry:Henry.png
+DO:gate_open.png
+DC:gate_closed.png
+Pierre:Pierre.png
+Purse:purse.png
