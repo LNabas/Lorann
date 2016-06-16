@@ -231,6 +231,28 @@ public class Controller implements IController {
 			int posy = model.getFireball().getY();
 			IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
 			Permeability permeability = target_entity.getPermeability();
+			switch(permeability){
+			case PERMEABLE:
+				model.getFireball().setY(target_entity.getY());
+				model.getFireball().setX(target_entity.getX());
+				checkCaseFireBall(entity, offset_x, offset_y);
+				break;
+			case IMPERMEABLE:
+				if(target_entity.hit()){
+					target_entity.die();
+				}
+				else{
+					if (offset_x == 1 || offset_y == 1 || offset_x == -1 || offset_y == -1 ){
+						offset_x *= -1;
+						offset_y *= -1;
+						checkCaseFireBall(entity, offset_x, offset_y);
+				}
+				}
+				break;
+			default:
+				checkCaseFireBall(entity, offset_x, offset_y);
+				break;
+		}
 		
 	}
 }
