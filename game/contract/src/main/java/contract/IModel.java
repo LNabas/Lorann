@@ -33,4 +33,6 @@ public interface IModel {
 	
 	IEntity getPlayer();
 	IMap getMap();
+
+	IEntity getFireball();
 }

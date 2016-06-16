@@ -22,6 +22,8 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 	private int posMenu = 0;
+	private int xFireBall = 0;
+	private int yFireBall = 0;
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -104,24 +106,43 @@ public class Controller implements IController {
 	view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
 	}
 	private void orderPerformJeu(final ControllerOrder controllerOrder){
-		switch (controllerOrder) {
-			case UP:
-				checkCase(model.getPlayer(), 0, -1);
-				break;
-			case DOWN:
-				checkCase(model.getPlayer(), 0, 1);
-				break;
-			case LEFT:
-				checkCase(model.getPlayer(), 1, 0);
+		switch(controllerOrder){
+			case UP :
+				xFireBall = 0;
+				yFireBall = -1;
 				break;
 			case RIGHT:
-				checkCase(model.getPlayer(), -1, 0);
+				xFireBall = -1;
+				yFireBall = 0;
+				break;
+			case LEFT:
+				xFireBall = 1;
+				yFireBall = 0;
+			case DOWN:
+				xFireBall = 0;
+				yFireBall = 1;
+				break;
+			default:
+				break;
+		}
+		switch (controllerOrder) {
+			case UP:
+				checkCasePlayer(model.getPlayer(), 0, -1);
+				break;
+			case DOWN:
+				checkCasePlayer(model.getPlayer(), 0, 1);
+				break;
+			case LEFT:
+				checkCasePlayer(model.getPlayer(), 1, 0);
+				break;
+			case RIGHT:
+				checkCasePlayer(model.getPlayer(), -1, 0);
 				break;
 			case TICK:
 				this.model.loadMessage("ID");
 				break;
 			case RAINBOW_FIREBALL:
-				checkCase(model.getPlayer(), -1, 0);
+				checkCaseFireBall(model.getFireball(), xFireBall, yFireBall);
 				break;
 			case RETURN:
 				view.setState(States.MENU);
@@ -173,7 +194,7 @@ public class Controller implements IController {
 		}
 	}
 	
-	public void checkCase(IEntity entity, int offset_x, int offset_y){
+	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
 		int posx = model.getPlayer().getX();
 		int posy = model.getPlayer().getY();
 		IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
@@ -202,6 +223,14 @@ public class Controller implements IController {
 			default:
 				break;
 		}
+		
+	}
+	
+	   public void checkCaseFireBall(IEntity entity, int offset_x, int offset_y){
+		   int posx = model.getFireball().getX();
+			int posy = model.getFireball().getY();
+			IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
+			Permeability permeability = target_entity.getPermeability();
 		
 	}
 }
