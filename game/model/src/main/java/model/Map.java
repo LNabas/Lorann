@@ -28,6 +28,11 @@ public class Map extends FAILEntity implements IMap{
 		return map.get(0).size();
 	}
 
+	public IEntity getFireBall() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public IEntity getPlayer() {
 		// TODO Auto-generated method stub
 		return null;
@@ -38,18 +43,11 @@ public class Map extends FAILEntity implements IMap{
 	}
 
 	public void move(int origin_x, int origin_y, int new_x, int new_y) {
-		
-		// TODO Auto-generated method stub
-		
+		map.get(new_x).set(new_y, map.get(origin_x).get(origin_y));map.get(origin_x).set(origin_y, null);
 	}
 
 	public Object getMap() {
 		return map;
-	}
-
-	public IEntity getFireBall() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
