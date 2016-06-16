@@ -38,8 +38,10 @@ public class DAOMap extends DAOEntity<Map> {
 				call.setInt(1, 1);
 				call.execute();
 				final ResultSet resultSet = call.getResultSet();
-				System.out.println("meh");
-				System.out.println(resultSet);
+				if (resultSet.first()) {
+				System.out.println(resultSet.getString("map"));
+				
+				}
 				return;
 			} catch (final SQLException e) {
 				e.printStackTrace();
