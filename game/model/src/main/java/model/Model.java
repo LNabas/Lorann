@@ -30,6 +30,7 @@ public class Model extends Observable implements IModel {
 			// * it's dangerous to go alone! Take this.
 				// https://www.youtube.com/watch?v=Eb6cGHK4_yc
 		this.message = "";
+		Mappy();
 	}
 
 	/*

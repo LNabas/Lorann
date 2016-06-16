@@ -28,7 +28,7 @@ public class Demon extends Entity{
 	}
 
 	public void die() {
-		
+		kill(getX(), getY());
 		
 	}
 	
