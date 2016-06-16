@@ -20,7 +20,8 @@ public class Map extends FAILEntity implements IMap{
 	public IEntity set(int x, int y, IEntity e) {
 		if(x>getWidth()){
 			setWidth(x);
-		}if(x>getHeight()){
+		}
+		if(y>getHeight()){
 			setHeight(y);
 		}
 		return map.get(x).set(y, e);
