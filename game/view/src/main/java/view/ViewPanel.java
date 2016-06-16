@@ -92,7 +92,14 @@ class ViewPanel extends JPanel implements Observer {
 	}
 	
 	public Menu getMenu(){
-		return menu_principal;
+		switch(state){
+		case MENU:
+			return menu_principal;
+		case MENU_OPTIONS:
+			return menu_options;
+		default:
+			return null;
+		}
 	}
 	public Menu getOptions(){
 		return menu_options;
