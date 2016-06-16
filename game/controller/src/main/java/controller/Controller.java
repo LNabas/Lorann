@@ -72,6 +72,7 @@ public class Controller implements IController {
 	 * https://www.youtube.com/watch?v=FQiyOuqrk68
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
+	
 	private void orderPerformMenu(final ControllerOrder controllerOrder){
 		System.out.println(controllerOrder);
 		view.getMenu().changeButtonState(posMenu+1, ButtonState.NORMAL);
