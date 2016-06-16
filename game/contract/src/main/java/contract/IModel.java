@@ -10,31 +10,16 @@ import java.util.Observable;
 public interface IModel {
 
 	/**
-	 * Gets the message.
-	 *
-	 * @return the message
-	 */
-	String getMessage();
-
-	/**
-	 * Load the message.
-	 *
-	 * @param key
-	 *          the key
-	 */
-	void loadMessage(String key);
-
-	/**
 	 * Gets the observable.
 	 *
 	 * @return the observable
 	 */
 	Observable getObservable();
 	
+	IEntity getFireball();
 	IEntity getPlayer();
 	IMap getMap();
 
-	IEntity getFireball();
-	
+	void LoadNextMap();
 	void RealoadMap();
 }
