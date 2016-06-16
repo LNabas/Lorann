@@ -3,6 +3,8 @@
  */
 package model;
 
+import contract.VisualEntity;
+
 /**
  * @author Maxence
  *
@@ -10,5 +12,10 @@ package model;
 public class ItemBad extends Item{
 	public boolean hit(){
 		return true;
+	}
+	
+
+	public VisualEntity getVisualType() {
+		return VisualEntity.ITEMBAD;
 	}
 }

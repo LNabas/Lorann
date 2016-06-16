@@ -15,8 +15,4 @@ public class Item extends Entity{
 		return Permeability.PERMEABLE;
 	}
 
-	public VisualEntity getVisualType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

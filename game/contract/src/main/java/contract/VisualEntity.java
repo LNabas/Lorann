@@ -13,5 +13,7 @@ public enum VisualEntity {
 	HORIZONTAL_BONE,
 	STONE,
 	FLOOR,
-	FIREBALL
+	FIREBALL,
+	ITEMGOOD,
+	ITEMBAD,
 }
