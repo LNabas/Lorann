@@ -17,6 +17,9 @@ public class Map extends FAILEntity implements IMap{
 	public IEntity get(int x, int y) {
 		return map.get(x).get(y);
 	}
+	public IEntity get(int x, int y, IEntity e) {
+		return map.get(x).set(y, e);
+	}
 	/**
 	 * get width
 	 * @return width

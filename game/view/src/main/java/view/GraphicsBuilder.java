@@ -59,6 +59,6 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 		x -= metrics.stringWidth(s)/2;
 		// TODO(doc): correct that
 		y += metrics.getHeight()/4;
-		drawString( s, x, y, f);
+		drawString(s, x, y, f);
 	}
 }
