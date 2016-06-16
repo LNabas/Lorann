@@ -7,6 +7,6 @@ package model;
  * @author Maxence
  *
  */
-public class Door extends Entity{
+public abstract class Door extends Entity{
  
 }

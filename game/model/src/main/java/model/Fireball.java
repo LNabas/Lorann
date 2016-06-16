@@ -14,42 +14,37 @@ import contract.VisualEntity;
  */
 public class Fireball extends Entity{
 
+	private int X = 0;
+	private int Y = 0;
 	public boolean hit() {
 		return true;
 	}
 
 	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public Permeability getPermeability() {
-		// TODO Auto-generated method stub
-		return null;
+		return Permeability.PERMEABLE;
 	}
 
 	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
+		return X;
 	}
 
 	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Y;
 	}
 
 	public void setX(int x) {
-		// TODO Auto-generated method stub
-		
+		X=x;
 	}
 
 	public void setY(int y) {
-		// TODO Auto-generated method stub
-		
+		Y=y;
 	}
 
 	public VisualEntity getVisualType() {
-		// TODO Auto-generated method stub
-		return null;
+		return VisualEntity.FIREBALL;
 	}
 }
