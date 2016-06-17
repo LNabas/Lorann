@@ -13,7 +13,7 @@ import contract.IModel;
  * @author somebody maybe
  */
 public class Model extends Observable implements IModel {
-	private int lvl=7;
+	private int lvl=1;
 	/** The message. */
 	private String message;
 	private IMap map;
