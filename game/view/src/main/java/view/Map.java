@@ -11,11 +11,19 @@ import contract.VisualEntity;
  */
 public class Map extends GraphicsBuilder{
 	private IMap map;
+	private boolean need_update = true;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
 	}
+	public void setMap(IMap m){
+		if(m!=map){
+			need_update = true;
+			map=m;
+		}
+	}
 	public Image getImage() {
+		if(need_update){
 		BufferedImage sol = ressources.getSpriteCopy("Sol");
 		BufferedImage paul = ressources.getSpriteCopy("Sol");
 		paul.getGraphics().drawImage(ressources.getSprite("Paul"), 0, 0, null);
@@ -35,9 +43,12 @@ public class Map extends GraphicsBuilder{
 		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
 		for(int i = 0; i < map.getWidth(); i++){
 			for(int j = 0; j < map.getHeight(); j++){
-				VisualEntity t = null;
+				VisualEntity t = VisualEntity.FLOOR;
 				if(map.get(i, j) != null){
 					t = map.get(i, j).getVisualType();
+					if(t==null){
+						t = VisualEntity.FLOOR;
+					}
 				}
 				switch(t){
 				case PAUL:
@@ -54,6 +65,9 @@ public class Map extends GraphicsBuilder{
 					break;
 				}
 			}
+		}
+		need_update = false;
+		System.out.println("u");
 		}
 		return bufferImage;
 	}

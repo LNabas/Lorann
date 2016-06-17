@@ -28,6 +28,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long	serialVersionUID	= -998294702363713521L;
 	public Menu menu_principal;
 	public Menu menu_options; 
+	public Map map;
 	public MP3Player music;
 
 	/**
@@ -60,6 +61,7 @@ class ViewPanel extends JPanel implements Observer {
 				 .addButton("2", new Button(ressources).setText("Meh"))
 				 .addButton("3", new Button(ressources).setText("OH YEAH"))
 				 .addButton("4", new Button(ressources).setText("DUCK GOD"));
+		 map = new Map(ressources, this.viewFrame.getModel().getMap());
 	}
 
 	/**
@@ -118,7 +120,7 @@ class ViewPanel extends JPanel implements Observer {
 			draw(menu_options.getImage(), graphics);
 		    break;    
 		case GAME:
-			draw(new Map(ressources, this.viewFrame.getModel().getMap()).getImage(), graphics);
+			draw(map.getImage(), graphics);
 			break;
 		default:
 			break;
