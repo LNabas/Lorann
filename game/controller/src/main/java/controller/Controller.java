@@ -164,7 +164,6 @@ public class Controller implements IController {
 				if (munFireBall){ 
 				munFireBall = false ;
 				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
-				checkCaseFireBall(model.getFireball(), xFireBall, yFireBall);
 				}
 				else{}
 				break;
