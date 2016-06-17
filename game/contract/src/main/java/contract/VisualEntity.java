@@ -20,4 +20,5 @@ public enum VisualEntity {
 	FIREBALL,
 	ITEMGOOD,
 	ITEMBAD,
+	SKULL,
 }

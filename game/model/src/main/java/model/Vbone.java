@@ -1,5 +1,9 @@
 package model;
 
-public class Vbone extends decoration {
+import contract.VisualEntity;
 
+public class Vbone extends decoration {
+	public VisualEntity getVisualType() {
+		return VisualEntity.VERTICAL_BONE;
+	}
 }
