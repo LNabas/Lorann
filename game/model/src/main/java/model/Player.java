@@ -35,4 +35,8 @@ public class Player extends Entity{
 	public TypeEntity getType(){
 		return TypeEntity.PLAYER;
 	}
+	
+	public void setLive(int live){
+		Lives = live;
+	}
 }

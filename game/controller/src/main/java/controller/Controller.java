@@ -153,7 +153,9 @@ public class Controller implements IController {
 				{
 					for(int y = 0; y<model.getMap().getHeight();y++)
 					{
+						if(model.getMap().get(x, y) != null){
 						model.getMap().get(x, y).move(model.getMap(), x, y);//TODO modifier plus tard.
+						}
 					}
 					
 				}
@@ -252,9 +254,10 @@ public class Controller implements IController {
 				if(target_entity.hit()){
 					entity.die();
 					if(entity.isAlive()){
-						//Refresh
+						model.Mappy();
 					}
 					else{
+						model.getPlayer().setLive(11);
 						view.setState(States.MENU);
 					}
 				}

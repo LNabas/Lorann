@@ -40,4 +40,5 @@ public interface IModel {
 	void RealoadMap();
 	void setDifficulty(int posMenuOpt);
 	void ForceRedraw();
+	void Mappy();
 }
