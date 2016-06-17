@@ -163,7 +163,7 @@ public class Controller implements IController {
 			case RAINBOW_FIREBALL:
 				if (munFireBall){ 
 				munFireBall = false ;
-				model.getMap().set(model.getPlayer().getX() + xFireBall,model.getPlayer().getX() + yFireBall,new Fireball());
+				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getX() + yFireBall);
 				checkCaseFireBall(model.getFireball(), xFireBall, yFireBall);
 				}
 				else{}
