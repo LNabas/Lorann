@@ -113,10 +113,11 @@ public class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		if((new Date().getTime()-ts.getTime())>6000){
+		if((new Date().getTime()-ts.getTime())>500){
 			if(this.viewFrame.getController()!=null){
 				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 			}
+			ts = new Date();
 			System.out.println("tick");
 		}
 		SwingUtilities.invokeLater(this);
