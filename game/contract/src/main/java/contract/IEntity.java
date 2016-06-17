@@ -40,8 +40,11 @@ public interface IEntity {
 	public int getY();
 	public void setX(int x);
 	public void setY(int y);
-	public void die();
+	public void die(IMap map);
 	public void setLive(int live);
 	public void set_turn(int t);
+	public boolean hasFB();
+	public void LooseFB();
+	public void GainFB();
 	
 }

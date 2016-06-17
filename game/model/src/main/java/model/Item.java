@@ -3,7 +3,9 @@
  */
 package model;
 
+import contract.IMap;
 import contract.Permeability;
+import contract.TypeEntity;
 import contract.VisualEntity;
 
 /**
@@ -21,6 +23,16 @@ public class Item extends Entity{
 	}
 
 	public void setLive(int live) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public TypeEntity getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void die(IMap map) {
 		// TODO Auto-generated method stub
 		
 	}

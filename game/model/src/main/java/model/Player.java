@@ -3,6 +3,7 @@
  */
 package model;
 
+import contract.IMap;
 import contract.TypeEntity;
 import contract.VisualEntity;
 
@@ -12,20 +13,14 @@ import contract.VisualEntity;
  */
 public class Player extends Entity{
 	private int Lives = 11;
+	private boolean fb=true;
 	
 	public boolean isAlive() {
-		if(Lives >0){
-			return true;
-		}
-		else{
-			return false;
-		}
-		
+		return Lives >0;
 	}
 
 	public void die() {	
-		Lives = Lives - 1;
-		
+		Lives--;
 	}
 
 	public VisualEntity getVisualType() {
@@ -38,5 +33,19 @@ public class Player extends Entity{
 	
 	public void setLive(int live){
 		Lives = live;
+	}
+	public boolean hasFB() {
+		return fb;
+	}
+	public void LooseFB() {
+		fb=false;
+	}
+	public void GainFB() {
+		fb=true;
+	}
+
+	public void die(IMap map) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -5,6 +5,7 @@ package model;
 
 import java.util.Random;
 import contract.IMap;
+import contract.TypeEntity;
 
 /**
  * PPCH
@@ -35,14 +36,17 @@ public abstract class Demon extends Entity{
 		return true;
 	}
 
-	public void die() {
-		//kill(getX(), getY());
-		
+	public void die(IMap map) {
+		map.kill(getX(), getY());
 	}
 
 	public void setLive(int live) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public TypeEntity getType() {
+		return TypeEntity.DEMON;
 	}
 	
 }

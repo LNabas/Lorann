@@ -3,6 +3,8 @@
  */
 package model;
 
+import contract.IMap;
+import contract.TypeEntity;
 import contract.VisualEntity;
 
 /**
@@ -16,5 +18,15 @@ public class DoorClose extends Door{
 
 	public VisualEntity getVisualType() {
 		return VisualEntity.DOOR_CLOSED;
+	}
+
+	public TypeEntity getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void die(IMap map) {
+		// TODO Auto-generated method stub
+		
 	}
 }

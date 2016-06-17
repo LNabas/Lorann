@@ -49,10 +49,6 @@ abstract class Entity implements IEntity{
 	}
 
 	public void die() {	}
-
-	public TypeEntity getType() {
-		return TypeEntity.UNKOWN;
-	}
 	public void move(IMap map, int x, int y){
 		
 	}
@@ -65,5 +61,17 @@ abstract class Entity implements IEntity{
 	public void set_turn(int t){
 		old_turn = turn;
 		turn = t;
+	}
+	public boolean hasFB() {
+		return false;
+		
+	}
+	public void LooseFB() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void GainFB() {
+		// TODO Auto-generated method stub
+		
 	}
 }

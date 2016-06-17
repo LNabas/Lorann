@@ -3,8 +3,10 @@
  */
 package model;
 
+import contract.IEntity;
 import contract.IMap;
 import contract.Permeability;
+import contract.TypeEntity;
 import contract.VisualEntity;
 
 /**
@@ -32,7 +34,22 @@ public class Fireball extends Entity{
 	public void move(IMap map, int x, int y){
 		if(old_turn != turn){
 			if(x<map.getWidth() && y < map.getHeight()){
-				if(map.get(x+ox, y+oy)==null || map.get(x+ox, y+oy).getPermeability() == Permeability.PERMEABLE){
+				IEntity e = map.get(x+ox, y+oy);
+				if(e!=null){
+					switch(e.getType()){
+					case DEMON:
+						map.kill(x+ox, y+oy);
+						map.kill(x, y);
+						map.getPlayer().GainFB();
+						break;
+					case PLAYER:
+						map.kill(x, y);
+						map.getPlayer().GainFB();
+						break;
+					default:
+						break;
+					}
+				}else if(e==null || e.getPermeability() == Permeability.PERMEABLE){
 					map.move(x, y, x+ox, y+oy);
 				}else{
 					ox*=+1;
@@ -40,5 +57,12 @@ public class Fireball extends Entity{
 				}
 			}
 		}
+	}
+	public void die(IMap map) {
+		// TODO Auto-generated method stub
+		
+	}
+	public TypeEntity getType() {
+		return TypeEntity.RFB;
 	}
 }

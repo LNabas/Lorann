@@ -25,7 +25,6 @@ public class Controller implements IController {
 	private int posMenu = 0;
 	private int xFireBall = 0;
 	private int yFireBall = 0;
-	private boolean munFireBall = true;
 	private int posMenuOpt = 0;
 	/**
 	 * Instantiates a new controller.
@@ -130,6 +129,7 @@ public class Controller implements IController {
 		default:
 			break;
 		}
+		IEntity p;
 		switch (controllerOrder) {
 		case UP:
 			checkCasePlayer(model.getPlayer(), 0, -1);
@@ -155,8 +155,9 @@ public class Controller implements IController {
 			turn++;
 			break;
 		case RAINBOW_FIREBALL:
-			if (munFireBall){ 
-				munFireBall = false ;
+			p = model.getMap().getPlayer();
+			if (p.hasFB()){ 
+				p.LooseFB();
 				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
 			}
 			else{}
@@ -225,7 +226,6 @@ public class Controller implements IController {
 	 * @param offset_x type int
 	 * @param offset_y type int
 	 */
-	
 	@SuppressWarnings("null")
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
 		int posx = model.getPlayer().getX();
@@ -248,15 +248,15 @@ public class Controller implements IController {
 				break;
 			case IMPERMEABLE:
 				if(target_entity.hit()){
-					entity.die();
+					entity.die(model.getMap());
 					if(entity.isAlive()){
 						model.Mappy(1);
-						munFireBall = true ;
+						entity.GainFB();
 					}
 					else{
 						model.getPlayer().setLive(11);
 						view.setState(States.MENU);
-						munFireBall = true ;
+						entity.GainFB();
 					}
 				}
 				break;
