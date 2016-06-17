@@ -115,24 +115,24 @@ public class Controller implements IController {
 	 */
 	private void orderPerformJeu(final ControllerOrder controllerOrder){
 		switch(controllerOrder){
-			case UP :
-				xFireBall = 0;
-				yFireBall = -1;
-				break;
-			case RIGHT:
-				xFireBall = -1;
-				yFireBall = 0;
-				break;
-			case LEFT:
-				xFireBall = 1;
-				yFireBall = 0;
-			case DOWN:
-				xFireBall = 0;
-				yFireBall = 1;
-				break;
-			default:
-				break;
-		}
+		case UP :
+			xFireBall = 0;
+			yFireBall = -1;
+			break;
+		case RIGHT:
+			xFireBall = -1;
+			yFireBall = 0;
+			break;
+		case LEFT:
+			xFireBall = 1;
+			yFireBall = 0;
+		case DOWN:
+			xFireBall = 0;
+			yFireBall = 1;
+			break;
+		default:
+			break;
+	}
 		switch (controllerOrder) {
 			case UP:
 				checkCasePlayer(model.getPlayer(), 0, -1);
@@ -229,15 +229,19 @@ public class Controller implements IController {
 	 */
 	
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
-		int posx = model.getPlayer().getX();
-		int posy = model.getPlayer().getY();
+		int posx = model.getMap().getXof(model.getPlayer());
+		int posy = model.getMap().getYof(model.getPlayer());
 		IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
-		Permeability permeability = target_entity.getPermeability();
+		Permeability permeability;
+		if(target_entity != null){
+			permeability = target_entity.getPermeability();
+		}else{
+			permeability = Permeability.PERMEABLE;
+		}
 		
 		switch(permeability){
 			case PERMEABLE:
-				model.getPlayer().setY(target_entity.getY());
-				model.getPlayer().setX(target_entity.getX());
+				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 				if(entity.getType()==TypeEntity.DOOROPEN){
 					view.setState(States.MENU);
 				}
@@ -265,14 +269,18 @@ public class Controller implements IController {
 	 * @param offset_y : int
 	 */
 	   public void checkCaseFireBall(IEntity entity, int offset_x, int offset_y){
-		   int posx = model.getFireball().getX();
-			int posy = model.getFireball().getY();
+		   int posx = model.getMap().getXof(model.getFireball());
+			int posy = model.getMap().getYof(model.getFireball());
 			IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
-			Permeability permeability = target_entity.getPermeability();
+			Permeability permeability;
+			if(target_entity != null){
+				permeability = target_entity.getPermeability();
+			}else{
+				permeability = Permeability.PERMEABLE;
+			}
 			switch(permeability){
 			case PERMEABLE:
-				model.getFireball().setY(target_entity.getY());
-				model.getFireball().setX(target_entity.getX());
+				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 				break;
 			case IMPERMEABLE:
 				if(target_entity.hit()){
@@ -287,7 +295,6 @@ public class Controller implements IController {
 				break;
 			default:
 				break;
-		}
-		
+			}
 	}
 }
