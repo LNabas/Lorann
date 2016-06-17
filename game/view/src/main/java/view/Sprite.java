@@ -4,7 +4,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
+/**
+ * @author Gregory, Maxence
+ */
 public class Sprite {
 	private BufferedImage image;
 	public Sprite(String name) throws IOException{
