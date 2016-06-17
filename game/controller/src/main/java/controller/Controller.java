@@ -163,7 +163,7 @@ public class Controller implements IController {
 			case RAINBOW_FIREBALL:
 				if (munFireBall){ 
 				munFireBall = false ;
-				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall);
+				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
 				checkCaseFireBall(model.getFireball(), xFireBall, yFireBall);
 				}
 				else{}
@@ -275,7 +275,7 @@ public class Controller implements IController {
 	 * @param offset_x : int
 	 * @param offset_y : int
 	 */
-	   public void checkCaseFireBall(IEntity entity, int offset_x, int offset_y){
+	   /*public void checkCaseFireBall(IEntity entity, int offset_x, int offset_y){
 		   int posx = model.getFireball().getX();
 			int posy = model.getFireball().getY();
 			IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
@@ -303,5 +303,5 @@ public class Controller implements IController {
 			default:
 				break;
 			}
-	}
+	}*/
 }
