@@ -141,10 +141,10 @@ public class Controller implements IController {
 				checkCasePlayer(model.getPlayer(), 0, 1);
 				break;
 			case LEFT:
-				checkCasePlayer(model.getPlayer(), 1, 0);
+				checkCasePlayer(model.getPlayer(), -1, 0);
 				break;
 			case RIGHT:
-				checkCasePlayer(model.getPlayer(), -1, 0);
+				checkCasePlayer(model.getPlayer(), 1, 0);
 				break;
 			case TICK:
 				IEntity Player = this.model.getMap().getPlayer();
@@ -172,6 +172,7 @@ public class Controller implements IController {
 			default:
 				break;
 		}
+		model.ForceRedraw();
 	}
 	/** To use the Keyboard
 	 * @param controllerOrder : ControllerOrder
@@ -229,8 +230,8 @@ public class Controller implements IController {
 	 */
 	
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
-		int posx = model.getMap().getXof(model.getPlayer());
-		int posy = model.getMap().getYof(model.getPlayer());
+		int posx = model.getPlayer().getX();
+		int posy = model.getPlayer().getY();
 		IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
 		Permeability permeability;
 		if(target_entity != null){
@@ -269,8 +270,8 @@ public class Controller implements IController {
 	 * @param offset_y : int
 	 */
 	   public void checkCaseFireBall(IEntity entity, int offset_x, int offset_y){
-		   int posx = model.getMap().getXof(model.getFireball());
-			int posy = model.getMap().getYof(model.getFireball());
+		   int posx = model.getFireball().getX();
+			int posy = model.getFireball().getY();
 			IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
 			Permeability permeability;
 			if(target_entity != null){
