@@ -82,7 +82,10 @@ abstract class DAOEntity<E extends FAILEntity> {
 	 */
 	public abstract E find(String key);
 
-	public abstract E LoadMap();
+	public Map LoadMap(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }
