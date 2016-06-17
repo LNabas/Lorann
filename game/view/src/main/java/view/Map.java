@@ -46,10 +46,8 @@ public class Map extends GraphicsBuilder{
 		pierre.getGraphics().drawImage(ressources.getSprite("Pierre"), 0, 0, null);
 	}
 	public void setMap(IMap m){
-		if(m!=map){
-			need_update = true;
-			map=m;
-		}
+		need_update = true;
+		map=m;
 	}
 	public Image getImage() {
 		if(true){

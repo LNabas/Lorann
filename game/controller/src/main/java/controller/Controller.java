@@ -16,7 +16,7 @@ import contract.TypeEntity;
  * @author Romain, Lucas.
  */
 public class Controller implements IController {
-
+	private int turn = 0;
 	/** The view. */
 	private IView		view;
 
@@ -147,23 +147,23 @@ public class Controller implements IController {
 				checkCasePlayer(model.getPlayer(), 1, 0);
 				break;
 			case TICK:
-				IEntity Player = this.model.getMap().getPlayer();
-				IEntity Fireball = this.model.getMap().getFireBall();
 				for(int x = 0; x<model.getMap().getWidth();x++)
 				{
 					for(int y = 0; y<model.getMap().getHeight();y++)
 					{
 						if(model.getMap().get(x, y) != null){
-						model.getMap().get(x, y).move(model.getMap(), x, y);//TODO modifier plus tard.
+							model.getMap().get(x, y).set_turn(turn);
+							model.getMap().get(x, y).move(model.getMap(), x, y);
 						}
 					}
 					
 				}
+				turn++;
 				break;
 			case RAINBOW_FIREBALL:
 				if (munFireBall){ 
-				munFireBall = false ;
-				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
+					munFireBall = false ;
+					model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
 				}
 				else{}
 				break;
@@ -223,6 +223,8 @@ public class Controller implements IController {
 			break;
 		case GAME:
 			orderPerformJeu(controllerOrder);
+		default:
+			break;
 		}
 	}
 	/** Check the position of the player on the map.

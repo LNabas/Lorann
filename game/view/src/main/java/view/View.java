@@ -2,11 +2,8 @@ package view;
 
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
-import java.security.Timestamp;
 import java.util.Date;
-
 import javax.swing.SwingUtilities;
-
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IMenu;
@@ -118,7 +115,6 @@ public class View implements IView, Runnable {
 				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 			}
 			ts = new Date();
-			System.out.println("tick");
 		}
 		SwingUtilities.invokeLater(this);
 	}
