@@ -141,7 +141,16 @@ public class Controller implements IController {
 				checkCasePlayer(model.getPlayer(), -1, 0);
 				break;
 			case TICK:
-				this.model.loadMessage("ID");
+				IEntity Player = this.model.getMap().getPlayer();
+				IEntity Fireball = this.model.getMap().getFireBall();
+				for(int x = 0; x<model.getMap().getWidth();x++)
+				{
+					for(int y = 0; y<model.getMap().getHeight();y++)
+					{
+						model.getMap().get(x, y).move(model.getMap(), x, y);//TODO modifier plus tard.
+					}
+					
+				}
 				break;
 			case RAINBOW_FIREBALL:
 				if (munFireBall){ 
