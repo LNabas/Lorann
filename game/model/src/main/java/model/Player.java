@@ -3,6 +3,7 @@
  */
 package model;
 
+import contract.TypeEntity;
 import contract.VisualEntity;
 
 /**
@@ -31,5 +32,7 @@ public class Player extends Entity{
 		return VisualEntity.PLAYER;
 	}
 	
-	
+	public TypeEntity getType(){
+		return TypeEntity.PLAYER;
+	}
 }
