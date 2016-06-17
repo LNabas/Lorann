@@ -23,8 +23,8 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 	private int posMenu = 0;
-	private int xFireBall = model.getPlayer().getX();
-	private int yFireBall = model.getPlayer().getY();
+	private int xFireBall = 0;
+	private int yFireBall = 0;
 	private boolean munFireBall = true;
 	private int posMenuOpt = 0;
 	/**
