@@ -59,7 +59,7 @@ class ViewPanel extends JPanel implements Observer {
 				 .addButton("1", new Button(ressources).setText("NOOB").setState(ButtonState.CLICKED))
 				 .addButton("2", new Button(ressources).setText("Meh"))
 				 .addButton("3", new Button(ressources).setText("OH YEAH"))
-				 .addButton("4", new Button(ressources).setText("MY FATHER WAS KILLED BY A DUCK"));
+				 .addButton("4", new Button(ressources).setText("DUCK GOD"));
 	}
 
 	/**
@@ -98,7 +98,7 @@ class ViewPanel extends JPanel implements Observer {
 		case MENU_OPTIONS:
 			return menu_options;
 		default:
-			return null;
+			return menu_principal;
 		}
 	}
 	/*
@@ -118,7 +118,7 @@ class ViewPanel extends JPanel implements Observer {
 			draw(menu_options.getImage(), graphics);
 		    break;    
 		case GAME:
-			//draw(new Map(ressources, new Map()).getImage(), graphics);
+			draw(new Map(ressources, this.viewFrame.getModel().getMap()).getImage(), graphics);
 			break;
 		default:
 			break;
