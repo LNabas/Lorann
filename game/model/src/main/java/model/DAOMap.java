@@ -74,14 +74,14 @@ public class DAOMap extends DAOEntity<Map> {
 						
 					}
 					else if (str.charAt(i) == 'F'){
-						map.set(col, ligne, new Player());
+						map.set(col, ligne, new Paul());
 					}
 					else if (str.charAt(i) == '3'){
 						map.set(col, ligne, new Pierre());
 						
 					}
 					else if (str.charAt(i) == '4'){
-						map.set(col, ligne, new Paul());
+						map.set(col, ligne, new Player());
 						
 					}
 					else if (str.charAt(i) == '9'){
