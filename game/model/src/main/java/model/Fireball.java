@@ -5,6 +5,7 @@ package model;
 
 import java.util.ArrayList;
 import contract.IEntity;
+import contract.IMap;
 import contract.Permeability;
 import contract.VisualEntity;
 
@@ -13,13 +14,14 @@ import contract.VisualEntity;
  *
  */
 public class Fireball extends Entity{
-
+	int ox;
+	int oy;
+	public Fireball(int ox, int oy){
+		this.ox = ox;
+		this.oy = oy;
+	}
 	public boolean hit() {
 		return true;
-	}
-
-	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y) {
-		
 	}
 
 	public Permeability getPermeability() {
@@ -33,5 +35,8 @@ public class Fireball extends Entity{
 	public void setLive(int live) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void move(IMap map, int x, int y){
+		map.move(x, y, x+ox, y+oy);
 	}
 }

@@ -123,7 +123,7 @@ public class Map extends FAILEntity implements IMap{
 		}
 		return -1;
 	}
-	public void addFireball(int x, int y){
-		set(x, y, new Fireball());
+	public void addFireball(int x, int y, int ox, int oy){
+		set(x, y, new Fireball(ox, oy));
 	}
 }
