@@ -73,7 +73,6 @@ public class Controller implements IController {
 	 * https://www.youtube.com/watch?v=FQiyOuqrk68
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	
 	private void orderPerformMenu(final ControllerOrder controllerOrder){
 		System.out.println(controllerOrder);
 		view.getMenu().changeButtonState(posMenu+1, ButtonState.NORMAL);
@@ -105,9 +104,7 @@ public class Controller implements IController {
 		else if(posMenu > 2){
 			posMenu = 0;
 		}
-	
-		
-	view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
+		view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
 	}
 	
 	/** To launch the rainbow fire ball. 
@@ -132,47 +129,43 @@ public class Controller implements IController {
 			break;
 		default:
 			break;
-	}
+		}
 		switch (controllerOrder) {
-			case UP:
-				checkCasePlayer(model.getPlayer(), 0, -1);
-				break;
-			case DOWN:
-				checkCasePlayer(model.getPlayer(), 0, 1);
-				break;
-			case LEFT:
-				checkCasePlayer(model.getPlayer(), -1, 0);
-				break;
-			case RIGHT:
-				checkCasePlayer(model.getPlayer(), 1, 0);
-				break;
-			case TICK:
-				for(int x = 0; x<model.getMap().getWidth();x++)
-				{
-					for(int y = 0; y<model.getMap().getHeight();y++)
-					{
-						if(model.getMap().get(x, y) != null){
-							model.getMap().get(x, y).set_turn(turn);
-							model.getMap().get(x, y).move(model.getMap(), x, y);
-						}
+		case UP:
+			checkCasePlayer(model.getPlayer(), 0, -1);
+			break;
+		case DOWN:
+			checkCasePlayer(model.getPlayer(), 0, 1);
+			break;
+		case LEFT:
+			checkCasePlayer(model.getPlayer(), -1, 0);
+			break;
+		case RIGHT:
+			checkCasePlayer(model.getPlayer(), 1, 0);
+			break;
+		case TICK:
+			for(int x = 0; x<model.getMap().getWidth();x++){
+				for(int y = 0; y<model.getMap().getHeight();y++){
+					if(model.getMap().get(x, y) != null){
+						model.getMap().get(x, y).set_turn(turn);
+						model.getMap().get(x, y).move(model.getMap(), x, y);
 					}
-					
 				}
-				turn++;
-				break;
-			case RAINBOW_FIREBALL:
-				if (munFireBall){ 
-					munFireBall = false ;
-					model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
-				}
-				else{}
-				break;
-			case RETURN:
-				view.setState(States.MENU);
-				break;
-
-			default:
-				break;
+			}
+			turn++;
+			break;
+		case RAINBOW_FIREBALL:
+			if (munFireBall){ 
+				munFireBall = false ;
+				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
+			}
+			else{}
+			break;
+		case RETURN:
+			view.setState(States.MENU);
+			break;
+		default:
+			break;
 		}
 		model.ForceRedraw();
 	}

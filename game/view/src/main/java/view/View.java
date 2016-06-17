@@ -52,9 +52,11 @@ public class View implements IView, Runnable {
 	}
 	private static ControllerOrder keyCodeToControllerOrderMenu(int keyCode) {
 		switch (keyCode) {
+		case KeyEvent.VK_Z:
 		case KeyEvent.VK_UP:
 			return ControllerOrder.UP;
 		case KeyEvent.VK_DOWN:
+		case KeyEvent.VK_S:
 			return ControllerOrder.DOWN;
 		case KeyEvent.VK_ENTER:
 		case KeyEvent.VK_SPACE:
@@ -77,12 +79,16 @@ public class View implements IView, Runnable {
 	}
 	protected static ControllerOrder keyCodeToControllerOrderGame(final int keyCode) {
 		switch (keyCode) {
+		case KeyEvent.VK_Z:
 		case KeyEvent.VK_UP:
 			return ControllerOrder.UP;
+		case KeyEvent.VK_S:
 		case KeyEvent.VK_DOWN:
 			return ControllerOrder.DOWN;
+		case KeyEvent.VK_Q:
 		case KeyEvent.VK_LEFT:
 			return ControllerOrder.LEFT;
+		case KeyEvent.VK_D:
 		case KeyEvent.VK_RIGHT:
 			return ControllerOrder.RIGHT;
 		case KeyEvent.VK_SPACE:
@@ -110,11 +116,13 @@ public class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		if((new Date().getTime()-ts.getTime())>500){
-			if(this.viewFrame.getController()!=null){
-				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
+		if(this.viewFrame.getViewPanel().getState() == States.GAME){
+			if((new Date().getTime()-ts.getTime())>500){
+				if(this.viewFrame.getController()!=null){
+					this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
+				}
+				ts = new Date();
 			}
-			ts = new Date();
 		}
 		SwingUtilities.invokeLater(this);
 	}
