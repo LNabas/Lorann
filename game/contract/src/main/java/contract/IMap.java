@@ -53,5 +53,5 @@ public interface IMap{
 	public int getYof(IEntity e);
 	public IEntity getPlayer();
 	public IEntity getFireBall();
-	public void addFireball(int i, int j);
+	public void addFireball(int x, int y, int ox, int oy);
 }
