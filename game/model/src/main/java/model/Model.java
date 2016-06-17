@@ -14,23 +14,14 @@ import contract.IModel;
  */
 public class Model extends Observable implements IModel {
 	private int lvl=1;
-	/** The message. */
-	private String message;
 	private IMap map;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		// TODO(doc): 
-			// * connect to bdd
-			// * instantiate the map in "map"
-			// * load the map from bdd
-			// * find player on the "map" and store it in "player"
-			// * it's dangerous to go alone! Take this.
-				// https://www.youtube.com/watch?v=Eb6cGHK4_yc
-		this.message = "";
-		Mappy();
+		// https://www.youtube.com/watch?v=Eb6cGHK4_yc
+		Mappy(1);
 	}
 
 	/*
@@ -59,7 +50,8 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void Mappy() {
+	public void Mappy(int i) {
+		lvl = i;
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
 			this.setMap(daoMap.LoadMap(lvl));

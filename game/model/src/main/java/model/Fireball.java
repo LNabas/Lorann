@@ -32,9 +32,12 @@ public class Fireball extends Entity{
 	public void move(IMap map, int x, int y){
 		if(old_turn != turn){
 			if(x<map.getWidth() && y < map.getHeight()){
-				System.out.println("a");
-				map.move(x, y, x+ox, y+oy);
-				System.out.println("-");
+				if(map.get(x+ox, y+oy)==null || map.get(x+ox, y+oy).getPermeability() == Permeability.PERMEABLE){
+					map.move(x, y, x+ox, y+oy);
+				}else{
+					ox*=+1;
+					oy*=-1;
+				}
 			}
 		}
 	}

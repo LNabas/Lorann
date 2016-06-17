@@ -233,6 +233,7 @@ public class Controller implements IController {
 	 * @param offset_y type int
 	 */
 	
+	@SuppressWarnings("null")
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
 		int posx = model.getPlayer().getX();
 		int posy = model.getPlayer().getY();
@@ -256,7 +257,7 @@ public class Controller implements IController {
 				if(target_entity.hit()){
 					entity.die();
 					if(entity.isAlive()){
-						model.Mappy();
+						model.Mappy(1);
 						munFireBall = true ;
 					}
 					else{
