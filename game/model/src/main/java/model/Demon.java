@@ -22,6 +22,7 @@ public class Demon extends Entity{
 
 	public void move(IMap map, int x, int y) {
 		map.move(x, y, x + randomGenerator.nextInt(3)-1, y + randomGenerator.nextInt(3)-1);
+		System.out.println("mama");
 	}
 
 	public boolean isAlive() {
