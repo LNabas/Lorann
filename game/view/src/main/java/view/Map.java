@@ -70,7 +70,11 @@ public class Map extends GraphicsBuilder{
 				switch(t){
 				case CHARLES:
 				case PIERRE:
+					drawImage(pierre, i*pierre.getWidth(), j*pierre.getHeight());
+					break;
 				case HENRY:
+					drawImage(henry, i*henry.getWidth(), j*henry.getHeight());
+					break;
 				case PAUL:
 					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
 					break;

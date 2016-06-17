@@ -43,4 +43,5 @@ public interface IEntity {
 	public void die();
 	public void setLive(int live);
 	
+	
 }
