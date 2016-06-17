@@ -89,7 +89,7 @@ public class Map extends FAILEntity implements IMap{
 		return null;
 	}
 	public IEntity getFireBall() {
-		// TODO Auto-generated method stub
+		for(int x = 0; x<getWidth(); x++)for(int y = 0; y<getHeight(); y++)if(get(x,y)!=null)if(get(x,y).getType()==TypeEntity.RFB)return get(x,y);
 		return null;
 	}
 	public void kill(int x, int y) {
