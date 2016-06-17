@@ -229,76 +229,39 @@ public class Controller implements IController {
 		int posx = model.getPlayer().getX();
 		int posy = model.getPlayer().getY();
 		IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
-		Permeability permeability;
-		if(target_entity != null){
-			permeability = target_entity.getPermeability();
-			switch(permeability){
-				case PERMEABLE:
-					switch(target_entity.getType()){
-					case RFB:
-						entity.GainFB();
-						break;
-					case DOOROPEN:
-						view.setState(States.MENU);
-						break;
-					default:
-						break;
-					}
-					model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
+		if(target_entity != null && entity!=null){
+			switch(target_entity.getPermeability()){
+			case PERMEABLE:
+				switch(target_entity.getType()){
+				case RFB:
+					entity.GainFB();
 					break;
-				case IMPERMEABLE:
-					if(target_entity.hit()){
-						entity.die(model.getMap());
-						if(entity.isAlive()){
-							model.Mappy(1);
-							entity.GainFB();
-						}else{
-							model.getPlayer().setLive(11);
-							view.setState(States.MENU);
-							entity.GainFB();
-						}
-					}
+				case DOOROPEN:
+					view.setState(States.MENU);
 					break;
 				default:
 					break;
-			}
-		}else{
-			model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
-		}
-		
-	}
-	/** Check the position of the FireBall on the map.
-	 * @param entity : IEntity
-	 * @param offset_x : int
-	 * @param offset_y : int
-	 */
-	   /*public void checkCaseFireBall(IEntity entity, int offset_x, int offset_y){
-		   int posx = model.getFireball().getX();
-			int posy = model.getFireball().getY();
-			IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
-			Permeability permeability;
-			if(target_entity != null){
-				permeability = target_entity.getPermeability();
-			}else{
-				permeability = Permeability.PERMEABLE;
-			}
-			switch(permeability){
-			case PERMEABLE:
+				}
 				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 				break;
 			case IMPERMEABLE:
 				if(target_entity.hit()){
-					target_entity.die();
-				}
-				else{
-					if (offset_x == 1 || offset_y == 1 || offset_x == -1 || offset_y == -1 ){
-						offset_x *= -1;
-						offset_y *= -1;
-				}
+					entity.die(model.getMap());
+					if(entity.isAlive()){
+						model.Mappy(1);
+						entity.GainFB();
+					}else{
+						model.getPlayer().setLive(11);
+						view.setState(States.MENU);
+						entity.GainFB();
+					}
 				}
 				break;
 			default:
 				break;
 			}
-	}*/
+		}else{
+			model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
+		}
+	}
 }

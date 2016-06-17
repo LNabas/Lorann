@@ -3,6 +3,7 @@
  */
 package model;
 
+import contract.TypeEntity;
 import contract.VisualEntity;
 
 /**
@@ -13,5 +14,9 @@ public class ItemGood extends Item{
 
 	public VisualEntity getVisualType() {
 		return VisualEntity.ITEMGOOD;
+	}
+
+	public TypeEntity getType() {
+		return TypeEntity.ITEMGOOD;
 	}
 }

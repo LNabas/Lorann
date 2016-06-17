@@ -12,7 +12,7 @@ import contract.VisualEntity;
  * @author Maxence
  *
  */
-public class Item extends Entity{
+public abstract class Item extends Entity{
 	public Permeability getPermeability() {
 		return Permeability.PERMEABLE;
 	}
@@ -25,11 +25,6 @@ public class Item extends Entity{
 	public void setLive(int live) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	public TypeEntity getType() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public void die(IMap map) {
