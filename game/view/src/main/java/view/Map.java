@@ -52,9 +52,9 @@ public class Map extends GraphicsBuilder{
 			System.exit(0);
 		}
 		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
-		for(int i = 0; i < map.getWidth(); i++){
-			System.out.println("");
-			for(int j = 0; j < map.getHeight(); j++){
+		for(int j = 0; j < map.getHeight(); j++){
+			System.out.print('\n');
+			for(int i = 0; i < map.getWidth(); i++){
 				VisualEntity t = VisualEntity.FLOOR;
 				if(map.get(i, j) != null){
 					t = map.get(i, j).getVisualType();
@@ -62,7 +62,8 @@ public class Map extends GraphicsBuilder{
 						t = VisualEntity.FLOOR;
 					}
 				}
-				System.out.print(t.toString().charAt(0)+" ");
+
+				System.out.print(t.toString().charAt(0));
 				switch(t){
 				case CHARLES:
 				case PIERRE:
@@ -73,6 +74,7 @@ public class Map extends GraphicsBuilder{
 				case PLAYER:
 					drawImage(henry, i*henry.getWidth(), j*henry.getHeight());
 					break;
+				case ITEMGOOD:
 				case KEY:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
 					break;
@@ -90,7 +92,7 @@ public class Map extends GraphicsBuilder{
 					break;
 				default:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
-					//System.out.println(t);
+					System.out.println(t);
 					break;
 				}
 			}
