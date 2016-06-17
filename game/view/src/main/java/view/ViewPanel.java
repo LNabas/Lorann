@@ -126,19 +126,25 @@ class ViewPanel extends JPanel implements Observer {
 			break;
 		}
 	}
+	private static float getScaleFactor(int iMasterSize, int iTargetSize) {
+	    float dScale = 1;
+	    if (iMasterSize > iTargetSize) {
+	        dScale = (float) iTargetSize / (float) iMasterSize;
+	    } else {
+	        dScale = (float) iTargetSize / (float) iMasterSize;
+	    }
+	    return dScale;
+	}
 	private void draw(Image img, Graphics g){
 		int width = this.getWidth();
 		int height = this.getHeight();
-		float img_width = img.getWidth(null);
-		float img_height = img.getHeight(null);
-	    float img_ratio = 0;
-	    if(width < height){
-	    	img_ratio = img_height/img_width;
-	    	height = (int)(width*img_ratio);
-	    }else if(this.getWidth() > this.getHeight()){
-	    	img_ratio = img_width/img_height;
-	    	width = (int)(height*img_ratio);
-	    }
+		int img_width = img.getWidth(null);
+		int img_height = img.getHeight(null);
+	    float scale_w = getScaleFactor(img_width, width);
+	    float scale_h = getScaleFactor(img_height, height);
+	    float s = Math.min(scale_h, scale_w);
+	    width = (int) (img_width*s);
+	    height = (int) (img_height*s);
 	    int margin_x = (this.getWidth() - width)/2;
 	    int margin_y = (this.getHeight() - height)/2;
 	    g.drawImage(img, margin_x, margin_y, width, height, null);
