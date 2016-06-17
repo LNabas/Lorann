@@ -92,7 +92,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *
 	 * @return the controller
 	 */
-	private IController getController() {
+	IController getController() {
 		return this.controller;
 	}
 
