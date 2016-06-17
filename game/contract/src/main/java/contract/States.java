@@ -9,5 +9,5 @@ public enum States {
 	MENU_OPTIONS,
 	GAME,
 	WIN,
-	LOSE,
+	LOSE, MENU_QUIT,
 }
