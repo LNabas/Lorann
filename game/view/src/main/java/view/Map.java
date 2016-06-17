@@ -35,7 +35,10 @@ public class Map extends GraphicsBuilder{
 		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
 		for(int i = 0; i < map.getWidth(); i++){
 			for(int j = 0; j < map.getHeight(); j++){
-				VisualEntity t = map.get(i, j).getVisualType();
+				VisualEntity t = null;
+				if(map.get(i, j) != null){
+					t = map.get(i, j).getVisualType();
+				}
 				switch(t){
 				case PAUL:
 					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
