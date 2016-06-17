@@ -84,4 +84,5 @@ abstract class DAOEntity<E extends FAILEntity> {
 
 	public abstract E LoadMap();
 
+
 }

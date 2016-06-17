@@ -2,7 +2,9 @@ package view;
 
 import java.awt.Image;
 import view.RessourcesLoader;
-
+/**
+ * @author Maxence, Gregory
+ */
 public class Logo extends Button{
 	public Logo(RessourcesLoader r){
 		super(r);
