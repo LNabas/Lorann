@@ -187,6 +187,8 @@ public class Controller implements IController {
 			posMenuOpt++;
 			break;
 		case SPACE:
+			model.setDifficulty(posMenuOpt);
+			view.setState(States.MENU);
 			break;
 		case RETURN:
 			view.setState(States.MENU);

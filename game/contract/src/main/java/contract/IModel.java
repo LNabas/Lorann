@@ -38,4 +38,5 @@ public interface IModel {
 	 * Reload a fresh instance of the current map
 	 */
 	void RealoadMap();
+	void setDifficulty(int posMenuOpt);
 }
