@@ -33,18 +33,20 @@ public class Map extends FAILEntity implements IMap{
                 colsToCopy
             );
         }
+        height = h;
+        width = w;
         map = newData;
 	}
 	public IEntity get(int x, int y) {
 		return map[getIndex(x, y, width)];
 	}
 	public void  set(int x, int y, IEntity e) {
-		if(x>width && y>height){
-			resize(x,y);
-		}else if(y>height){
-			resize(width,y);
-		}else if(x>width){
-			resize(x,height);
+		if(x+1>width && y+1>height){
+			resize(x+1,y+1);
+		}else if(y+1>height){
+			resize(width,y+1);
+		}else if(x+1>width){
+			resize(x+1,height);
 		}
 		map[getIndex(x, y, width)] = e;
 	}
