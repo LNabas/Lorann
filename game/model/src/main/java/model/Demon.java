@@ -25,6 +25,8 @@ public class Demon extends Entity{
 		int ny = randomGenerator.nextInt(3)-1;
 		if(map.get(x+nx, y+ny) == null){
 			map.move(x, y, x + nx, y + ny);
+		}else if(map.get(x, y+ny) == null){
+			map.move(x, y, x, y + ny);
 		}
 		System.out.println("mama");
 	}
