@@ -10,5 +10,8 @@ DC:gate_closed.png
 Pierre:Pierre.png
 Purse:purse.png
 Skull:bone.png
-VBone:horizontal_bone.png
+VBone:vertical_bone.png
 HBone:horizontal_bone.png
+Trophy:trophy.png
+Lorann:lorann.png
+Fireball:trophy.png

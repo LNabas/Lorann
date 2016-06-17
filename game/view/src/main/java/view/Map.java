@@ -16,6 +16,8 @@ public class Map extends GraphicsBuilder{
 	BufferedImage skull;
 	BufferedImage hbone;
 	BufferedImage vbone;
+	BufferedImage lorann;
+	BufferedImage fireball;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
@@ -27,6 +29,10 @@ public class Map extends GraphicsBuilder{
 		hbone.getGraphics().drawImage(ressources.getSprite("HBone"), 0, 0, null);
 		vbone = ressources.getSpriteCopy("Sol");
 		vbone.getGraphics().drawImage(ressources.getSprite("VBone"), 0, 0, null);
+		lorann = ressources.getSpriteCopy("Sol");
+		lorann.getGraphics().drawImage(ressources.getSprite("Lorann"), 0, 0, null);
+		fireball = ressources.getSpriteCopy("Sol");
+		fireball.getGraphics().drawImage(ressources.getSprite("Fireball"), 0, 0, null);
 	}
 	public void setMap(IMap m){
 		if(m!=map){
@@ -52,8 +58,9 @@ public class Map extends GraphicsBuilder{
 			System.exit(0);
 		}
 		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
-		for(int i = 0; i < map.getWidth(); i++){
-			for(int j = 0; j < map.getHeight(); j++){
+		for(int j = 0; j < map.getHeight(); j++){
+			System.out.print('\n');
+			for(int i = 0; i < map.getWidth(); i++){
 				VisualEntity t = VisualEntity.FLOOR;
 				if(map.get(i, j) != null){
 					t = map.get(i, j).getVisualType();
@@ -61,13 +68,19 @@ public class Map extends GraphicsBuilder{
 						t = VisualEntity.FLOOR;
 					}
 				}
+
+				System.out.print(t.toString().charAt(0));
 				switch(t){
+				case CHARLES:
+				case PIERRE:
+				case HENRY:
 				case PAUL:
 					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
 					break;
 				case PLAYER:
-					drawImage(henry, i*henry.getWidth(), j*henry.getHeight());
+					drawImage(lorann, i*lorann.getWidth(), j*lorann.getHeight());
 					break;
+				case ITEMGOOD:
 				case KEY:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
 					break;
@@ -80,8 +93,15 @@ public class Map extends GraphicsBuilder{
 				case VERTICAL_BONE:
 					drawImage(vbone, i*vbone.getWidth(), j*vbone.getHeight());
 					break;
+				case FLOOR:
+					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					break;
+				case FIREBALL:
+					drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
+					break;
 				default:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					System.out.println(t);
 					break;
 				}
 			}

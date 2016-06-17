@@ -12,7 +12,7 @@ public class Map extends FAILEntity implements IMap{
 	private int width;
 	private int height;
 	public Map(){
-		this(0,0);
+		this(5,5);
 	}
 	public Map(int w, int h){
 		width = w;
@@ -23,15 +23,11 @@ public class Map extends FAILEntity implements IMap{
         return row * width + col;
     }
 	private void resize(int w, int h){
-		IEntity [] newData = new IEntity[w * h];
-        int colsToCopy = Math.min(w, this.width);
-        int rowsToCopy = Math.min(h, this.height);
-        for (int i = 0; i < rowsToCopy; ++i) {
-            int oldRowStart = getIndex(0, i, this.width);
-            int newRowStart = getIndex(0, i, h);
-            System.arraycopy(map, oldRowStart, newData, newRowStart,
-                colsToCopy
-            );
+        int l = w*h;
+        int old_l = width*height;
+		IEntity [] newData = new IEntity[l];
+        for(int i = 0; i<l && i<old_l; i++){
+        	newData[i]=map[i];
         }
         height = h;
         width = w;
