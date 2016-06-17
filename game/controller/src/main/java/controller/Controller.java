@@ -120,11 +120,11 @@ public class Controller implements IController {
 			yFireBall = -1;
 			break;
 		case RIGHT:
-			xFireBall = -1;
+			xFireBall = 1;
 			yFireBall = 0;
 			break;
 		case LEFT:
-			xFireBall = 1;
+			xFireBall = -1;
 			yFireBall = 0;
 		case DOWN:
 			xFireBall = 0;
@@ -163,7 +163,7 @@ public class Controller implements IController {
 			case RAINBOW_FIREBALL:
 				if (munFireBall){ 
 				munFireBall = false ;
-				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getX() + yFireBall);
+				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall);
 				checkCaseFireBall(model.getFireball(), xFireBall, yFireBall);
 				}
 				else{}
@@ -256,10 +256,12 @@ public class Controller implements IController {
 					entity.die();
 					if(entity.isAlive()){
 						model.Mappy();
+						munFireBall = true ;
 					}
 					else{
 						model.getPlayer().setLive(11);
 						view.setState(States.MENU);
+						munFireBall = true ;
 					}
 				}
 				break;
