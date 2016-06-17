@@ -35,7 +35,7 @@ public class DAOMap extends DAOEntity<Map> {
 		 * @see model.DAOEntity#create(model.Entity)
 		 */
 		@Override
-		public IMap LoadMap() {
+		public Map LoadMap() {
 			try {
 				Map map = new Map();
 				final String sql = "{call recup_map(?)}";
