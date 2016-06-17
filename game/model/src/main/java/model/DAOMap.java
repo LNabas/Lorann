@@ -54,62 +54,40 @@ public class DAOMap extends DAOEntity<Map> {
 						ligne++;
 						col = 0;
 					}
-					
-					
 					else if(str.charAt(i) == '*'){ 
 						map.set(col, ligne, new Skull());
 					}
-					
-					
 					else if (str.charAt(i) == '='){
 						map.set(col, ligne, new Hbone());
 					}
-					
-					
 					else if (str.charAt(i) == '|'){
 						map.set(col, ligne, new Vbone());
 					}
-					
-					
 					else if (str.charAt(i) == 'P'){
 						map.set(col, ligne, new DoorOpen());
 					}
-					
-					
 					else if (str.charAt(i) == 'C'){
 						map.set(col, ligne, new Charles());
 					}
-					
-					
 					else if (str.charAt(i) == 'G'){
 						map.set(col, ligne, new ItemGood());
 						
 					}
-					
-					
 					else if (str.charAt(i) == 'F'){
-						map.set(col, ligne, new ItemGood());
+						map.set(col, ligne, new Player());
 					}
-					
-					
 					else if (str.charAt(i) == '3'){
 						map.set(col, ligne, new Pierre());
 						
 					}
-					
-					
 					else if (str.charAt(i) == '4'){
 						map.set(col, ligne, new Paul());
 						
 					}
-					
-					
 					else if (str.charAt(i) == '9'){
-						map.set(col, ligne, new Henry());
+						map.set(col, ligne, new Fireball());
 						
 					}
-					
-					
 				}
 				
 				}
