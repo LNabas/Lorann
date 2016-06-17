@@ -13,6 +13,7 @@ import contract.TypeEntity;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Controller.
+ * @author Romain, Lucas.
  */
 public class Controller implements IController {
 
@@ -104,6 +105,7 @@ public class Controller implements IController {
 		else if(posMenu > 2){
 			posMenu = 0;
 		}
+	
 		
 	view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
 	}
@@ -167,6 +169,9 @@ public class Controller implements IController {
 				break;
 		}
 	}
+	/** To use the Keyboard
+	 * @param controllerOrder : ControllerOrder
+	 */
 	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
 		view.getMenu().changeButtonState(posMenuOpt, ButtonState.NORMAL);
@@ -194,6 +199,9 @@ public class Controller implements IController {
 		view.getMenu().changeButtonState(posMenuOpt, ButtonState.CLICKED);
 
 	}
+	/**
+	 * @param ControllerOrder of type ControllerOrder.
+	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch(view.getState()){
 		case MENU:
@@ -208,6 +216,11 @@ public class Controller implements IController {
 			orderPerformJeu(controllerOrder);
 		}
 	}
+	/** Check the position of the player on the map.
+	 * @param entity type IEntity
+	 * @param offset_x type int
+	 * @param offset_y type int
+	 */
 	
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
 		int posx = model.getPlayer().getX();
@@ -240,7 +253,11 @@ public class Controller implements IController {
 		}
 		
 	}
-	
+	/** Check the position of the FireBall on the map.
+	 * @param entity : IEntity
+	 * @param offset_x : int
+	 * @param offset_y : int
+	 */
 	   public void checkCaseFireBall(IEntity entity, int offset_x, int offset_y){
 		   int posx = model.getFireball().getX();
 			int posy = model.getFireball().getY();
