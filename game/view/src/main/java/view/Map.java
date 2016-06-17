@@ -41,7 +41,7 @@ public class Map extends GraphicsBuilder{
 		}
 	}
 	public Image getImage() {
-		if(need_update){
+		if(true){
 		BufferedImage paul = ressources.getSpriteCopy("Sol");
 		paul.getGraphics().drawImage(ressources.getSprite("Paul"), 0, 0, null);
 		BufferedImage dc = ressources.getSpriteCopy("Sol");
