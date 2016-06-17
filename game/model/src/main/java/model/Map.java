@@ -101,7 +101,7 @@ public class Map extends FAILEntity implements IMap{
 	}
 	public int getXof(IEntity e) {
 		for(int i = 0; i<width*height; i++){
-			if(map[i].equals(e)){
+			if(map[i] != null && map[i].equals(e)){
 				return i%width;
 			}
 		}
@@ -109,7 +109,7 @@ public class Map extends FAILEntity implements IMap{
 	}
 	public int getYof(IEntity e) {
 		for(int i = 0; i<width*height; i++){
-			if(map[i].equals(e)){
+			if(map[i] != null && map[i].equals(e)){
 				return i/width;
 			}
 		}
