@@ -19,10 +19,6 @@ public class Player extends Entity{
 		return Lives >0;
 	}
 
-	public void die() {	
-		Lives--;
-	}
-
 	public VisualEntity getVisualType() {
 		return VisualEntity.PLAYER;
 	}
@@ -45,7 +41,6 @@ public class Player extends Entity{
 	}
 
 	public void die(IMap map) {
-		// TODO Auto-generated method stub
-		
+		Lives--;
 	}
 }

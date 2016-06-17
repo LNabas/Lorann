@@ -73,7 +73,6 @@ public class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	private void orderPerformMenu(final ControllerOrder controllerOrder){
-		System.out.println(controllerOrder);
 		view.getMenu().changeButtonState(posMenu+1, ButtonState.NORMAL);
 		switch(controllerOrder){
 		case UP:
@@ -115,6 +114,10 @@ public class Controller implements IController {
 			xFireBall = 0;
 			yFireBall = -1;
 			break;
+		case DOWN:
+			xFireBall = 0;
+			yFireBall = 1;
+			break;
 		case RIGHT:
 			xFireBall = 1;
 			yFireBall = 0;
@@ -122,9 +125,6 @@ public class Controller implements IController {
 		case LEFT:
 			xFireBall = -1;
 			yFireBall = 0;
-		case DOWN:
-			xFireBall = 0;
-			yFireBall = 1;
 			break;
 		default:
 			break;
@@ -156,11 +156,10 @@ public class Controller implements IController {
 			break;
 		case RAINBOW_FIREBALL:
 			p = model.getMap().getPlayer();
-			if (p.hasFB()){ 
+			if (p.hasFB() && model.getMap().get(p.getX() + xFireBall, p.getY() + yFireBall)==null){ 
 				p.LooseFB();
-				model.getMap().addFireball(model.getPlayer().getX() + xFireBall,model.getPlayer().getY() + yFireBall,xFireBall,yFireBall);
+				model.getMap().addFireball(p.getX() + xFireBall, p.getY() + yFireBall, xFireBall, yFireBall);
 			}
-			else{}
 			break;
 		case RETURN:
 			view.setState(States.MENU);
@@ -226,7 +225,6 @@ public class Controller implements IController {
 	 * @param offset_x type int
 	 * @param offset_y type int
 	 */
-	@SuppressWarnings("null")
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
 		int posx = model.getPlayer().getX();
 		int posy = model.getPlayer().getY();
@@ -234,34 +232,38 @@ public class Controller implements IController {
 		Permeability permeability;
 		if(target_entity != null){
 			permeability = target_entity.getPermeability();
-		}else{
-			permeability = Permeability.PERMEABLE;
-		}
-		
-		switch(permeability){
-			case PERMEABLE:
-				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
-				if(entity.getType()==TypeEntity.DOOROPEN){
-					view.setState(States.MENU);
-				}
-				
-				break;
-			case IMPERMEABLE:
-				if(target_entity.hit()){
-					entity.die(model.getMap());
-					if(entity.isAlive()){
-						model.Mappy(1);
+			switch(permeability){
+				case PERMEABLE:
+					switch(target_entity.getType()){
+					case RFB:
 						entity.GainFB();
-					}
-					else{
-						model.getPlayer().setLive(11);
+						break;
+					case DOOROPEN:
 						view.setState(States.MENU);
-						entity.GainFB();
+						break;
+					default:
+						break;
 					}
-				}
-				break;
-			default:
-				break;
+					model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
+					break;
+				case IMPERMEABLE:
+					if(target_entity.hit()){
+						entity.die(model.getMap());
+						if(entity.isAlive()){
+							model.Mappy(1);
+							entity.GainFB();
+						}else{
+							model.getPlayer().setLive(11);
+							view.setState(States.MENU);
+							entity.GainFB();
+						}
+					}
+					break;
+				default:
+					break;
+			}
+		}else{
+			model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 		}
 		
 	}

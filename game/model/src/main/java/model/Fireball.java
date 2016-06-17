@@ -21,7 +21,7 @@ public class Fireball extends Entity{
 		this.oy = oy;
 	}
 	public boolean hit() {
-		return true;
+		return false;
 	}
 
 	public Permeability getPermeability() {
@@ -35,7 +35,9 @@ public class Fireball extends Entity{
 		if(old_turn != turn){
 			if(x<map.getWidth() && y < map.getHeight()){
 				IEntity e = map.get(x+ox, y+oy);
-				if(e!=null){
+				if(e==null || e.getPermeability() == Permeability.PERMEABLE){
+					map.move(x, y, x+ox, y+oy);
+				}else{
 					switch(e.getType()){
 					case DEMON:
 						map.kill(x+ox, y+oy);
@@ -49,9 +51,6 @@ public class Fireball extends Entity{
 					default:
 						break;
 					}
-				}else if(e==null || e.getPermeability() == Permeability.PERMEABLE){
-					map.move(x, y, x+ox, y+oy);
-				}else{
 					ox*=+1;
 					oy*=-1;
 				}
