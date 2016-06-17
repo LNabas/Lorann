@@ -27,7 +27,7 @@ public class Map extends FAILEntity implements IMap{
         int colsToCopy = Math.min(w, this.width);
         int rowsToCopy = Math.min(h, this.height);
         for (int i = 0; i < rowsToCopy; ++i) {
-            int oldRowStart = getIndex(0, i, this.width);
+            int oldRowStart = getIndex(0, i, this.height);
             int newRowStart = getIndex(0, i, h);
             System.arraycopy(map, oldRowStart, newData, newRowStart,
                 colsToCopy

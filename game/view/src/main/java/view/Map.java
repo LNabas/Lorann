@@ -53,6 +53,7 @@ public class Map extends GraphicsBuilder{
 		}
 		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
 		for(int i = 0; i < map.getWidth(); i++){
+			System.out.println("");
 			for(int j = 0; j < map.getHeight(); j++){
 				VisualEntity t = VisualEntity.FLOOR;
 				if(map.get(i, j) != null){
@@ -61,7 +62,11 @@ public class Map extends GraphicsBuilder{
 						t = VisualEntity.FLOOR;
 					}
 				}
+				System.out.print(t.toString().charAt(0)+" ");
 				switch(t){
+				case CHARLES:
+				case PIERRE:
+				case HENRY:
 				case PAUL:
 					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
 					break;
@@ -80,8 +85,12 @@ public class Map extends GraphicsBuilder{
 				case VERTICAL_BONE:
 					drawImage(vbone, i*vbone.getWidth(), j*vbone.getHeight());
 					break;
+				case FLOOR:
+					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					break;
 				default:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					//System.out.println(t);
 					break;
 				}
 			}
