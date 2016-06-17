@@ -3,8 +3,6 @@
  */
 package contract;
 
-import java.util.ArrayList;
-
 /**
  * @author Maxence
  *
@@ -36,7 +34,7 @@ public interface IEntity {
 	 */
 	public VisualEntity getVisualType();
 	
-	public void move(ArrayList<ArrayList<IEntity>> map, int x, int y);
+	public void move(IMap map, int x, int y);
 
 	public int getX();
 	public int getY();

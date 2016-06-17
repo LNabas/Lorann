@@ -31,7 +31,6 @@ public class View implements IView, Runnable {
 	public View(final IModel model) throws HeadlessException {
 		this.viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
-		this.viewFrame.setVisible(true);
 	}
 	/**
 	 * Key code to controller order.
@@ -111,7 +110,7 @@ public class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		System.out.println("r");
+		this.viewFrame.setVisible(true);
 	}
 
 	/**
