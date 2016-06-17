@@ -28,6 +28,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long	serialVersionUID	= -998294702363713521L;
 	public Menu menu_principal;
 	public Menu menu_options; 
+	public Map map;
 	public MP3Player music;
 
 	/**
@@ -60,6 +61,7 @@ class ViewPanel extends JPanel implements Observer {
 				 .addButton("2", new Button(ressources).setText("Meh"))
 				 .addButton("3", new Button(ressources).setText("OH YEAH"))
 				 .addButton("4", new Button(ressources).setText("DUCK GOD"));
+		 map = new Map(ressources, this.viewFrame.getModel().getMap());
 	}
 
 	/**
@@ -118,25 +120,31 @@ class ViewPanel extends JPanel implements Observer {
 			draw(menu_options.getImage(), graphics);
 		    break;    
 		case GAME:
-			draw(new Map(ressources, this.viewFrame.getModel().getMap()).getImage(), graphics);
+			draw(map.getImage(), graphics);
 			break;
 		default:
 			break;
 		}
 	}
+	private static float getScaleFactor(int iMasterSize, int iTargetSize) {
+	    float dScale = 1;
+	    if (iMasterSize > iTargetSize) {
+	        dScale = (float) iTargetSize / (float) iMasterSize;
+	    } else {
+	        dScale = (float) iTargetSize / (float) iMasterSize;
+	    }
+	    return dScale;
+	}
 	private void draw(Image img, Graphics g){
 		int width = this.getWidth();
 		int height = this.getHeight();
-		float img_width = img.getWidth(null);
-		float img_height = img.getHeight(null);
-	    float img_ratio = 0;
-	    if(width < height){
-	    	img_ratio = img_height/img_width;
-	    	height = (int)(width*img_ratio);
-	    }else if(this.getWidth() > this.getHeight()){
-	    	img_ratio = img_width/img_height;
-	    	width = (int)(height*img_ratio);
-	    }
+		int img_width = img.getWidth(null);
+		int img_height = img.getHeight(null);
+	    float scale_w = getScaleFactor(img_width, width);
+	    float scale_h = getScaleFactor(img_height, height);
+	    float s = Math.min(scale_h, scale_w);
+	    width = (int) (img_width*s);
+	    height = (int) (img_height*s);
 	    int margin_x = (this.getWidth() - width)/2;
 	    int margin_y = (this.getHeight() - height)/2;
 	    g.drawImage(img, margin_x, margin_y, width, height, null);

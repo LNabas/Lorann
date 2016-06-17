@@ -11,12 +11,31 @@ import contract.VisualEntity;
  */
 public class Map extends GraphicsBuilder{
 	private IMap map;
+	private boolean need_update = true;
+	BufferedImage sol;
+	BufferedImage skull;
+	BufferedImage hbone;
+	BufferedImage vbone;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
+		sol = ressources.getSpriteCopy("Sol");
+		//
+		skull = ressources.getSpriteCopy("Sol");
+		skull.getGraphics().drawImage(ressources.getSprite("Skull"), 0, 0, null);
+		hbone = ressources.getSpriteCopy("Sol");
+		hbone.getGraphics().drawImage(ressources.getSprite("HBone"), 0, 0, null);
+		vbone = ressources.getSpriteCopy("Sol");
+		vbone.getGraphics().drawImage(ressources.getSprite("VBone"), 0, 0, null);
+	}
+	public void setMap(IMap m){
+		if(m!=map){
+			need_update = true;
+			map=m;
+		}
 	}
 	public Image getImage() {
-		BufferedImage sol = ressources.getSpriteCopy("Sol");
+		if(need_update){
 		BufferedImage paul = ressources.getSpriteCopy("Sol");
 		paul.getGraphics().drawImage(ressources.getSprite("Paul"), 0, 0, null);
 		BufferedImage dc = ressources.getSpriteCopy("Sol");
@@ -35,9 +54,12 @@ public class Map extends GraphicsBuilder{
 		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
 		for(int i = 0; i < map.getWidth(); i++){
 			for(int j = 0; j < map.getHeight(); j++){
-				VisualEntity t = null;
+				VisualEntity t = VisualEntity.FLOOR;
 				if(map.get(i, j) != null){
 					t = map.get(i, j).getVisualType();
+					if(t==null){
+						t = VisualEntity.FLOOR;
+					}
 				}
 				switch(t){
 				case PAUL:
@@ -49,11 +71,23 @@ public class Map extends GraphicsBuilder{
 				case KEY:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
 					break;
+				case SKULL:
+					drawImage(skull, i*skull.getWidth(), j*skull.getHeight());
+					break;
+				case HORIZONTAL_BONE:
+					drawImage(hbone, i*hbone.getWidth(), j*hbone.getHeight());
+					break;
+				case VERTICAL_BONE:
+					drawImage(vbone, i*vbone.getWidth(), j*vbone.getHeight());
+					break;
 				default:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
 					break;
 				}
 			}
+		}
+		need_update = false;
+		System.out.println("u");
 		}
 		return bufferImage;
 	}
