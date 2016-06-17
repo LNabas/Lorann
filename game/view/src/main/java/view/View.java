@@ -2,6 +2,8 @@ package view;
 
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
+import java.security.Timestamp;
+import java.util.Date;
 
 import javax.swing.SwingUtilities;
 
@@ -104,15 +106,18 @@ public class View implements IView, Runnable {
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 	}
-
+	private Date ts = new Date();
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
+		if((new Date().getTime()-ts.getTime())>6000){
 		if(this.viewFrame.getController()!=null){
 			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
+		}
+		System.out.println("tick");
 		}
 		SwingUtilities.invokeLater(this);
 	}
