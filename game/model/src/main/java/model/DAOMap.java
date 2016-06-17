@@ -6,6 +6,9 @@ package model;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import contract.IMap;
+
 import java.io.BufferedReader;
 import java.sql.CallableStatement;
 
@@ -32,8 +35,9 @@ public class DAOMap extends DAOEntity<Map> {
 		 * @see model.DAOEntity#create(model.Entity)
 		 */
 		@Override
-		public void LoadMap() {
+		public IMap LoadMap() {
 			try {
+				Map map = new Map();
 				final String sql = "{call recup_map(?)}";
 				final CallableStatement call = this.getConnection().prepareCall(sql);
 				call.setInt(1, 1);
@@ -42,7 +46,6 @@ public class DAOMap extends DAOEntity<Map> {
 				if (resultSet.first()) {
 				String str = resultSet.getString("map");
 				System.out.println(resultSet.getString("map"));
-				Map map = new Map();
 				int ligne = 0;
 				int col = 0;
 				for(int i = 0 ; i<str.length(); i++){
@@ -110,11 +113,11 @@ public class DAOMap extends DAOEntity<Map> {
 				}
 				
 				}
-				return;
+				return map;
 			} catch (final SQLException e) {
 				e.printStackTrace();
 			}
-			return;
+			return null;
 		}
 
 		/*

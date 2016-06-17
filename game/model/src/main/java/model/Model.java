@@ -62,7 +62,7 @@ public class Model extends Observable implements IModel {
 	public void Mappy() {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
-			daoMap.LoadMap();
+			map = daoMap.LoadMap();
 			//this.setMap(daoMap.find(1).getMap());
 		} catch (final SQLException e) {
 			e.printStackTrace();
