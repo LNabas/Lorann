@@ -80,6 +80,7 @@ public class Map extends GraphicsBuilder{
 				case ITEMGOOD:
 				case KEY:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
+					System.out.println("e");
 					break;
 				case SKULL:
 					drawImage(skull, i*skull.getWidth(), j*skull.getHeight());
@@ -97,7 +98,7 @@ public class Map extends GraphicsBuilder{
 					drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
 					break;
 				default:
-					//drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
 					System.out.println(t);
 					break;
 				}
