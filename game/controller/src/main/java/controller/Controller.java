@@ -109,6 +109,10 @@ public class Controller implements IController {
 		
 	view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
 	}
+	
+	/** To launch the rainbow fire ball. 
+	 * @param controllerOrder : ControllerOrder
+	 */
 	private void orderPerformJeu(final ControllerOrder controllerOrder){
 		switch(controllerOrder){
 			case UP :
@@ -199,7 +203,7 @@ public class Controller implements IController {
 		view.getMenu().changeButtonState(posMenuOpt, ButtonState.CLICKED);
 
 	}
-	/**
+	/** To use the menu 
 	 * @param ControllerOrder of type ControllerOrder.
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
