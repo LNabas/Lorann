@@ -22,7 +22,7 @@ public class Map extends FAILEntity implements IMap{
 	private static int getIndex(int col, int row, int width) {
         return row * width + col;
     }
-	private void resize(int w, int h){
+	/*private void resize(int w, int h){
         int l = w*h;
         int old_l = width*height;
 		IEntity [] newData = new IEntity[l];
@@ -32,7 +32,22 @@ public class Map extends FAILEntity implements IMap{
         height = h;
         width = w;
         map = newData;
-	}
+	}*/
+	 public void resize(int cols, int rows) {
+		 IEntity [] newData = new IEntity[cols * rows];
+	        int colsToCopy = Math.min(cols, this.width);
+	        int rowsToCopy = Math.min(rows, this.height);
+	        for (int i = 0; i < rowsToCopy; ++i) {
+	            int oldRowStart = getIndex(0, i, this.width);
+	            int newRowStart = getIndex(0, i, cols);
+	            for(int j = 0; j<colsToCopy; j++){
+	            	newData[newRowStart+j]=map[oldRowStart+j];
+	            }
+	        }
+	        height = rows;
+	        width = cols;
+	        map = newData;
+	  }
 	public IEntity get(int x, int y) {
 		return map[getIndex(x, y, width)];
 	}
