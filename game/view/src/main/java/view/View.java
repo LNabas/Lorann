@@ -111,9 +111,7 @@ public class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		while(true){
-			System.out.println("r");
-		}
+		System.out.println("r");
 	}
 
 	/**
