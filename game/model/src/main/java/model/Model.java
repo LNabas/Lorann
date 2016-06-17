@@ -13,7 +13,7 @@ import contract.IModel;
  * @author somebody maybe
  */
 public class Model extends Observable implements IModel {
-
+	private int lvl=7;
 	/** The message. */
 	private String message;
 	private IMap map;
@@ -62,7 +62,7 @@ public class Model extends Observable implements IModel {
 	public void Mappy() {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
-			map = daoMap.LoadMap();
+			map = daoMap.LoadMap(lvl);
 			//this.setMap(daoMap.find(1).getMap());
 		} catch (final SQLException e) {
 			e.printStackTrace();
@@ -93,6 +93,16 @@ public class Model extends Observable implements IModel {
 	}
 
 	public void loadMessage(String key) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void LoadNextMap() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void RealoadMap() {
 		// TODO Auto-generated method stub
 		
 	}
