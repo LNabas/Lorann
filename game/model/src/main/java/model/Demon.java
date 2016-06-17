@@ -27,8 +27,9 @@ public class Demon extends Entity{
 			map.move(x, y, x + nx, y + ny);
 		}else if(map.get(x, y+ny) == null){
 			map.move(x, y, x, y + ny);
+		}else if(map.get(x+nx, y) == null){
+			map.move(x, y, x+nx, y);
 		}
-		System.out.println("mama");
 	}
 
 	public boolean isAlive() {

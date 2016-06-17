@@ -37,6 +37,10 @@ public class Fireball extends Entity{
 		
 	}
 	public void move(IMap map, int x, int y){
-		map.move(x, y, x+ox, y+oy);
+		if(x<map.getWidth() && y < map.getHeight()){
+			System.out.println("a");
+			map.move(x, y, x+ox, y+oy);
+			System.out.println("-");
+		}
 	}
 }

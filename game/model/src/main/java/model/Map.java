@@ -104,7 +104,9 @@ public class Map extends FAILEntity implements IMap{
 		set(x,y,null);
 	}
 	public void move(int origin_x, int origin_y, int new_x, int new_y) {
-		set(new_x,new_y, get(origin_x, origin_y));
+		if(new_x>-1 && new_y>-1 && new_x<getWidth() && new_y<getHeight()){
+			set(new_x,new_y, get(origin_x, origin_y));
+		}
 		kill(origin_x, origin_y);
 	}
 	public int getXof(IEntity e) {
