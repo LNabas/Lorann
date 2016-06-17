@@ -106,4 +106,14 @@ public class Model extends Observable implements IModel {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void setDifficulty(int posMenuOpt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ForceRedraw() {
+		this.setChanged();
+		this.notifyObservers();
+	}
 }
