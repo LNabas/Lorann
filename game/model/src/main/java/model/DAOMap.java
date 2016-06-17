@@ -74,7 +74,7 @@ public class DAOMap extends DAOEntity<Map> {
 						
 					}
 					else if (str.charAt(i) == 'F'){
-						map.set(col, ligne, new Paul());
+						map.set(col, ligne, new ItemGood());
 					}
 					else if (str.charAt(i) == '3'){
 						map.set(col, ligne, new Pierre());
@@ -86,6 +86,14 @@ public class DAOMap extends DAOEntity<Map> {
 					}
 					else if (str.charAt(i) == '9'){
 						map.set(col, ligne, new ItemGood());
+						
+					}
+					else if (str.charAt(i) == '+'){
+						map.set(col, ligne, new Paul());
+						
+					}
+					else if (str.charAt(i) == '+'){
+						map.set(col, ligne, new Key());
 						
 					}
 				}
