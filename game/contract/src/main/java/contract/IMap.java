@@ -54,4 +54,5 @@ public interface IMap{
 	public IEntity getPlayer();
 	public IEntity getFireBall();
 	public void addFireball(int x, int y, int ox, int oy);
+	public void push();
 }

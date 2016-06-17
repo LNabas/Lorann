@@ -23,17 +23,6 @@ public class Map extends FAILEntity implements IMap{
 	private static int getIndex(int col, int row, int width) {
         return row * width + col;
     }
-	/*private void resize(int w, int h){
-        int l = w*h;
-        int old_l = width*height;
-		IEntity [] newData = new IEntity[l];
-        for(int i = 0; i<l && i<old_l; i++){
-        	newData[i]=map[i];
-        }
-        height = h;
-        width = w;
-        map = newData;
-	}*/
 	 public void resize(int cols, int rows) {
 		 IEntity [] newData = new IEntity[cols * rows];
 	        int colsToCopy = Math.min(cols, this.width);
@@ -127,5 +116,9 @@ public class Map extends FAILEntity implements IMap{
 	}
 	public void addFireball(int x, int y, int ox, int oy){
 		set(x, y, new Fireball(ox, oy));
+	}
+	public void push() {
+		// TODO Auto-generated method stub
+		
 	}
 }

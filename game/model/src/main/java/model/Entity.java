@@ -55,4 +55,9 @@ abstract class Entity implements IEntity{
 		
 	}
 
+	public void setLive(int live) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

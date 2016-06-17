@@ -18,6 +18,9 @@ public class Map extends GraphicsBuilder{
 	BufferedImage vbone;
 	BufferedImage lorann;
 	BufferedImage fireball;
+	BufferedImage paul;
+	BufferedImage henry;
+	BufferedImage pierre;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
@@ -29,10 +32,18 @@ public class Map extends GraphicsBuilder{
 		hbone.getGraphics().drawImage(ressources.getSprite("HBone"), 0, 0, null);
 		vbone = ressources.getSpriteCopy("Sol");
 		vbone.getGraphics().drawImage(ressources.getSprite("VBone"), 0, 0, null);
+		//
 		lorann = ressources.getSpriteCopy("Sol");
 		lorann.getGraphics().drawImage(ressources.getSprite("Lorann"), 0, 0, null);
 		fireball = ressources.getSpriteCopy("Sol");
 		fireball.getGraphics().drawImage(ressources.getSprite("Fireball"), 0, 0, null);
+		//
+		paul = ressources.getSpriteCopy("Sol");
+		paul.getGraphics().drawImage(ressources.getSprite("Paul"), 0, 0, null);
+		henry = ressources.getSpriteCopy("Sol");
+		henry.getGraphics().drawImage(ressources.getSprite("Henry"), 0, 0, null);
+		pierre = ressources.getSpriteCopy("Sol");
+		pierre.getGraphics().drawImage(ressources.getSprite("Pierre"), 0, 0, null);
 	}
 	public void setMap(IMap m){
 		if(m!=map){
@@ -42,16 +53,10 @@ public class Map extends GraphicsBuilder{
 	}
 	public Image getImage() {
 		if(true){
-		BufferedImage paul = ressources.getSpriteCopy("Sol");
-		paul.getGraphics().drawImage(ressources.getSprite("Paul"), 0, 0, null);
 		BufferedImage dc = ressources.getSpriteCopy("Sol");
 		dc.getGraphics().drawImage(ressources.getSprite("DC"), 0, 0, null);
 		BufferedImage don = ressources.getSpriteCopy("Sol");
 		don.getGraphics().drawImage(ressources.getSprite("DO"), 0, 0, null);
-		BufferedImage henry = ressources.getSpriteCopy("Sol");
-		henry.getGraphics().drawImage(ressources.getSprite("Henry"), 0, 0, null);
-		BufferedImage pierre = ressources.getSpriteCopy("Sol");
-		pierre.getGraphics().drawImage(ressources.getSprite("Pierre"), 0, 0, null);
 		BufferedImage purse = ressources.getSpriteCopy("Sol");
 		purse.getGraphics().drawImage(ressources.getSprite("Purse"), 0, 0, null);
 		if(map==null){
