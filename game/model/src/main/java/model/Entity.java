@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 import contract.IEntity;
+import contract.IMap;
 import contract.Permeability;
 import contract.TypeEntity;
 
@@ -49,6 +50,9 @@ abstract class Entity implements IEntity{
 
 	public TypeEntity getType() {
 		return TypeEntity.UNKOWN;
+	}
+	public void move(IMap map, int x, int y){
+		
 	}
 
 }
