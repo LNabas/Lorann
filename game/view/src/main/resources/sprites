@@ -13,5 +13,9 @@ Skull:bone.png
 VBone:vertical_bone.png
 HBone:horizontal_bone.png
 Trophy:trophy.png
-Lorann:lorann.png
+Lorann:lorann_u.png
+LorannU:lorann_u.png
+LorannD:lorann_b.png
+LorannL:lorann_l.png
+LorannR:lorann_r.png
 Fireball:trophy.png
