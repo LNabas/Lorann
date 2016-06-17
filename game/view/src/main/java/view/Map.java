@@ -58,9 +58,9 @@ public class Map extends GraphicsBuilder{
 			System.exit(0);
 		}
 		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
-		for(int j = 0; j < map.getHeight(); j++){
+		for(int i = 0; i < map.getWidth(); i++){
 			System.out.print('\n');
-			for(int i = 0; i < map.getWidth(); i++){
+			for(int j = 0; j < map.getHeight(); j++){
 				VisualEntity t = VisualEntity.FLOOR;
 				if(map.get(i, j) != null){
 					t = map.get(i, j).getVisualType();
@@ -68,8 +68,10 @@ public class Map extends GraphicsBuilder{
 						t = VisualEntity.FLOOR;
 					}
 				}
-
+				System.out.print(i);
 				System.out.print(t.toString().charAt(0));
+				System.out.print(j);
+				System.out.print(" ");
 				switch(t){
 				case CHARLES:
 				case PIERRE:
@@ -100,7 +102,7 @@ public class Map extends GraphicsBuilder{
 					drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
 					break;
 				default:
-					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					//drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
 					System.out.println(t);
 					break;
 				}
