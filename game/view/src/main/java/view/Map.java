@@ -12,9 +12,21 @@ import contract.VisualEntity;
 public class Map extends GraphicsBuilder{
 	private IMap map;
 	private boolean need_update = true;
+	BufferedImage sol;
+	BufferedImage skull;
+	BufferedImage hbone;
+	BufferedImage vbone;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
+		sol = ressources.getSpriteCopy("Sol");
+		//
+		skull = ressources.getSpriteCopy("Sol");
+		skull.getGraphics().drawImage(ressources.getSprite("Skull"), 0, 0, null);
+		hbone = ressources.getSpriteCopy("Sol");
+		hbone.getGraphics().drawImage(ressources.getSprite("HBone"), 0, 0, null);
+		vbone = ressources.getSpriteCopy("Sol");
+		vbone.getGraphics().drawImage(ressources.getSprite("VBone"), 0, 0, null);
 	}
 	public void setMap(IMap m){
 		if(m!=map){
@@ -24,7 +36,6 @@ public class Map extends GraphicsBuilder{
 	}
 	public Image getImage() {
 		if(need_update){
-		BufferedImage sol = ressources.getSpriteCopy("Sol");
 		BufferedImage paul = ressources.getSpriteCopy("Sol");
 		paul.getGraphics().drawImage(ressources.getSprite("Paul"), 0, 0, null);
 		BufferedImage dc = ressources.getSpriteCopy("Sol");
@@ -59,6 +70,15 @@ public class Map extends GraphicsBuilder{
 					break;
 				case KEY:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
+					break;
+				case SKULL:
+					drawImage(skull, i*skull.getWidth(), j*skull.getHeight());
+					break;
+				case HORIZONTAL_BONE:
+					drawImage(hbone, i*hbone.getWidth(), j*hbone.getHeight());
+					break;
+				case VERTICAL_BONE:
+					drawImage(vbone, i*vbone.getWidth(), j*vbone.getHeight());
 					break;
 				default:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
