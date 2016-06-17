@@ -29,4 +29,9 @@ public class Fireball extends Entity{
 	public VisualEntity getVisualType() {
 		return VisualEntity.FIREBALL;
 	}
+
+	public void setLive(int live) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -23,8 +23,8 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 	private int posMenu = 0;
-	private int xFireBall = 0;
-	private int yFireBall = 0;
+	private int xFireBall = model.getPlayer().getX();
+	private int yFireBall = model.getPlayer().getY();
 	private boolean munFireBall = true;
 	private int posMenuOpt = 0;
 	/**
@@ -163,6 +163,7 @@ public class Controller implements IController {
 			case RAINBOW_FIREBALL:
 				if (munFireBall){ 
 				munFireBall = false ;
+				model.getMap().set(model.getPlayer().getX() + xFireBall,model.getPlayer().getX() + yFireBall,new Fireball());
 				checkCaseFireBall(model.getFireball(), xFireBall, yFireBall);
 				}
 				else{}
