@@ -3,8 +3,6 @@
  */
 package model;
 
-import java.util.ArrayList;
-import contract.IEntity;
 import contract.IMap;
 import contract.Permeability;
 import contract.VisualEntity;

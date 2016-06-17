@@ -209,7 +209,7 @@ public class Controller implements IController {
 
 	}
 	/** To use the menu 
-	 * @param ControllerOrder of type ControllerOrder.
+	 * @param controllerOrder of type ControllerOrder.
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch(view.getState()){

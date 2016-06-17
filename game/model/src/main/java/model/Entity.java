@@ -15,6 +15,8 @@ import contract.TypeEntity;
 abstract class Entity implements IEntity{
 	private int x;
 	private int y;
+	protected int turn = 0;
+	protected int old_turn = 0;
 
 	public boolean hit() {
 		return false;
@@ -59,5 +61,9 @@ abstract class Entity implements IEntity{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	public void set_turn(int t){
+		old_turn = turn;
+		turn = t;
+	}
 }

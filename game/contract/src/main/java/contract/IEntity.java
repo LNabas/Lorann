@@ -42,6 +42,6 @@ public interface IEntity {
 	public void setY(int y);
 	public void die();
 	public void setLive(int live);
-	
+	public void set_turn(int t);
 	
 }
