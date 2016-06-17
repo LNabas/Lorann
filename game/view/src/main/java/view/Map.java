@@ -16,6 +16,8 @@ public class Map extends GraphicsBuilder{
 	BufferedImage skull;
 	BufferedImage hbone;
 	BufferedImage vbone;
+	BufferedImage lorann;
+	BufferedImage fireball;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
@@ -27,6 +29,10 @@ public class Map extends GraphicsBuilder{
 		hbone.getGraphics().drawImage(ressources.getSprite("HBone"), 0, 0, null);
 		vbone = ressources.getSpriteCopy("Sol");
 		vbone.getGraphics().drawImage(ressources.getSprite("VBone"), 0, 0, null);
+		lorann = ressources.getSpriteCopy("Sol");
+		lorann.getGraphics().drawImage(ressources.getSprite("Lorann"), 0, 0, null);
+		fireball = ressources.getSpriteCopy("Sol");
+		fireball.getGraphics().drawImage(ressources.getSprite("Fireball"), 0, 0, null);
 	}
 	public void setMap(IMap m){
 		if(m!=map){
@@ -72,7 +78,7 @@ public class Map extends GraphicsBuilder{
 					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
 					break;
 				case PLAYER:
-					drawImage(henry, i*henry.getWidth(), j*henry.getHeight());
+					drawImage(lorann, i*lorann.getWidth(), j*lorann.getHeight());
 					break;
 				case ITEMGOOD:
 				case KEY:
@@ -89,6 +95,9 @@ public class Map extends GraphicsBuilder{
 					break;
 				case FLOOR:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+					break;
+				case FIREBALL:
+					drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
 					break;
 				default:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
