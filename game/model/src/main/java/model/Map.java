@@ -118,4 +118,13 @@ public class Map extends FAILEntity implements IMap{
 					if(get(x, y).getType()==TypeEntity.DOORCLOSE)
 						set(x,y, new DoorOpen());
 	}
+	public Object clone() {
+		Object m = null;
+	    try {
+			m = super.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+	    return m;
+	}
 }

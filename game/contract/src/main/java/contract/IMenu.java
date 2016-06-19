@@ -1,6 +1,6 @@
 package contract;
 
-public interface IMenu {
+public interface IMenu extends Cloneable{
 	/**
 	 * Change Button State
 	 * @param posMenu pos of the menu

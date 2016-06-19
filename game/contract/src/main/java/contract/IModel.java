@@ -29,10 +29,6 @@ public interface IModel {
 	 * Load next maps
 	 */
 	void LoadNextMap();
-	/**
-	 * Reload a fresh instance of the current map
-	 */
-	void RealoadMap();
 	void setDifficulty(int posMenuOpt);
 	void ForceRedraw();
 	void Mappy();
