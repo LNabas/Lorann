@@ -182,7 +182,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		view.keys[e.getKeyCode()]=true;
 		view.keys_used[e.getKeyCode()]=false;
 		switch(e.getKeyCode()){
-		case 'A':
+		case 'M':
 			this.viewPanel.music.skipForward();
 		default:
 			this.getController().orderPerform(View.keyCodeToControllerOrder(this.viewPanel.getState(), e.getKeyCode()));

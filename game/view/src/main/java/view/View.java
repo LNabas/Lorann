@@ -116,10 +116,10 @@ public class View implements IView, Runnable {
 					entity.GainFB();
 				}
 			}
-			boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z];
-			boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
-			boolean left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_Q];
-			boolean right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
+			boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_E];
+			boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S] || keys[KeyEvent.VK_W] || keys[KeyEvent.VK_X];
+			boolean left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_Q] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_W];
+			boolean right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D] || keys[KeyEvent.VK_E] || keys[KeyEvent.VK_X];
 			boolean fb = keys[KeyEvent.VK_SPACE];
 			boolean r_return = keys[KeyEvent.VK_BACK_SPACE] || keys[KeyEvent.VK_ESCAPE];
 			if(up && left){

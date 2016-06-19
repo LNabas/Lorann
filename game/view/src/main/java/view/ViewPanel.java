@@ -30,7 +30,6 @@ class ViewPanel extends JPanel implements Observer {
 	public Menu menu_options; 
 	public Map map;
 	public MP3Player music;
-
 	/**
 	 * Instantiates a new view panel.
 	 *
