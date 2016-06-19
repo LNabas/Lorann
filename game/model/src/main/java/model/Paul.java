@@ -19,12 +19,10 @@ public class Paul extends Demon {
 				for(ny = -radius; ny<radius && !found; ny++){
 					int nnx = nx+x;
 					int nny = ny+y;
-					if(nnx>0 && nnx<map.getWidth() && nny>0 && nny<map.getHeight()){
-						if(map.get(x + nx, y + ny) != null){
-							if(map.get(x + nx, y + ny).getType()==TypeEntity.PLAYER){
-								found = true;
-							}
-						}
+					if(nnx>0 && nnx<map.getWidth() && nny>0 && nny<map.getHeight()
+						&&map.get(x + nx, y + ny) != null
+						&&map.get(x + nx, y + ny).getType()==TypeEntity.PLAYER){
+						found = true;		
 					}
 				}
 			}
