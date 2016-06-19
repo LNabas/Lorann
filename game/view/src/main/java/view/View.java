@@ -115,7 +115,7 @@ public class View implements IView, Runnable {
 				entity.updated_died_status();
 				if(entity.isAlive()){
 					model.Mappy();
-					entity.GainFB(); 
+					entity.GainFB();
 				}else{
 					model.getMap().getPlayer().setLive(11);
 					setState(States.MENU);
