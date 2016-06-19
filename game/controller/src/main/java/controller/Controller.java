@@ -266,7 +266,7 @@ public class Controller implements IController {
 			default:
 				break;
 			}
-		}else{
+		}else if(entity!=null){
 			if((offset_y==1)&&(offset_x==1)){
 				entity.setSprite(VisualEntity.PLAYER_DR);
 			}else if((offset_y==1)&&(offset_x==-1)){

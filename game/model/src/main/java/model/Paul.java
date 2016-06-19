@@ -36,8 +36,11 @@ public class Paul extends Demon {
 				}
 				nx = ((nx==0) ? 0 : nx/Math.abs(nx));
 			}
-			if(map.get(x + nx, y + ny)==null)
-					map.move(x, y, x + nx, y + ny);
+			if(map.get(x + nx, y + ny)==null){
+				map.move(x, y, x + nx, y + ny);
+			}else if(map.get(x + nx, y + ny).getType()==TypeEntity.PLAYER){
+				map.get(x + nx, y + ny).die(map);
+			}
 		}
 	}
 }
