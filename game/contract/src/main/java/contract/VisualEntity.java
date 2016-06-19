@@ -16,6 +16,8 @@ public enum VisualEntity {
 	PLAYER_D,
 	PLAYER_L,
 	PLAYER_R,
+	PLAYER_DR,
+	PLAYER_DL,
 	KEY,
 	VERTICAL_BONE,
 	HORIZONTAL_BONE,
@@ -23,5 +25,5 @@ public enum VisualEntity {
 	FIREBALL,
 	ITEMGOOD,
 	ITEMBAD,
-	SKULL,
+	SKULL, PLAYER_UL, PLAYER_UR,
 }

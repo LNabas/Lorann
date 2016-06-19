@@ -19,7 +19,11 @@ public class Map extends GraphicsBuilder{
 	BufferedImage lorannu;
 	BufferedImage lorannd;
 	BufferedImage lorannl;
+	BufferedImage lorannur;
+	BufferedImage lorannul;
 	BufferedImage lorannr;
+	BufferedImage loranndr;
+	BufferedImage loranndl;
 	BufferedImage fireball;
 	BufferedImage key;
 	BufferedImage paul;
@@ -47,8 +51,16 @@ public class Map extends GraphicsBuilder{
 		lorannu.getGraphics().drawImage(ressources.getSprite("LorannU"), 0, 0, null);
 		lorannd = ressources.getSpriteCopy("Sol");
 		lorannd.getGraphics().drawImage(ressources.getSprite("LorannD"), 0, 0, null);
+		loranndr = ressources.getSpriteCopy("Sol");
+		loranndr.getGraphics().drawImage(ressources.getSprite("LorannDR"), 0, 0, null);
+		loranndl = ressources.getSpriteCopy("Sol");
+		loranndl.getGraphics().drawImage(ressources.getSprite("LorannDL"), 0, 0, null);
 		lorannl = ressources.getSpriteCopy("Sol");
 		lorannl.getGraphics().drawImage(ressources.getSprite("LorannL"), 0, 0, null);
+		lorannur = ressources.getSpriteCopy("Sol");
+		lorannur.getGraphics().drawImage(ressources.getSprite("LorannUR"), 0, 0, null);
+		lorannul = ressources.getSpriteCopy("Sol");
+		lorannul.getGraphics().drawImage(ressources.getSprite("LorannUL"), 0, 0, null);
 		lorannr = ressources.getSpriteCopy("Sol");
 		lorannr.getGraphics().drawImage(ressources.getSprite("LorannR"), 0, 0, null);
 		fireball = ressources.getSpriteCopy("Sol");
@@ -107,8 +119,20 @@ public class Map extends GraphicsBuilder{
 				case PLAYER_U:
 					drawImage(lorannu, i*lorannu.getWidth(), j*lorannu.getHeight());
 					break;
+				case PLAYER_UR:
+					drawImage(lorannur, i*lorannur.getWidth(), j*lorannur.getHeight());
+					break;
+				case PLAYER_UL:
+					drawImage(lorannul, i*lorannul.getWidth(), j*lorannul.getHeight());
+					break;
 				case PLAYER_D:
 					drawImage(lorannd, i*lorannd.getWidth(), j*lorannd.getHeight());
+					break;
+				case PLAYER_DR:
+					drawImage(loranndr, i*loranndr.getWidth(), j*loranndr.getHeight());
+					break;
+				case PLAYER_DL:
+					drawImage(loranndl, i*loranndl.getWidth(), j*loranndl.getHeight());
 					break;
 				case PLAYER_L:
 					drawImage(lorannl, i*lorannl.getWidth(), j*lorannl.getHeight());

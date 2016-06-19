@@ -277,7 +277,15 @@ public class Controller implements IController {
 				break;
 			}
 		}else{
-			if(offset_y==-1){
+			if((offset_y==1)&&(offset_x==1)){
+				entity.setSprite(VisualEntity.PLAYER_DR);
+			}else if((offset_y==1)&&(offset_x==-1)){
+				entity.setSprite(VisualEntity.PLAYER_DL);
+			}else if((offset_y==-1)&&(offset_x==1)){
+				entity.setSprite(VisualEntity.PLAYER_UR);
+			}else if((offset_y==-1)&&(offset_x==-1)){
+				entity.setSprite(VisualEntity.PLAYER_UL);
+			}else if(offset_y==-1){
 				entity.setSprite(VisualEntity.PLAYER_U);
 			}else if(offset_y==1){
 				entity.setSprite(VisualEntity.PLAYER_D);

@@ -55,6 +55,5 @@ public class Player extends Entity{
 	}
 	public void setSprite(VisualEntity v){
 		me=v;
-		System.out.println(me);
 	}
 }
