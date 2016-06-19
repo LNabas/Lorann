@@ -34,4 +34,5 @@ public interface IModel {
 	void setDifficulty(int posMenuOpt);
 	void ForceRedraw();
 	void Mappy();
+	int Difficulty();
 }

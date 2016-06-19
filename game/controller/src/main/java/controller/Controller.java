@@ -172,7 +172,6 @@ public class Controller implements IController {
 		default:
 			break;
 		}
-		model.ForceRedraw();
 	}
 	/** To use the Keyboard
 	 * @param controllerOrder : ControllerOrder
@@ -205,7 +204,6 @@ public class Controller implements IController {
 			posMenuOpt = 0;
 		}
 		view.getMenu().changeButtonState(posMenuOpt, ButtonState.CLICKED);
-
 	}
 	/** To use the menu 
 	 * @param controllerOrder of type ControllerOrder.
@@ -225,6 +223,7 @@ public class Controller implements IController {
 		default:
 			break;
 		}
+		model.ForceRedraw();
 	}
 	/** Check the position of the player on the map.
 	 * @param entity type IEntity
@@ -248,15 +247,6 @@ public class Controller implements IController {
 				default:
 					break;
 				}
-				if(offset_y==-1){
-					entity.setSprite(VisualEntity.PLAYER_U);
-				}else if(offset_y==1){
-					entity.setSprite(VisualEntity.PLAYER_D);
-				}else if(offset_x==1){
-					entity.setSprite(VisualEntity.PLAYER_L);
-				}else if(offset_x==-1){
-					entity.setSprite(VisualEntity.PLAYER_R);
-				}
 				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 				break;
 			case IMPERMEABLE:
@@ -264,6 +254,7 @@ public class Controller implements IController {
 					if(model.MaxMap()>model.CurrentMap()){
 						model.LoadNextMap();
 					}else{
+						view.printMessage("You won !");
 						view.setState(States.MENU);
 					}
 				}

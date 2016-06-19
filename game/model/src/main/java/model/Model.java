@@ -16,6 +16,7 @@ public class Model extends Observable implements IModel {
 	private int lvl=1;
 	private boolean reload = true;
 	private IMap map;
+	int difficulty = 1;
 
 	/**
 	 * Instantiates a new model.
@@ -90,8 +91,7 @@ public class Model extends Observable implements IModel {
 	}
 
 	public void setDifficulty(int posMenuOpt) {
-		// TODO Auto-generated method stub
-		
+		difficulty=posMenuOpt+1;
 	}
 
 	public void ForceRedraw() {
@@ -111,5 +111,9 @@ public class Model extends Observable implements IModel {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public int Difficulty() {
+		return difficulty;
 	}
 }

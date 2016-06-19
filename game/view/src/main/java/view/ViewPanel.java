@@ -147,6 +147,14 @@ class ViewPanel extends JPanel implements Observer {
 	    height = (int) (img_height*s);
 	    int margin_x = (this.getWidth() - width)/2;
 	    int margin_y = (this.getHeight() - height)/2;
+
+		for(int x = 0; x < this.getWidth();){
+			for(int y = 0; y < this.getHeight();){
+				g.drawImage(ressources.getSprite("Sol"), x, y, null);
+				y += ressources.getSprite("Sol").getHeight();
+			}
+			x += ressources.getSprite("Sol").getWidth();
+		}
 	    g.drawImage(img, margin_x, margin_y, width, height, null);
 	}
 	/**
