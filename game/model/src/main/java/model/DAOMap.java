@@ -50,51 +50,44 @@ public class DAOMap extends DAOEntity<Map> {
 				int col = 0;
 				for(int i = 0 ; i<str.length(); i++){
 					col++;
-					if(str.charAt(i) == '\n'){ 
+					switch(str.charAt(i)){
+					case'\n':
 						ligne++;
 						col = 0;
-					}
-					else if(str.charAt(i) == '*'){ 
+					break;
+					case '*':
 						map.set(col, ligne, new Skull());
-					}
-					else if (str.charAt(i) == '='){
+					break;
+					case '=':
 						map.set(col, ligne, new Hbone());
-					}
-					else if (str.charAt(i) == '|'){
+					break;
+					case '|':
 						map.set(col, ligne, new Vbone());
-					}
-					else if (str.charAt(i) == 'P'){
-						map.set(col, ligne, new DoorOpen());
-					}
-					else if (str.charAt(i) == 'C'){
+					break;
+					case 'P':
+						map.set(col, ligne, new DoorClose());
+					break;
+					case 'C':
 						map.set(col, ligne, new Charles());
-					}
-					else if (str.charAt(i) == 'G'){
+					break;
+					case 'G':
 						map.set(col, ligne, new ItemGood());
-						
-					}
-					else if (str.charAt(i) == 'F'){
+					break;
+					case 'F':
 						map.set(col, ligne, new ItemGood());
-					}
-					else if (str.charAt(i) == '3'){
+					break;
+					case '3':
 						map.set(col, ligne, new Pierre());
-						
-					}
-					else if (str.charAt(i) == '4'){
+					break;
+					case '4':
 						map.set(col, ligne, new Player());
-						
-					}
-					else if (str.charAt(i) == '9'){
+					break;
+					case '9':
 						map.set(col, ligne, new ItemGood());
-						
-					}
-					else if (str.charAt(i) == '+'){
-						map.set(col, ligne, new Paul());
-						
-					}
-					else if (str.charAt(i) == '+'){
+					break;
+					case '+':
 						map.set(col, ligne, new Key());
-						
+					break;
 					}
 				}
 				

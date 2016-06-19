@@ -19,8 +19,7 @@ public class DoorOpen extends Door{
 	}
 
 	public VisualEntity getVisualType() {
-		// TODO Auto-generated method stub
-		return null;
+		return VisualEntity.DOOR_OPEN;
 	}
 
 	public TypeEntity getType() {

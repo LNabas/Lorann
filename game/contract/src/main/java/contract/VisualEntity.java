@@ -15,7 +15,6 @@ public enum VisualEntity {
 	KEY,
 	VERTICAL_BONE,
 	HORIZONTAL_BONE,
-	STONE,
 	FLOOR,
 	FIREBALL,
 	ITEMGOOD,

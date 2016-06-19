@@ -18,9 +18,11 @@ public class Map extends GraphicsBuilder{
 	BufferedImage vbone;
 	BufferedImage lorann;
 	BufferedImage fireball;
+	BufferedImage key;
 	BufferedImage paul;
 	BufferedImage henry;
 	BufferedImage pierre;
+	BufferedImage charles;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
@@ -32,6 +34,8 @@ public class Map extends GraphicsBuilder{
 		hbone.getGraphics().drawImage(ressources.getSprite("HBone"), 0, 0, null);
 		vbone = ressources.getSpriteCopy("Sol");
 		vbone.getGraphics().drawImage(ressources.getSprite("VBone"), 0, 0, null);
+		key = ressources.getSpriteCopy("Sol");
+		key.getGraphics().drawImage(ressources.getSprite("Key"), 0, 0, null);
 		//
 		lorann = ressources.getSpriteCopy("Sol");
 		lorann.getGraphics().drawImage(ressources.getSprite("Lorann"), 0, 0, null);
@@ -44,6 +48,8 @@ public class Map extends GraphicsBuilder{
 		henry.getGraphics().drawImage(ressources.getSprite("Henry"), 0, 0, null);
 		pierre = ressources.getSpriteCopy("Sol");
 		pierre.getGraphics().drawImage(ressources.getSprite("Pierre"), 0, 0, null);
+		charles = ressources.getSpriteCopy("Sol");
+		charles.getGraphics().drawImage(ressources.getSprite("Charles"), 0, 0, null);
 	}
 	public void setMap(IMap m){
 		need_update = true;
@@ -72,6 +78,8 @@ public class Map extends GraphicsBuilder{
 				}
 				switch(t){
 				case CHARLES:
+					drawImage(charles, i*charles.getWidth(), j*charles.getHeight());
+					break;
 				case PIERRE:
 					drawImage(pierre, i*pierre.getWidth(), j*pierre.getHeight());
 					break;
@@ -85,8 +93,10 @@ public class Map extends GraphicsBuilder{
 					drawImage(lorann, i*lorann.getWidth(), j*lorann.getHeight());
 					break;
 				case ITEMGOOD:
-				case KEY:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
+					break;
+				case KEY:
+					drawImage(key, i*key.getWidth(), j*key.getHeight());
 					break;
 				case SKULL:
 					drawImage(skull, i*skull.getWidth(), j*skull.getHeight());
@@ -102,6 +112,12 @@ public class Map extends GraphicsBuilder{
 					break;
 				case FIREBALL:
 					drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
+					break;
+				case DOOR_OPEN:
+					drawImage(don, i*don.getWidth(), j*don.getHeight());
+					break;
+				case DOOR_CLOSED:
+					drawImage(dc, i*dc.getWidth(), j*dc.getHeight());
 					break;
 				default:
 					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());

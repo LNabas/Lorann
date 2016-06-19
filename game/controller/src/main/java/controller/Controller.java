@@ -28,7 +28,6 @@ public class Controller implements IController {
 	private int posMenuOpt = 0;
 	/**
 	 * Instantiates a new controller.
-	 *
 	 * @param view
 	 *          the view
 	 * @param model
@@ -38,15 +37,14 @@ public class Controller implements IController {
 		this.setView(view);
 		this.setModel(model);
 	}
-	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		}
-
+	
+	}
 	/**
 	 * Sets the view.
 	 *
@@ -56,10 +54,8 @@ public class Controller implements IController {
 	private void setView(final IView view) {
 		this.view = view;
 	}
-
 	/**
 	 * Sets the model.
-	 *
 	 * @param model
 	 *          the new model
 	 */
@@ -172,7 +168,6 @@ public class Controller implements IController {
 	/** To use the Keyboard
 	 * @param controllerOrder : ControllerOrder
 	 */
-	
 	private void orderPerformOption(final ControllerOrder controllerOrder){
 		view.getMenu().changeButtonState(posMenuOpt, ButtonState.NORMAL);
 		switch(controllerOrder){
