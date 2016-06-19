@@ -139,7 +139,7 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.addKeyListener(this);
 		try {
 			viewPanel = new ViewPanel(this);
-			this.setIconImage(viewPanel.ressources.getSprite("Paul"));
+			this.setIconImage(viewPanel.ressources.getSprite("Lorann"));
 			this.setContentPane(viewPanel);
 			this.setSize(400 + this.getInsets().left + this.getInsets().right, 
 				400 + this.getInsets().top + this.getInsets().bottom);
@@ -184,8 +184,20 @@ class ViewFrame extends JFrame implements KeyListener {
 		switch(e.getKeyCode()){
 		case 'M':
 			this.viewPanel.music.skipForward();
+			break;
+		case 'L':
+			this.viewPanel.music.skipBackward();
+			break;
+		case 'P':
+			if(this.viewPanel.music.isPaused()){
+				this.viewPanel.music.play();
+			}else{
+				this.viewPanel.music.pause();
+			}
+			break;
 		default:
 			this.getController().orderPerform(View.keyCodeToControllerOrder(this.viewPanel.getState(), e.getKeyCode()));
+			break;
 		}
 	}
 

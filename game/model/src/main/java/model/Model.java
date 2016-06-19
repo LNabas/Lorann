@@ -76,8 +76,17 @@ public class Model extends Observable implements IModel {
 	}
 
 	public void LoadNextMap() {
-		lvl++;
-		Mappy();
+		try {
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			if(daoMap.MaxMaps()>=lvl){
+				lvl++;
+			}else{
+				lvl=0;
+			}
+			Mappy();
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void setDifficulty(int posMenuOpt) {

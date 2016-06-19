@@ -124,20 +124,28 @@ public class View implements IView, Runnable {
 			boolean r_return = keys[KeyEvent.VK_BACK_SPACE] || keys[KeyEvent.VK_ESCAPE];
 			if(up && left){
 				this.viewFrame.getController().orderPerform(ControllerOrder.UP_LEFT);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannUL"));
 			}else if(up && right){
 				this.viewFrame.getController().orderPerform(ControllerOrder.UP_RIGHT);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannUR"));
 			}else if(down && right){
 				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_RIGHT);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannDR"));
 			}else if(down && left){
 				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_LEFT);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannDL"));
 			}else if(left){
 				this.viewFrame.getController().orderPerform(ControllerOrder.LEFT);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannL"));
 			}else if(right){
 				this.viewFrame.getController().orderPerform(ControllerOrder.RIGHT);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannR"));
 			}else if(up){
 				this.viewFrame.getController().orderPerform(ControllerOrder.UP);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannU"));
 			}else if(down){
 				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN);
+				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannD"));
 			}
 			if(fb){
 				this.viewFrame.getController().orderPerform(ControllerOrder.RAINBOW_FIREBALL);
@@ -153,9 +161,9 @@ public class View implements IView, Runnable {
 			}
 			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 			ts = new Date();
+			this.viewFrame.repaint();
 		}
 		SwingUtilities.invokeLater(this);
-		this.viewFrame.repaint();
 	}
 
 	/**

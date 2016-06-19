@@ -1,7 +1,6 @@
 package model;
 
 import contract.IMap;
-import contract.Permeability;
 import contract.TypeEntity;
 import contract.VisualEntity;
 
