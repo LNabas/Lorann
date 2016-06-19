@@ -106,7 +106,6 @@ public class View implements IView, Runnable {
 				&& ((new Date().getTime()-ts.getTime())%(400/model.Difficulty())==0)){
 			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 		}
-
 		if((this.viewFrame.getViewPanel().getState() == States.GAME)
 				&& (this.viewFrame.getController()!=null)
 				&& ((new Date().getTime()-ts.getTime())%(100)==0)){
