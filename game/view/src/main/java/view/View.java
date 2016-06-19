@@ -151,9 +151,11 @@ public class View implements IView, Runnable {
 			}else if(down){
 				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN);
 				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannD"));
-			}else if(fb){
+			}
+			if(fb){
 				this.viewFrame.getController().orderPerform(ControllerOrder.RAINBOW_FIREBALL);
-			}else if(r_return){
+			}
+			if(r_return){
 				this.viewFrame.getController().orderPerform(ControllerOrder.RETURN);
 			}
 			for(int i = 0; i<keys.length; i++){

@@ -41,7 +41,7 @@ public class DAOMap extends DAOEntity<Map> {
 				final ResultSet resultSet = call.getResultSet();
 				if (resultSet.first()) {
 				String str = resultSet.getString("map");
-				System.out.println(resultSet.getString("map"));
+				//System.out.println(resultSet.getString("map"));
 				int ligne = 0;
 				int col = 0;
 				for(int i = 0 ; i<str.length(); i++){
