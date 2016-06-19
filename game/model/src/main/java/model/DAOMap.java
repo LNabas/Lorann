@@ -63,9 +63,6 @@ public class DAOMap extends DAOEntity<Map> {
 					case 'P':
 						map.set(col, ligne, new DoorClose());
 						break;
-					case 'C':
-						map.set(col, ligne, new Charles());
-						break;
 					case '9':
 					case 'T':
 					case 'G':
@@ -74,6 +71,15 @@ public class DAOMap extends DAOEntity<Map> {
 					break;
 					case '3':
 						map.set(col, ligne, new Pierre());
+						break;
+					case 'C':
+						map.set(col, ligne, new Charles());
+						break;
+					case 'Z':
+						map.set(col, ligne, new Paul());
+						break;
+					case 'W':
+						map.set(col, ligne, new Henry());
 						break;
 					case '4':
 						map.set(col, ligne, new Player());

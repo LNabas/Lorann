@@ -1,6 +1,6 @@
 package contract;
 
-public interface IMap{
+public interface IMap extends Cloneable{
 	/**
 	 * Get Entity in pos x,y
 	 * @param x pos x

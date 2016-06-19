@@ -14,6 +14,7 @@ import contract.IModel;
  */
 public class Model extends Observable implements IModel {
 	private int lvl=1;
+	private boolean reload = true;
 	private IMap map;
 
 	/**
@@ -51,11 +52,13 @@ public class Model extends Observable implements IModel {
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
 	public void Mappy() {
-		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setMap(daoMap.LoadMap(lvl));
-		} catch (final SQLException e) {
-			e.printStackTrace();
+		if(reload){
+			try {
+				final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+				this.setMap(daoMap.LoadMap(lvl));
+			} catch (final SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -82,11 +85,6 @@ public class Model extends Observable implements IModel {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public void RealoadMap() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void setDifficulty(int posMenuOpt) {
