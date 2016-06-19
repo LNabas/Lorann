@@ -2,7 +2,10 @@ package view;
 
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+
 import javax.swing.SwingUtilities;
 import contract.ControllerOrder;
 import contract.IController;
@@ -17,9 +20,9 @@ import contract.States;
  * @author Doc0160
  */
 public class View implements IView, Runnable {
-
 	/** The frame. */
 	private final ViewFrame viewFrame;
+	public ArrayList<KeyEvent> keys = new ArrayList<KeyEvent>();
 
 	/**
 	 * Instantiates a new view.
@@ -28,7 +31,7 @@ public class View implements IView, Runnable {
 	 *          the model
 	 */
 	public View(final IModel model) throws HeadlessException {
-		this.viewFrame = new ViewFrame(model);
+		this.viewFrame = new ViewFrame(model, this);
 		SwingUtilities.invokeLater(this);
 		this.viewFrame.setVisible(true);
 	}
@@ -78,27 +81,66 @@ public class View implements IView, Runnable {
 		}
 	}
 	protected static ControllerOrder keyCodeToControllerOrderGame(final int keyCode) {
+		/*if((last_update.getTime()-new Date().getTime()) > 10){
+			last_keyCode=0;
+		}*/
+		ControllerOrder order = ControllerOrder.NULL;
+		/*System.out.println(keyCode);
 		switch (keyCode) {
 		case KeyEvent.VK_Z:
 		case KeyEvent.VK_UP:
-			return ControllerOrder.UP;
+			switch(last_keyCode){
+			case KeyEvent.VK_Q:
+			case KeyEvent.VK_LEFT:
+				order = ControllerOrder.UP_LEFT;
+				break;
+			case KeyEvent.VK_D:
+			case KeyEvent.VK_RIGHT:
+				order = ControllerOrder.UP_RIGHT;
+				break;
+			default:
+				order = ControllerOrder.UP;
+				break;
+			}
+			break;
 		case KeyEvent.VK_S:
 		case KeyEvent.VK_DOWN:
-			return ControllerOrder.DOWN;
+			switch(last_keyCode){
+			case KeyEvent.VK_Q:
+			case KeyEvent.VK_LEFT:
+				order = ControllerOrder.DOWN_LEFT;
+				break;
+			case KeyEvent.VK_D:
+			case KeyEvent.VK_RIGHT:
+				order = ControllerOrder.DOWN_RIGHT;
+				break;
+			default:
+				order = ControllerOrder.DOWN;
+				break;
+			}
+			break;
 		case KeyEvent.VK_Q:
 		case KeyEvent.VK_LEFT:
-			return ControllerOrder.LEFT;
+			order = ControllerOrder.LEFT;
+			break;
 		case KeyEvent.VK_D:
 		case KeyEvent.VK_RIGHT:
-			return ControllerOrder.RIGHT;
+			order = ControllerOrder.RIGHT;
+			break;
 		case KeyEvent.VK_SPACE:
-			return ControllerOrder.RAINBOW_FIREBALL;
+			order = ControllerOrder.RAINBOW_FIREBALL;
+			break;
 		case KeyEvent.VK_BACK_SPACE:
 		case KeyEvent.VK_ESCAPE:
-			return ControllerOrder.RETURN;
+			order = ControllerOrder.RETURN;
+			break;
 		default:
-			return ControllerOrder.NULL;
+			order = ControllerOrder.NULL;
+			break;
 		}
+		last_update = new Date();
+		last_keyCode = keyCode;*/
+		return order;
 	}
 	
 	/*
@@ -116,15 +158,73 @@ public class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		if(this.viewFrame.getViewPanel().getState() == States.GAME){
-			if((new Date().getTime()-ts.getTime())>500){
-				if(this.viewFrame.getController()!=null){
-					this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
+		if((this.viewFrame.getViewPanel().getState() == States.GAME)
+				&& (this.viewFrame.getController()!=null)
+				&& (new Date().getTime()-ts.getTime())>100){
+			boolean up = false;
+			boolean down = false;
+			boolean left = false;
+			boolean right = false;
+			boolean fb = false;
+			boolean r_return = false;
+			for(Iterator<KeyEvent> i = this.keys.iterator(); i.hasNext();){
+				int keyCode = i.next().getKeyCode();
+				switch (keyCode) {
+				case KeyEvent.VK_Z:
+				case KeyEvent.VK_UP:
+					up = true;
+				case KeyEvent.VK_S:
+				case KeyEvent.VK_DOWN:
+					down = true;
+					break;
+				case KeyEvent.VK_Q:
+				case KeyEvent.VK_LEFT:
+					left = true;
+					break;
+				case KeyEvent.VK_D:
+				case KeyEvent.VK_RIGHT:
+					right = true;
+					break;
+				case KeyEvent.VK_SPACE:
+					fb = true;
+					break;
+				case KeyEvent.VK_BACK_SPACE:
+				case KeyEvent.VK_ESCAPE:
+					r_return = true;
+					break;
+				default:
+					break;
 				}
-				ts = new Date();
 			}
+			if(up && left){
+				this.viewFrame.getController().orderPerform(ControllerOrder.UP_LEFT);
+			}else if(up && right){
+				this.viewFrame.getController().orderPerform(ControllerOrder.UP_RIGHT);
+			}else if(down && right){
+				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_RIGHT);
+			}else if(down && left){
+				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_LEFT);
+			}else if(left){
+				this.viewFrame.getController().orderPerform(ControllerOrder.LEFT);
+			}else if(right){
+				this.viewFrame.getController().orderPerform(ControllerOrder.RIGHT);
+			}else if(up){
+				this.viewFrame.getController().orderPerform(ControllerOrder.UP);
+			}else if(down){
+				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN);
+			}
+			if(fb){
+				this.viewFrame.getController().orderPerform(ControllerOrder.RAINBOW_FIREBALL);
+			}
+			if(r_return){
+				this.viewFrame.getController().orderPerform(ControllerOrder.RETURN);
+			}
+			keys.clear();
+			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
+			ts = new Date();
 		}
 		SwingUtilities.invokeLater(this);
+		this.viewFrame.repaint();
 	}
 
 	/**

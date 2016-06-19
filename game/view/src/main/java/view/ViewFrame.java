@@ -28,6 +28,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
 	private ViewPanel viewPanel;
+	private View view;
 	/**
 	 * Instantiates a new view frame.
 	 *
@@ -37,8 +38,9 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *           the headless exception
 	 * @throws FontFormatException 
 	 */
-	public ViewFrame(final IModel model) throws HeadlessException {
+	public ViewFrame(final IModel model, final View v) throws HeadlessException {
 		this.buildViewFrame(model);
+		view = v;
 	}
 
 	/**
@@ -176,13 +178,13 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
+		view.keys.add(e);
 		switch(e.getKeyCode()){
 		case 'A':
 			this.viewPanel.music.skipForward();
 		default:
 			this.getController().orderPerform(View.keyCodeToControllerOrder(this.viewPanel.getState(), e.getKeyCode()));
 		}
-		this.repaint();
 	}
 
 	/*
@@ -191,7 +193,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	public void keyReleased(final KeyEvent e) {
-
+		if(view.keys.contains(e))
+			view.keys.remove(e);
 	}
 
 	public ViewPanel getViewPanel() {

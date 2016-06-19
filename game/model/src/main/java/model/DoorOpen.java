@@ -23,8 +23,7 @@ public class DoorOpen extends Door{
 	}
 
 	public TypeEntity getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return TypeEntity.DOOROPEN;
 	}
 
 	public void die(IMap map) {

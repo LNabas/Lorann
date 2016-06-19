@@ -19,7 +19,6 @@ public class Controller implements IController {
 	private int turn = 0;
 	/** The view. */
 	private IView		view;
-
 	/** The model. */
 	private IModel	model;
 	private int posMenu = 0;
@@ -130,8 +129,20 @@ public class Controller implements IController {
 		case UP:
 			checkCasePlayer(model.getPlayer(), 0, -1);
 			break;
+		case UP_LEFT:
+			checkCasePlayer(model.getPlayer(), -1, -1);
+			break;
+		case UP_RIGHT:
+			checkCasePlayer(model.getPlayer(), 1, -1);
+			break;
 		case DOWN:
 			checkCasePlayer(model.getPlayer(), 0, 1);
+			break;
+		case DOWN_LEFT:
+			checkCasePlayer(model.getPlayer(), -1, 1);
+			break;
+		case DOWN_RIGHT:
+			checkCasePlayer(model.getPlayer(), 1, 1);
 			break;
 		case LEFT:
 			checkCasePlayer(model.getPlayer(), -1, 0);

@@ -10,38 +10,17 @@ public enum ControllerOrder {
 	 * Nothing to do
 	 */
 	NULL,
-	/**
-	 * player up
-	 */
 	UP,
-	/**
-	 * player down
-	 */
 	DOWN,
-	/**
-	 * player left
-	 */
 	LEFT,
-	/**
-	 * player right
-	 */
 	RIGHT,
-	/**
-	 * play shoots a rainbow fireball
-	 */
+	UP_LEFT,
+	UP_RIGHT,
+	DOWN_LEFT,
+	DOWN_RIGHT,
 	RAINBOW_FIREBALL,
-	/**
-	 * game tick
-	 * emitted at regular interval
-	 */
-	TICK, 
-	/**
-	 * menu validation
-	 */
+	TICK,
 	SPACE,
-	/**
-	 * return to previous menu
-	 */
 	RETURN,
 	
 }

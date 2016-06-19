@@ -21,8 +21,7 @@ public class DoorClose extends Door{
 	}
 
 	public TypeEntity getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return TypeEntity.DOORCLOSE;
 	}
 
 	public void die(IMap map) {
