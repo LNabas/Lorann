@@ -25,6 +25,10 @@ public class Map extends GraphicsBuilder{
 	BufferedImage loranndr;
 	BufferedImage loranndl;
 	BufferedImage fireball;
+	BufferedImage fireball1;
+	BufferedImage fireball2;
+	BufferedImage fireball3;
+	BufferedImage fireball4;
 	BufferedImage key;
 	BufferedImage paul;
 	BufferedImage henry;
@@ -63,8 +67,17 @@ public class Map extends GraphicsBuilder{
 		lorannul.getGraphics().drawImage(ressources.getSprite("LorannUL"), 0, 0, null);
 		lorannr = ressources.getSpriteCopy("Sol");
 		lorannr.getGraphics().drawImage(ressources.getSprite("LorannR"), 0, 0, null);
+		//
 		fireball = ressources.getSpriteCopy("Sol");
 		fireball.getGraphics().drawImage(ressources.getSprite("Fireball"), 0, 0, null);
+		fireball1 = ressources.getSpriteCopy("Sol");
+		fireball1.getGraphics().drawImage(ressources.getSprite("Fireball1"), 0, 0, null);
+		fireball2 = ressources.getSpriteCopy("Sol");
+		fireball2.getGraphics().drawImage(ressources.getSprite("Fireball2"), 0, 0, null);
+		fireball3 = ressources.getSpriteCopy("Sol");
+		fireball3.getGraphics().drawImage(ressources.getSprite("Fireball3"), 0, 0, null);
+		fireball4 = ressources.getSpriteCopy("Sol");
+		fireball4.getGraphics().drawImage(ressources.getSprite("Fireball4"), 0, 0, null);
 		//
 		paul = ressources.getSpriteCopy("Sol");
 		paul.getGraphics().drawImage(ressources.getSprite("Paul"), 0, 0, null);
@@ -160,6 +173,18 @@ public class Map extends GraphicsBuilder{
 					break;
 				case FIREBALL:
 					drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
+					break;
+				case FIREBALL1:
+					drawImage(fireball1, i*fireball1.getWidth(), j*fireball1.getHeight());
+					break;
+				case FIREBALL2:
+					drawImage(fireball2, i*fireball2.getWidth(), j*fireball2.getHeight());
+					break;
+				case FIREBALL3:
+					drawImage(fireball3, i*fireball3.getWidth(), j*fireball3.getHeight());
+					break;
+				case FIREBALL4:
+					drawImage(fireball4, i*fireball4.getWidth(), j*fireball4.getHeight());
 					break;
 				case DOOR_OPEN:
 					drawImage(don, i*don.getWidth(), j*don.getHeight());

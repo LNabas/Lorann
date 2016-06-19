@@ -34,6 +34,25 @@ public class Fireball extends Entity{
 	}
 	public void move(IMap map, int x, int y){
 		if(old_turn != turn){
+			switch(me){
+			case FIREBALL:
+				me = VisualEntity.FIREBALL1;
+				break;
+			case FIREBALL1:
+				me = VisualEntity.FIREBALL2;
+				break;
+			case FIREBALL2:
+				me = VisualEntity.FIREBALL3;
+				break;
+			case FIREBALL3:
+				me = VisualEntity.FIREBALL4;
+				break;
+			case FIREBALL4:
+				me = VisualEntity.FIREBALL;
+				break;
+			default:
+				break;
+			}
 			if(x<map.getWidth() && y < map.getHeight() && x>0 && y>0){
 				IEntity e = map.get(x + ox, y + oy);
 				if(e==null){
