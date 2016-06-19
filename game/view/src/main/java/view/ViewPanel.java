@@ -56,7 +56,7 @@ class ViewPanel extends JPanel implements Observer {
 				 .addButton("Options", new Button(ressources).setText("Options"))
 				 .addButton("Quit", new Button(ressources).setText("Quit")); 
 		 menu_options = new Menu(ressources).setOffset(0)
-				 .addButton("1", new Button(ressources).setText("NOOB").setState(ButtonState.CLICKED))
+				 .addButton("1", new Button(ressources).setText("NOOB"))
 				 .addButton("2", new Button(ressources).setText("Meh"))
 				 .addButton("3", new Button(ressources).setText("OH YEAH"))
 				 .addButton("4", new Button(ressources).setText("DUCK GOD"));

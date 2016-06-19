@@ -82,8 +82,9 @@ public class Controller implements IController {
 				view.setState(States.GAME);
 				break;
 			case 1:
-				view.setState(States.MENU_OPTIONS);	
-				break;
+				view.setState(States.MENU_OPTIONS);
+				view.getMenu().changeButtonState(this.posMenuOpt, ButtonState.CLICKED);
+				return;
 			case 2:
 				System.exit(0);
 			}
@@ -166,7 +167,8 @@ public class Controller implements IController {
 			break;
 		case RETURN:
 			view.setState(States.MENU);
-			break;
+			view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
+			return;
 		default:
 			break;
 		}
@@ -187,10 +189,12 @@ public class Controller implements IController {
 		case SPACE:
 			model.setDifficulty(posMenuOpt);
 			view.setState(States.MENU);
+			view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
 			break;
 		case RETURN:
 			view.setState(States.MENU);
-			break;
+			view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
+			return;
 		default:
 			break;
 		}

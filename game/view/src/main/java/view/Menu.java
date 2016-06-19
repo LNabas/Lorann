@@ -61,7 +61,8 @@ public class Menu extends GraphicsBuilder implements IMenu{
 		int loc_offy = offset_y;
 		if(need_redraw){
 			int width = calWidth();
-			setSize(width,calHeight());
+			int height = calHeight();
+			setSize(width, height);
 			for(String v : button_order){
 				drawImage(buttons.get(v).getImage(), width/2 - buttons.get(v).getWidth()/2, loc_offy);
 				loc_offy += buttons.get(v).getHeight()+margin_increment_y;

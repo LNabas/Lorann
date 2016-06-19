@@ -161,6 +161,8 @@ public class View implements IView, Runnable {
 			}
 			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 			ts = new Date();
+		}
+		if((new Date().getTime()-ts.getTime())%10==0){
 			this.viewFrame.repaint();
 		}
 		SwingUtilities.invokeLater(this);
