@@ -28,6 +28,8 @@ public interface IModel {
 	/**
 	 * Load next maps
 	 */
+	int CurrentMap();
+	int MaxMap();
 	void LoadNextMap();
 	void setDifficulty(int posMenuOpt);
 	void ForceRedraw();

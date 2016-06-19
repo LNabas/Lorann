@@ -29,7 +29,7 @@ public class Paul extends Demon {
 			nx=(nx==0) ? 0 : nx/Math.abs(nx);
 			ny=(ny==0) ? 0 : ny/Math.abs(ny);
 			if(found){
-				if(map.get(x + nx, y + ny).getType()==TypeEntity.PLAYER){
+				if(map.get(x + nx, y + ny) != null &&map.get(x + nx, y + ny).getType()==TypeEntity.PLAYER){
 					map.get(x + nx, y + ny).die(map);
 				}else if(map.get(x + nx, y + ny) == null){
 					map.move(x, y, x + nx, y + ny);

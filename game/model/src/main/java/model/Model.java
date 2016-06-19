@@ -76,15 +76,8 @@ public class Model extends Observable implements IModel {
 	}
 
 	public void LoadNextMap() {
-		try {
-			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
-			if(daoMap.MaxMaps()>=lvl){
-				lvl++;
-				Mappy();
-			}
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
+		lvl++;
+		Mappy();
 	}
 
 	public void setDifficulty(int posMenuOpt) {
@@ -95,5 +88,19 @@ public class Model extends Observable implements IModel {
 	public void ForceRedraw() {
 		this.setChanged();
 		this.notifyObservers();
+	}
+
+	public int CurrentMap() {
+		return lvl;
+	}
+
+	public int MaxMap() {
+		try {
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			return daoMap.MaxMaps();
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

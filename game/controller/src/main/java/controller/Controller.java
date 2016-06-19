@@ -108,41 +108,41 @@ public class Controller implements IController {
 		switch (controllerOrder) {
 		case UP:
 			xFireBall = 0;
-			yFireBall = -1;
+			yFireBall = 1;
 			checkCasePlayer(model.getPlayer(), 0, -1);
 			break;
 		case UP_LEFT:
-			xFireBall = -1;
-			yFireBall = -1;
+			xFireBall = 1;
+			yFireBall = 1;
 			checkCasePlayer(model.getPlayer(), -1, -1);
 			break;
 		case UP_RIGHT:
-			xFireBall = 1;
-			yFireBall = -1;
+			xFireBall = -1;
+			yFireBall = 1;
 			checkCasePlayer(model.getPlayer(), 1, -1);
 			break;
 		case DOWN:
 			xFireBall = 0;
-			yFireBall = 1;
+			yFireBall = -1;
 			checkCasePlayer(model.getPlayer(), 0, 1);
 			break;
 		case DOWN_LEFT:
-			xFireBall = -1;
-			yFireBall = 1;
+			xFireBall = 1;
+			yFireBall = -1;
 			checkCasePlayer(model.getPlayer(), -1, 1);
 			break;
 		case DOWN_RIGHT:
-			xFireBall = 1;
-			yFireBall = 1;
+			xFireBall = -1;
+			yFireBall = -1;
 			checkCasePlayer(model.getPlayer(), 1, 1);
 			break;
 		case LEFT:
-			xFireBall = -1;
+			xFireBall = 1;
 			yFireBall = 0;
 			checkCasePlayer(model.getPlayer(), -1, 0);
 			break;
 		case RIGHT:
-			xFireBall = 1;
+			xFireBall = -1;
 			yFireBall = 0;
 			checkCasePlayer(model.getPlayer(), 1, 0);
 			break;
@@ -257,7 +257,11 @@ public class Controller implements IController {
 				break;
 			case IMPERMEABLE:
 				if(target_entity.getType()==TypeEntity.DOOROPEN){
-					model.LoadNextMap();
+					if(model.MaxMap()>model.CurrentMap()){
+						model.LoadNextMap();
+					}else{
+						view.setState(States.MENU);
+					}
 				}
 				if(target_entity.hit()){
 					entity.die(model.getMap());
