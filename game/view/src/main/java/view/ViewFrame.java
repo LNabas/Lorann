@@ -178,7 +178,9 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		view.keys.add(e);
+		view.keys_released[e.getKeyCode()]=false;
+		view.keys[e.getKeyCode()]=true;
+		view.keys_used[e.getKeyCode()]=false;
 		switch(e.getKeyCode()){
 		case 'A':
 			this.viewPanel.music.skipForward();
@@ -193,8 +195,10 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	public void keyReleased(final KeyEvent e) {
-		if(view.keys.contains(e))
-			view.keys.remove(e);
+		view.keys_released[e.getKeyCode()]=true;
+		if(view.keys_used[e.getKeyCode()]){
+			view.keys[e.getKeyCode()]=false;
+		}
 	}
 
 	public ViewPanel getViewPanel() {

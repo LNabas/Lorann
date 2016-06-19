@@ -21,7 +21,7 @@ public class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		// https://www.youtube.com/watch?v=Eb6cGHK4_yc
-		Mappy(1);
+		Mappy();
 	}
 
 	/*
@@ -50,8 +50,7 @@ public class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void Mappy(int i) {
-		lvl = i;
+	public void Mappy() {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
 			this.setMap(daoMap.LoadMap(lvl));
@@ -74,23 +73,19 @@ public class Model extends Observable implements IModel {
 	}
 
 	public IEntity getFireball() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getMessage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void loadMessage(String key) {
-		// TODO Auto-generated method stub
-		
+		return getMap().getFireBall();
 	}
 
 	public void LoadNextMap() {
-		// TODO Auto-generated method stub
-		
+		try {
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			if(daoMap.MaxMaps()>=lvl){
+				lvl++;
+				Mappy();
+			}
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void RealoadMap() {

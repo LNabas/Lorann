@@ -22,8 +22,10 @@ import contract.States;
 public class View implements IView, Runnable {
 	/** The frame. */
 	private final ViewFrame viewFrame;
-	public ArrayList<KeyEvent> keys = new ArrayList<KeyEvent>();
-
+	//public ArrayList<KeyEvent> keys = new ArrayList<KeyEvent>();
+	public boolean keys[] = new boolean[255];
+	public boolean keys_used[] = new boolean[255];
+	public boolean keys_released[] = new boolean[255];
 	/**
 	 * Instantiates a new view.
 	 *
@@ -102,41 +104,12 @@ public class View implements IView, Runnable {
 		if((this.viewFrame.getViewPanel().getState() == States.GAME)
 				&& (this.viewFrame.getController()!=null)
 				&& (new Date().getTime()-ts.getTime())>100){
-			boolean up = false;
-			boolean down = false;
-			boolean left = false;
-			boolean right = false;
-			boolean fb = false;
-			boolean r_return = false;
-			for(Iterator<KeyEvent> i = this.keys.iterator(); i.hasNext();){
-				int keyCode = i.next().getKeyCode();
-				switch (keyCode) {
-				case KeyEvent.VK_Z:
-				case KeyEvent.VK_UP:
-					up = true;
-				case KeyEvent.VK_S:
-				case KeyEvent.VK_DOWN:
-					down = true;
-					break;
-				case KeyEvent.VK_Q:
-				case KeyEvent.VK_LEFT:
-					left = true;
-					break;
-				case KeyEvent.VK_D:
-				case KeyEvent.VK_RIGHT:
-					right = true;
-					break;
-				case KeyEvent.VK_SPACE:
-					fb = true;
-					break;
-				case KeyEvent.VK_BACK_SPACE:
-				case KeyEvent.VK_ESCAPE:
-					r_return = true;
-					break;
-				default:
-					break;
-				}
-			}
+			boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z];
+			boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
+			boolean left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_Q];
+			boolean right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
+			boolean fb = keys[KeyEvent.VK_SPACE];
+			boolean r_return = keys[KeyEvent.VK_BACK_SPACE] || keys[KeyEvent.VK_ESCAPE];
 			if(up && left){
 				this.viewFrame.getController().orderPerform(ControllerOrder.UP_LEFT);
 			}else if(up && right){
@@ -160,7 +133,12 @@ public class View implements IView, Runnable {
 			if(r_return){
 				this.viewFrame.getController().orderPerform(ControllerOrder.RETURN);
 			}
-			keys.clear();
+			for(int i = 0; i<keys.length; i++){
+				keys_used[i]=true;
+				if(keys_released[i]){
+					keys[i]=false;
+				}
+			}
 			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 			ts = new Date();
 		}

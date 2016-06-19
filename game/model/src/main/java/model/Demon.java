@@ -20,14 +20,27 @@ public abstract class Demon extends Entity{
 
 	public void move(IMap map, int x, int y) {
 		if(turn != old_turn){
-			int nx = randomGenerator.nextInt(3)-1;
-			int ny = randomGenerator.nextInt(3)-1;
-			if(map.get(x+nx, y+ny) == null){
+			int max_r = 5;
+			int nx = 0;
+			int ny = 0;
+			int retry = 0;
+			boolean loop = true;
+			while(loop && retry<max_r){
+				loop = false;
+				nx = randomGenerator.nextInt(3)-1;
+				ny = randomGenerator.nextInt(3)-1;
+				if(map.get(x + nx, y + ny) == null){
+				}else if(map.get(x, y + ny) == null){
+					nx = 0;
+				}else if(map.get(x + nx, y) == null){
+					ny = 0;
+				}else{
+					loop = true;
+				}
+				retry++;
+			}
+			if(retry<max_r){
 				map.move(x, y, x + nx, y + ny);
-			}else if(map.get(x, y+ny) == null){
-				map.move(x, y, x, y + ny);
-			}else if(map.get(x+nx, y) == null){
-				map.move(x, y, x+nx, y);
 			}
 		}
 	}
@@ -40,13 +53,7 @@ public abstract class Demon extends Entity{
 		map.kill(getX(), getY());
 	}
 
-	public void setLive(int live) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public TypeEntity getType() {
 		return TypeEntity.DEMON;
 	}
-	public void GainKey(){}
 }

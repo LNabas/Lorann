@@ -14,10 +14,11 @@ import contract.VisualEntity;
  *
  */
 public class Fireball extends Entity{
-	int ox;
-	int oy;
+	int ox=0;
+	int oy=0;
 	public Fireball(int ox, int oy){
 		this.ox = ox;
+		System.out.println(oy);
 		this.oy = oy;
 	}
 	public boolean hit() {
@@ -33,7 +34,7 @@ public class Fireball extends Entity{
 	}
 	public void move(IMap map, int x, int y){
 		if(old_turn != turn){
-			if(x<map.getWidth() && y < map.getHeight()){
+			if(x<map.getWidth() && y < map.getHeight() && x>0 && y>0){
 				IEntity e = map.get(x+ox, y+oy);
 				if(e==null || e.getPermeability() == Permeability.PERMEABLE){
 					map.move(x, y, x+ox, y+oy);
@@ -52,17 +53,16 @@ public class Fireball extends Entity{
 						break;
 					}
 					ox*=+1;
-					oy*=-1;
+					//oy*=-1;
+					//System.out.println(oy);
 				}
 			}
 		}
 	}
 	public void die(IMap map) {
 		// TODO Auto-generated method stub
-		
 	}
 	public TypeEntity getType() {
 		return TypeEntity.RFB;
 	}
-	public void GainKey(){}
 }

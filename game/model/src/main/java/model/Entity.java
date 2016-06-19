@@ -78,4 +78,8 @@ abstract class Entity implements IEntity{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	public void GainKey() {
+		// TODO Auto-generated method stub
+		
+	}
 }

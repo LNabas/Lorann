@@ -79,6 +79,7 @@ public class Controller implements IController {
 		case SPACE:
 			switch(posMenu){
 			case 0:
+				model.Mappy();
 				view.setState(States.GAME);
 				break;
 			case 1:
@@ -104,50 +105,46 @@ public class Controller implements IController {
 	 * @param controllerOrder : ControllerOrder
 	 */
 	private void orderPerformJeu(final ControllerOrder controllerOrder){
-		switch(controllerOrder){
-		case UP :
+		IEntity p;
+		switch (controllerOrder) {
+		case UP:
 			xFireBall = 0;
 			yFireBall = -1;
+			checkCasePlayer(model.getPlayer(), 0, -1);
+			break;
+		case UP_LEFT:
+			xFireBall = -1;
+			yFireBall = -1;
+			checkCasePlayer(model.getPlayer(), -1, -1);
+			break;
+		case UP_RIGHT:
+			xFireBall = 1;
+			yFireBall = -1;
+			checkCasePlayer(model.getPlayer(), 1, -1);
 			break;
 		case DOWN:
 			xFireBall = 0;
 			yFireBall = 1;
+			checkCasePlayer(model.getPlayer(), 0, 1);
 			break;
-		case RIGHT:
+		case DOWN_LEFT:
+			xFireBall = -1;
+			yFireBall = 1;
+			checkCasePlayer(model.getPlayer(), -1, 1);
+			break;
+		case DOWN_RIGHT:
 			xFireBall = 1;
-			yFireBall = 0;
+			yFireBall = 1;
+			checkCasePlayer(model.getPlayer(), 1, 1);
 			break;
 		case LEFT:
 			xFireBall = -1;
 			yFireBall = 0;
-			break;
-		default:
-			break;
-		}
-		IEntity p;
-		switch (controllerOrder) {
-		case UP:
-			checkCasePlayer(model.getPlayer(), 0, -1);
-			break;
-		case UP_LEFT:
-			checkCasePlayer(model.getPlayer(), -1, -1);
-			break;
-		case UP_RIGHT:
-			checkCasePlayer(model.getPlayer(), 1, -1);
-			break;
-		case DOWN:
-			checkCasePlayer(model.getPlayer(), 0, 1);
-			break;
-		case DOWN_LEFT:
-			checkCasePlayer(model.getPlayer(), -1, 1);
-			break;
-		case DOWN_RIGHT:
-			checkCasePlayer(model.getPlayer(), 1, 1);
-			break;
-		case LEFT:
 			checkCasePlayer(model.getPlayer(), -1, 0);
 			break;
 		case RIGHT:
+			xFireBall = 1;
+			yFireBall = 0;
 			checkCasePlayer(model.getPlayer(), 1, 0);
 			break;
 		case TICK:
@@ -163,7 +160,7 @@ public class Controller implements IController {
 			break;
 		case RAINBOW_FIREBALL:
 			p = model.getMap().getPlayer();
-			if (p.hasFB() && model.getMap().get(p.getX() + xFireBall, p.getY() + yFireBall)==null){ 
+			if (p.hasFB() && (model.getMap().get(p.getX() + xFireBall, p.getY() + yFireBall) == null)){ 
 				p.LooseFB();
 				model.getMap().addFireball(p.getX() + xFireBall, p.getY() + yFireBall, xFireBall, yFireBall);
 			}
@@ -246,9 +243,6 @@ public class Controller implements IController {
 					entity.GainKey();
 					model.getMap().OpenDoor();
 					break;
-				case DOOROPEN:
-					view.setState(States.MENU);
-					break;
 				default:
 					break;
 				}
@@ -256,15 +250,15 @@ public class Controller implements IController {
 				break;
 			case IMPERMEABLE:
 				if(target_entity.getType()==TypeEntity.DOOROPEN){
-					view.setState(States.MENU);
+					model.LoadNextMap();
 				}
 				if(target_entity.hit()){
 					entity.die(model.getMap());
 					if(entity.isAlive()){
-						model.Mappy(1);
+						model.Mappy();
 						entity.GainFB();
 					}else{
-						model.getPlayer().setLive(11);
+						model.getMap().getPlayer().setLive(11);
 						view.setState(States.MENU);
 						entity.GainFB();
 					}

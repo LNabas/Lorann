@@ -37,6 +37,6 @@ abstract class DAOEntity<E extends FAILEntity> {
 		return this.connection;
 	}
 	public abstract Map LoadMap(int id);
-
+	public abstract int MaxMaps();
 
 }
