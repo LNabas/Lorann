@@ -16,10 +16,9 @@ import contract.VisualEntity;
 public class Fireball extends Entity{
 	int ox=0;
 	int oy=0;
-	public Fireball(int ox, int oy){
-		this.ox = ox;
-		System.out.println(oy);
-		this.oy = oy;
+	public Fireball(int x, int y){
+		ox = x;
+		oy = y;
 	}
 	public boolean hit() {
 		return false;
@@ -35,13 +34,13 @@ public class Fireball extends Entity{
 	public void move(IMap map, int x, int y){
 		if(old_turn != turn){
 			if(x<map.getWidth() && y < map.getHeight() && x>0 && y>0){
-				IEntity e = map.get(x+ox, y+oy);
+				IEntity e = map.get(x + ox, y + oy);
 				if(e==null || e.getPermeability() == Permeability.PERMEABLE){
-					map.move(x, y, x+ox, y+oy);
+					map.move(x, y, x + ox, y + oy);
 				}else{
 					switch(e.getType()){
 					case DEMON:
-						map.kill(x+ox, y+oy);
+						map.kill(x + ox, y + oy);
 						map.kill(x, y);
 						map.getPlayer().GainFB();
 						break;
@@ -50,11 +49,11 @@ public class Fireball extends Entity{
 						map.getPlayer().GainFB();
 						break;
 					default:
+						ox*=-1;
+						oy*=-1;
+						System.out.println(oy + " " + ox);
 						break;
 					}
-					ox*=+1;
-					//oy*=-1;
-					//System.out.println(oy);
 				}
 			}
 		}

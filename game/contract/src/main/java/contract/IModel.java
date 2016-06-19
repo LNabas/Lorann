@@ -17,11 +17,6 @@ public interface IModel {
 	Observable getObservable();
 	/**
 	 * Is it necessary ?
-	 * @return Fireball
-	 */
-	IEntity getFireball();
-	/**
-	 * Is it necessary ?
 	 * @return Player
 	 */
 	IEntity getPlayer();

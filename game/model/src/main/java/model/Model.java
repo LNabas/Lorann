@@ -72,10 +72,6 @@ public class Model extends Observable implements IModel {
 		return getMap().getPlayer();
 	}
 
-	public IEntity getFireball() {
-		return getMap().getFireBall();
-	}
-
 	public void LoadNextMap() {
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());

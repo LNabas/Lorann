@@ -82,7 +82,6 @@ public class DAOMap extends DAOEntity<Map> {
 						map.set(col, ligne, new Key());
 						break;
 					default:
-						System.out.println(str.charAt(i));
 						break;
 					}
 				}
@@ -104,7 +103,6 @@ public class DAOMap extends DAOEntity<Map> {
 				final ResultSet resultSet = call.getResultSet();
 				if (resultSet.first()) {
 					int i = resultSet.getInt("nb");
-					System.out.println(resultSet.getString("nb"));
 					return i;
 				}
 			} catch (final SQLException e) {

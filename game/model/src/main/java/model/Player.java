@@ -15,13 +15,14 @@ public class Player extends Entity{
 	private int Lives = 11;
 	private boolean fb=true;
 	private boolean key=false;
+	VisualEntity me = VisualEntity.PLAYER;
 	
 	public boolean isAlive() {
 		return Lives >0;
 	}
 
 	public VisualEntity getVisualType() {
-		return VisualEntity.PLAYER;
+		return me;
 	}
 	
 	public TypeEntity getType(){
@@ -51,5 +52,8 @@ public class Player extends Entity{
 
 	public boolean hasKey() {
 		return key;
+	}
+	public void setSprite(VisualEntity v){
+		me=v;
 	}
 }

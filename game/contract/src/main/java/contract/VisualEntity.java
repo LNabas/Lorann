@@ -12,6 +12,8 @@ public enum VisualEntity {
 	DOOR_OPEN,
 	DOOR_CLOSED,
 	PLAYER,
+	PLAYER_U,
+	PLAYER_D,
 	KEY,
 	VERTICAL_BONE,
 	HORIZONTAL_BONE,

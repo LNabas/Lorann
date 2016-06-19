@@ -6,6 +6,7 @@ import contract.IEntity;
 import contract.IMap;
 import contract.Permeability;
 import contract.TypeEntity;
+import contract.VisualEntity;
 
 /**
  * The Class Entity.
@@ -64,22 +65,8 @@ abstract class Entity implements IEntity{
 	}
 	public boolean hasFB() {
 		return false;
-		
 	}
-	public void LooseFB() {
-		// TODO Auto-generated method stub
-		
-	}
-	public void GainFB() {
-		// TODO Auto-generated method stub
-		
-	}
-	public boolean hasKey() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	public void GainKey() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void LooseFB() {}
+	public void GainFB() {}
+	public void setSprite(VisualEntity v){}
 }

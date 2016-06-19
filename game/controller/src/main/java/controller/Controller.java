@@ -9,6 +9,7 @@ import contract.IModel;
 import contract.IView;
 import contract.States;
 import contract.TypeEntity;
+import contract.VisualEntity;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -240,7 +241,6 @@ public class Controller implements IController {
 					entity.GainFB();
 					break;
 				case KEY:
-					entity.GainKey();
 					model.getMap().OpenDoor();
 					break;
 				default:
@@ -268,6 +268,9 @@ public class Controller implements IController {
 				break;
 			}
 		}else{
+			if(offset_x==1){
+				entity.setSprite(VisualEntity.PLAYER_U);
+			}
 			model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 		}
 	}
