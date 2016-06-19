@@ -246,6 +246,15 @@ public class Controller implements IController {
 				default:
 					break;
 				}
+				if(offset_y==-1){
+					entity.setSprite(VisualEntity.PLAYER_U);
+				}else if(offset_y==1){
+					entity.setSprite(VisualEntity.PLAYER_D);
+				}else if(offset_x==1){
+					entity.setSprite(VisualEntity.PLAYER_L);
+				}else if(offset_x==-1){
+					entity.setSprite(VisualEntity.PLAYER_R);
+				}
 				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 				break;
 			case IMPERMEABLE:
@@ -268,10 +277,17 @@ public class Controller implements IController {
 				break;
 			}
 		}else{
-			if(offset_x==1){
+			if(offset_y==-1){
 				entity.setSprite(VisualEntity.PLAYER_U);
+			}else if(offset_y==1){
+				entity.setSprite(VisualEntity.PLAYER_D);
+			}else if(offset_x==1){
+				entity.setSprite(VisualEntity.PLAYER_R);
+			}else if(offset_x==-1){
+				entity.setSprite(VisualEntity.PLAYER_L);
 			}
 			model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 		}
+		
 	}
 }

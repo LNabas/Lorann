@@ -14,6 +14,8 @@ public enum VisualEntity {
 	PLAYER,
 	PLAYER_U,
 	PLAYER_D,
+	PLAYER_L,
+	PLAYER_R,
 	KEY,
 	VERTICAL_BONE,
 	HORIZONTAL_BONE,

@@ -11,18 +11,22 @@ import contract.VisualEntity;
  */
 public class Map extends GraphicsBuilder{
 	private IMap map;
-	private boolean need_update = true;
 	BufferedImage sol;
 	BufferedImage skull;
 	BufferedImage hbone;
 	BufferedImage vbone;
 	BufferedImage lorann;
+	BufferedImage lorannu;
+	BufferedImage lorannd;
+	BufferedImage lorannl;
+	BufferedImage lorannr;
 	BufferedImage fireball;
 	BufferedImage key;
 	BufferedImage paul;
 	BufferedImage henry;
 	BufferedImage pierre;
 	BufferedImage charles;
+	BufferedImage purse;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
 		this.map = map;
@@ -39,6 +43,14 @@ public class Map extends GraphicsBuilder{
 		//
 		lorann = ressources.getSpriteCopy("Sol");
 		lorann.getGraphics().drawImage(ressources.getSprite("Lorann"), 0, 0, null);
+		lorannu = ressources.getSpriteCopy("Sol");
+		lorannu.getGraphics().drawImage(ressources.getSprite("LorannU"), 0, 0, null);
+		lorannd = ressources.getSpriteCopy("Sol");
+		lorannd.getGraphics().drawImage(ressources.getSprite("LorannD"), 0, 0, null);
+		lorannl = ressources.getSpriteCopy("Sol");
+		lorannl.getGraphics().drawImage(ressources.getSprite("LorannL"), 0, 0, null);
+		lorannr = ressources.getSpriteCopy("Sol");
+		lorannr.getGraphics().drawImage(ressources.getSprite("LorannR"), 0, 0, null);
 		fireball = ressources.getSpriteCopy("Sol");
 		fireball.getGraphics().drawImage(ressources.getSprite("Fireball"), 0, 0, null);
 		//
@@ -50,9 +62,11 @@ public class Map extends GraphicsBuilder{
 		pierre.getGraphics().drawImage(ressources.getSprite("Pierre"), 0, 0, null);
 		charles = ressources.getSpriteCopy("Sol");
 		charles.getGraphics().drawImage(ressources.getSprite("Charles"), 0, 0, null);
+		//
+		purse = ressources.getSpriteCopy("Sol");
+		purse.getGraphics().drawImage(ressources.getSprite("Purse"), 0, 0, null);
 	}
 	public void setMap(IMap m){
-		need_update = true;
 		map=m;
 	}
 	public Image getImage() {
@@ -61,8 +75,6 @@ public class Map extends GraphicsBuilder{
 		dc.getGraphics().drawImage(ressources.getSprite("DC"), 0, 0, null);
 		BufferedImage don = ressources.getSpriteCopy("Sol");
 		don.getGraphics().drawImage(ressources.getSprite("DO"), 0, 0, null);
-		BufferedImage purse = ressources.getSpriteCopy("Sol");
-		purse.getGraphics().drawImage(ressources.getSprite("Purse"), 0, 0, null);
 		if(map==null){
 			System.exit(0);
 		}
@@ -91,6 +103,18 @@ public class Map extends GraphicsBuilder{
 					break;
 				case PLAYER:
 					drawImage(lorann, i*lorann.getWidth(), j*lorann.getHeight());
+					break;
+				case PLAYER_U:
+					drawImage(lorannu, i*lorannu.getWidth(), j*lorannu.getHeight());
+					break;
+				case PLAYER_D:
+					drawImage(lorannd, i*lorannd.getWidth(), j*lorannd.getHeight());
+					break;
+				case PLAYER_L:
+					drawImage(lorannl, i*lorannl.getWidth(), j*lorannl.getHeight());
+					break;
+				case PLAYER_R:
+					drawImage(lorannr, i*lorannr.getWidth(), j*lorannr.getHeight());
 					break;
 				case ITEMGOOD:
 					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
@@ -126,7 +150,6 @@ public class Map extends GraphicsBuilder{
 				}
 			}
 		}
-		need_update = false;
 		}
 		return bufferImage;
 	}
