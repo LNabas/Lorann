@@ -103,7 +103,13 @@ public class View implements IView, Runnable {
 	public void run() {
 		if((this.viewFrame.getViewPanel().getState() == States.GAME)
 				&& (this.viewFrame.getController()!=null)
-				&& (new Date().getTime()-ts.getTime())>100){
+				&& ((new Date().getTime()-ts.getTime())%(400/model.Difficulty())==0)){
+			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
+		}
+
+		if((this.viewFrame.getViewPanel().getState() == States.GAME)
+				&& (this.viewFrame.getController()!=null)
+				&& ((new Date().getTime()-ts.getTime())%(100)==0)){
 			IEntity entity = model.getMap().getPlayer();
 			if(entity.has_died()){
 				entity.updated_died_status();
@@ -146,11 +152,9 @@ public class View implements IView, Runnable {
 			}else if(down){
 				this.viewFrame.getController().orderPerform(ControllerOrder.DOWN);
 				this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannD"));
-			}
-			if(fb){
+			}else if(fb){
 				this.viewFrame.getController().orderPerform(ControllerOrder.RAINBOW_FIREBALL);
-			}
-			if(r_return){
+			}else if(r_return){
 				this.viewFrame.getController().orderPerform(ControllerOrder.RETURN);
 			}
 			for(int i = 0; i<keys.length; i++){
@@ -159,11 +163,6 @@ public class View implements IView, Runnable {
 					keys[i]=false;
 				}
 			}
-			this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
-			ts = new Date();
-		}
-		if((new Date().getTime()-ts.getTime())%10==0){
-			this.viewFrame.repaint();
 		}
 		SwingUtilities.invokeLater(this);
 	}
