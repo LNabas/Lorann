@@ -16,19 +16,15 @@ public class Player extends Entity{
 	private boolean fb=true;
 	private boolean has_died = false;
 	VisualEntity me = VisualEntity.PLAYER;
-	
 	public boolean isAlive() {
 		return Lives >0;
 	}
-
 	public VisualEntity getVisualType() {
 		return me;
 	}
-	
 	public TypeEntity getType(){
 		return TypeEntity.PLAYER;
 	}
-	
 	public void setLive(int live){
 		Lives = live;
 	}
@@ -41,7 +37,6 @@ public class Player extends Entity{
 	public void GainFB() {
 		fb=true;
 	}
-
 	public void die(IMap map) {
 		Lives--;
 		has_died=true;
@@ -49,11 +44,9 @@ public class Player extends Entity{
 	public void setSprite(VisualEntity v){
 		me=v;
 	}
-
 	public boolean has_died() {
 		return has_died;
 	}
-
 	public void updated_died_status() {
 		has_died=false;
 	}
