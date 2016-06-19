@@ -13,7 +13,7 @@ import contract.TypeEntity;
  *
  */
 public abstract class Demon extends Entity{
-	private Random randomGenerator = new Random();
+	protected Random randomGenerator = new Random();
 	public boolean hit() {
 		return true;
 	}

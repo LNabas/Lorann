@@ -4,14 +4,12 @@ import contract.ButtonState;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IEntity;
-import contract.IMap;
 import contract.IModel;
 import contract.IView;
 import contract.States;
 import contract.TypeEntity;
 import contract.VisualEntity;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Controller.
  * @author Romain, Lucas.
