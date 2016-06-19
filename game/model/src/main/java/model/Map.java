@@ -117,8 +117,13 @@ public class Map extends FAILEntity implements IMap{
 	public void addFireball(int x, int y, int ox, int oy){
 		set(x, y, new Fireball(ox, oy));
 	}
-	public void push() {
+
+	public void OpenDoor() {
 		// TODO Auto-generated method stub
-		
+		for(int x = 0; x<getWidth();x++)
+			for(int y = 0; y<getHeight();y++)
+				if(get(x, y)!=null)
+					if(get(x, y).getType()==TypeEntity.DOORCLOSE)
+						set(x,y, new DoorOpen());
 	}
 }

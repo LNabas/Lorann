@@ -25,4 +25,5 @@ public abstract class decoration extends Entity{
 	public TypeEntity getType() {
 		return TypeEntity.WALL;
 	}
+	public void GainKey(){}
 }

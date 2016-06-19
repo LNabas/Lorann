@@ -46,5 +46,6 @@ public interface IEntity {
 	public boolean hasFB();
 	public void LooseFB();
 	public void GainFB();
-	
+	public void GainKey();
+	public boolean hasKey();
 }

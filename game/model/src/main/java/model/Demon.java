@@ -48,5 +48,5 @@ public abstract class Demon extends Entity{
 	public TypeEntity getType() {
 		return TypeEntity.DEMON;
 	}
-	
+	public void GainKey(){}
 }

@@ -4,9 +4,9 @@ import contract.ButtonState;
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IEntity;
+import contract.IMap;
 import contract.IModel;
 import contract.IView;
-import contract.Permeability;
 import contract.States;
 import contract.TypeEntity;
 
@@ -22,9 +22,9 @@ public class Controller implements IController {
 	/** The model. */
 	private IModel	model;
 	private int posMenu = 0;
+	private int posMenuOpt = 0;
 	private int xFireBall = 0;
 	private int yFireBall = 0;
-	private int posMenuOpt = 0;
 	/**
 	 * Instantiates a new controller.
 	 * @param view
@@ -242,6 +242,10 @@ public class Controller implements IController {
 				case RFB:
 					entity.GainFB();
 					break;
+				case KEY:
+					entity.GainKey();
+					model.getMap().OpenDoor();
+					break;
 				case DOOROPEN:
 					view.setState(States.MENU);
 					break;
@@ -251,6 +255,9 @@ public class Controller implements IController {
 				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 				break;
 			case IMPERMEABLE:
+				if(target_entity.getType()==TypeEntity.DOOROPEN){
+					view.setState(States.MENU);
+				}
 				if(target_entity.hit()){
 					entity.die(model.getMap());
 					if(entity.isAlive()){

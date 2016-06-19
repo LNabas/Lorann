@@ -81,66 +81,7 @@ public class View implements IView, Runnable {
 		}
 	}
 	protected static ControllerOrder keyCodeToControllerOrderGame(final int keyCode) {
-		/*if((last_update.getTime()-new Date().getTime()) > 10){
-			last_keyCode=0;
-		}*/
-		ControllerOrder order = ControllerOrder.NULL;
-		/*System.out.println(keyCode);
-		switch (keyCode) {
-		case KeyEvent.VK_Z:
-		case KeyEvent.VK_UP:
-			switch(last_keyCode){
-			case KeyEvent.VK_Q:
-			case KeyEvent.VK_LEFT:
-				order = ControllerOrder.UP_LEFT;
-				break;
-			case KeyEvent.VK_D:
-			case KeyEvent.VK_RIGHT:
-				order = ControllerOrder.UP_RIGHT;
-				break;
-			default:
-				order = ControllerOrder.UP;
-				break;
-			}
-			break;
-		case KeyEvent.VK_S:
-		case KeyEvent.VK_DOWN:
-			switch(last_keyCode){
-			case KeyEvent.VK_Q:
-			case KeyEvent.VK_LEFT:
-				order = ControllerOrder.DOWN_LEFT;
-				break;
-			case KeyEvent.VK_D:
-			case KeyEvent.VK_RIGHT:
-				order = ControllerOrder.DOWN_RIGHT;
-				break;
-			default:
-				order = ControllerOrder.DOWN;
-				break;
-			}
-			break;
-		case KeyEvent.VK_Q:
-		case KeyEvent.VK_LEFT:
-			order = ControllerOrder.LEFT;
-			break;
-		case KeyEvent.VK_D:
-		case KeyEvent.VK_RIGHT:
-			order = ControllerOrder.RIGHT;
-			break;
-		case KeyEvent.VK_SPACE:
-			order = ControllerOrder.RAINBOW_FIREBALL;
-			break;
-		case KeyEvent.VK_BACK_SPACE:
-		case KeyEvent.VK_ESCAPE:
-			order = ControllerOrder.RETURN;
-			break;
-		default:
-			order = ControllerOrder.NULL;
-			break;
-		}
-		last_update = new Date();
-		last_keyCode = keyCode;*/
-		return order;
+		return ControllerOrder.NULL;
 	}
 	
 	/*

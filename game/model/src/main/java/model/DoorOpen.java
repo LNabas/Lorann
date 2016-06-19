@@ -3,7 +3,6 @@
  */
 package model;
 
-import contract.IMap;
 import contract.Permeability;
 import contract.TypeEntity;
 import contract.VisualEntity;
@@ -24,10 +23,5 @@ public class DoorOpen extends Door{
 
 	public TypeEntity getType() {
 		return TypeEntity.DOOROPEN;
-	}
-
-	public void die(IMap map) {
-		// TODO Auto-generated method stub
-		
 	}
 }

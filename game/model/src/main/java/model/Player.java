@@ -14,6 +14,7 @@ import contract.VisualEntity;
 public class Player extends Entity{
 	private int Lives = 11;
 	private boolean fb=true;
+	private boolean key=false;
 	
 	public boolean isAlive() {
 		return Lives >0;
@@ -42,5 +43,13 @@ public class Player extends Entity{
 
 	public void die(IMap map) {
 		Lives--;
+	}
+
+	public void GainKey() {
+		key=true;
+	}
+
+	public boolean hasKey() {
+		return key;
 	}
 }

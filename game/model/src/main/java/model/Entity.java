@@ -74,4 +74,8 @@ abstract class Entity implements IEntity{
 		// TODO Auto-generated method stub
 		
 	}
+	public boolean hasKey() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

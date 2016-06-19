@@ -6,10 +6,6 @@ package model;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import contract.IMap;
-
-import java.io.BufferedReader;
 import java.sql.CallableStatement;
 
 /**
@@ -98,47 +94,4 @@ public class DAOMap extends DAOEntity<Map> {
 			}
 			return null;
 		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see model.DAOEntity#delete(model.Entity)
-		 */
-		@Override
-		public boolean delete(final Map entity) {
-			// Not implemented
-			return false;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 *
-		 * @see model.DAOEntity#update(model.Entity)
-		 */
-		@Override
-		public boolean update(final Map entity) {
-			// Not implemented
-			return false;
-		}
-
-		@Override
-		public Map find(int id) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public Map find(String key) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public boolean create(Map entity) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-	
-	
-	
 }

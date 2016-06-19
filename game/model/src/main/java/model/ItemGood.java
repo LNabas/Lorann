@@ -3,6 +3,7 @@
  */
 package model;
 
+import contract.IMap;
 import contract.TypeEntity;
 import contract.VisualEntity;
 
@@ -19,4 +20,10 @@ public class ItemGood extends Item{
 	public TypeEntity getType() {
 		return TypeEntity.ITEMGOOD;
 	}
+
+	public void die(IMap map) {
+		
+	}
+
+	public void GainKey(){}
 }

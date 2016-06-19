@@ -3,7 +3,7 @@
  */
 package model;
 
-import contract.IMap;
+import contract.Permeability;
 import contract.TypeEntity;
 import contract.VisualEntity;
 
@@ -16,16 +16,15 @@ public class DoorClose extends Door{
 		return true;
 	}
 
+	public Permeability getPearmeability(){
+		return Permeability.IMPERMEABLE;
+	}
+
 	public VisualEntity getVisualType() {
 		return VisualEntity.DOOR_CLOSED;
 	}
 
 	public TypeEntity getType() {
 		return TypeEntity.DOORCLOSE;
-	}
-
-	public void die(IMap map) {
-		// TODO Auto-generated method stub
-		
 	}
 }

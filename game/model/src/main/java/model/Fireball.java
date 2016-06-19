@@ -64,4 +64,5 @@ public class Fireball extends Entity{
 	public TypeEntity getType() {
 		return TypeEntity.RFB;
 	}
+	public void GainKey(){}
 }
