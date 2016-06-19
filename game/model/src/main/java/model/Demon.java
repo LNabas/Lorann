@@ -30,6 +30,9 @@ public abstract class Demon extends Entity{
 				nx = randomGenerator.nextInt(3)-1;
 				ny = randomGenerator.nextInt(3)-1;
 				if(map.get(x + nx, y + ny) == null){
+				}else if(map.get(x + nx, y + ny).getType() == TypeEntity.PLAYER){
+					map.get(x + nx, y + ny).die(map);
+					return;
 				}else if(map.get(x, y + ny) == null){
 					nx = 0;
 				}else if(map.get(x + nx, y) == null){

@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.swing.SwingUtilities;
 import contract.ControllerOrder;
 import contract.IController;
+import contract.IEntity;
 import contract.IMenu;
 import contract.IModel;
 import contract.IView;
@@ -23,6 +24,7 @@ public class View implements IView, Runnable {
 	public boolean keys[] = new boolean[255];
 	public boolean keys_used[] = new boolean[255];
 	public boolean keys_released[] = new boolean[255];
+	private IModel model;
 	/**
 	 * Instantiates a new view.
 	 *
@@ -30,6 +32,7 @@ public class View implements IView, Runnable {
 	 *          the model
 	 */
 	public View(final IModel model) throws HeadlessException {
+		this.model=model;
 		this.viewFrame = new ViewFrame(model, this);
 		SwingUtilities.invokeLater(this);
 		this.viewFrame.setVisible(true);
@@ -101,6 +104,18 @@ public class View implements IView, Runnable {
 		if((this.viewFrame.getViewPanel().getState() == States.GAME)
 				&& (this.viewFrame.getController()!=null)
 				&& (new Date().getTime()-ts.getTime())>100){
+			IEntity entity = model.getMap().getPlayer();
+			if(entity.has_died()){
+				entity.updated_died_status();
+				if(entity.isAlive()){
+					model.Mappy();
+					entity.GainFB();
+				}else{
+					model.getMap().getPlayer().setLive(11);
+					setState(States.MENU);
+					entity.GainFB();
+				}
+			}
 			boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z];
 			boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
 			boolean left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_Q];

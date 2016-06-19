@@ -228,8 +228,8 @@ public class Controller implements IController {
 	 * @param offset_y type int
 	 */
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
-		int posx = model.getPlayer().getX();
-		int posy = model.getPlayer().getY();
+		int posx = entity.getX();
+		int posy = entity.getY();
 		IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
 		if(target_entity != null && entity!=null){
 			switch(target_entity.getPermeability()){
@@ -261,14 +261,6 @@ public class Controller implements IController {
 				}
 				if(target_entity.hit()){
 					entity.die(model.getMap());
-					if(entity.isAlive()){
-						model.Mappy();
-						entity.GainFB();
-					}else{
-						model.getMap().getPlayer().setLive(11);
-						view.setState(States.MENU);
-						entity.GainFB();
-					}
 				}
 				break;
 			default:

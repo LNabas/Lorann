@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import contract.IEntity;
 import contract.IMap;
 import contract.Permeability;
-import contract.TypeEntity;
 import contract.VisualEntity;
 
 /**
@@ -69,4 +68,9 @@ abstract class Entity implements IEntity{
 	public void LooseFB() {}
 	public void GainFB() {}
 	public void setSprite(VisualEntity v){}
+	public boolean has_died() {
+		return false;
+	}
+
+	public void updated_died_status() {}
 }

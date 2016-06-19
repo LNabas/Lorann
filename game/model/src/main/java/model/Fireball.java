@@ -16,6 +16,7 @@ import contract.VisualEntity;
 public class Fireball extends Entity{
 	int ox=0;
 	int oy=0;
+	VisualEntity me = VisualEntity.FIREBALL;
 	public Fireball(int x, int y){
 		ox = x;
 		oy = y;
@@ -29,13 +30,13 @@ public class Fireball extends Entity{
 	}
 
 	public VisualEntity getVisualType() {
-		return VisualEntity.FIREBALL;
+		return me;
 	}
 	public void move(IMap map, int x, int y){
 		if(old_turn != turn){
 			if(x<map.getWidth() && y < map.getHeight() && x>0 && y>0){
 				IEntity e = map.get(x + ox, y + oy);
-				if(e==null || e.getPermeability() == Permeability.PERMEABLE){
+				if(e==null){
 					map.move(x, y, x + ox, y + oy);
 				}else{
 					switch(e.getType()){

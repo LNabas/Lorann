@@ -14,7 +14,7 @@ import contract.VisualEntity;
 public class Player extends Entity{
 	private int Lives = 11;
 	private boolean fb=true;
-	private boolean key=false;
+	private boolean has_died = false;
 	VisualEntity me = VisualEntity.PLAYER;
 	
 	public boolean isAlive() {
@@ -44,16 +44,17 @@ public class Player extends Entity{
 
 	public void die(IMap map) {
 		Lives--;
-	}
-
-	public void GainKey() {
-		key=true;
-	}
-
-	public boolean hasKey() {
-		return key;
+		has_died=true;
 	}
 	public void setSprite(VisualEntity v){
 		me=v;
+	}
+
+	public boolean has_died() {
+		return has_died;
+	}
+
+	public void updated_died_status() {
+		has_died=false;
 	}
 }
