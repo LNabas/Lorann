@@ -51,7 +51,6 @@ public class Fireball extends Entity{
 					default:
 						ox*=-1;
 						oy*=-1;
-						System.out.println(oy + " " + ox);
 						break;
 					}
 				}
