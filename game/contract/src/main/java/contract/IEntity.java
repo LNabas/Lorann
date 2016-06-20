@@ -49,4 +49,5 @@ public interface IEntity {
 	public void setSprite(VisualEntity v);
 	public boolean has_died();
 	public void updated_died_status();
+	public int getLives();
 }

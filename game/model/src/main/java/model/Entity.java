@@ -73,4 +73,8 @@ abstract class Entity implements IEntity{
 	}
 
 	public void updated_died_status() {}
+	public int getLives(){
+		return 0;
+		
+	}
 }

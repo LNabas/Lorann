@@ -50,4 +50,7 @@ public class Player extends Entity{
 	public void updated_died_status() {
 		has_died=false;
 	}
+	public int getLives(){
+		return Lives;
+	}
 }
