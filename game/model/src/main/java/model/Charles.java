@@ -11,6 +11,8 @@ public class Charles extends Demon {
 			return VisualEntity.CHARLES;
 		}
 	
+	
+	
 	public void move(IMap map, int x, int y) {
 		if(turn != old_turn){
 			boolean found = false;
