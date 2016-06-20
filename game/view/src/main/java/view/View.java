@@ -109,6 +109,11 @@ public class View implements IView, Runnable {
 					&& ((new Date().getTime()-ts_game.getTime())>(400/model.Difficulty()))){
 				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 				ts_game = new Date();
+				for(int i = 0; i<keys.length; i++){
+					keys_used[i]=true;
+					keys_released[i]=true;
+					keys[i]=false;
+				}
 			}
 			if((this.viewFrame.getController()!=null)
 					&& (new Date().getTime()-ts_player.getTime())>100){
