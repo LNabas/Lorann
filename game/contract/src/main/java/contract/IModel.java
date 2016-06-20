@@ -25,11 +25,11 @@ public interface IModel {
 	 * @return Map
 	 */
 	IMap getMap();
-	/**
-	 * Load next maps
-	 */
 	int CurrentMap();
 	int MaxMap();
+	/**
+	 * Load next map
+	 */
 	void LoadNextMap();
 	void setDifficulty(int posMenuOpt);
 	void ForceRedraw();
