@@ -23,28 +23,16 @@ class ViewFrame extends JFrame implements KeyListener {
 
 	/**
 	 * The model.
-	 * @uml.property  name="model"
-	 * @uml.associationEnd  
 	 */
 	private IModel						model;
 
 	/**
 	 * The controller.
-	 * @uml.property  name="controller"
-	 * @uml.associationEnd  
 	 */
 	private IController				controller;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
-	/**
-	 * @uml.property  name="viewPanel"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="viewFrame:view.ViewPanel"
-	 */
 	private ViewPanel viewPanel;
-	/**
-	 * @uml.property  name="view"
-	 * @uml.associationEnd  inverse="viewFrame:view.View"
-	 */
 	private View view;
 	/**
 	 * Instantiates a new view frame.
@@ -118,7 +106,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Sets the controller.
 	 * @param controller  the new controller
-	 * @uml.property  name="controller"
 	 */
 	protected void setController(final IController controller) {
 		this.controller = controller;
@@ -127,7 +114,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Gets the model.
 	 * @return  the model
-	 * @uml.property  name="model"
 	 */
 	protected IModel getModel() {
 		return this.model;
@@ -136,7 +122,6 @@ class ViewFrame extends JFrame implements KeyListener {
 	/**
 	 * Sets the model.
 	 * @param model  the new model
-	 * @uml.property  name="model"
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
@@ -176,6 +161,12 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void printMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
+		for(int i = 0; i<this.view.keys.length; i++){
+			this.view.keys_used[i]=true;
+			if(this.view.keys_released[i]){
+				this.view.keys[i]=false;
+			}
+		}
 	}
 
 	/*
@@ -227,15 +218,12 @@ class ViewFrame extends JFrame implements KeyListener {
 			view.keys[e.getKeyCode()]=false;
 		}
 	}
-
 	/**
-	 * @return
-	 * @uml.property  name="viewPanel"
+	 * @return view panel
 	 */
 	public ViewPanel getViewPanel() {
 		return this.viewPanel;
 	}
-
 	public IView getView() {
 		return view;
 	}

@@ -96,13 +96,7 @@ public class View implements IView, Runnable {
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 	}
-	/**
-	 * @uml.property  name="ts_player"
-	 */
 	private Date ts_player = new Date();
-	/**
-	 * @uml.property  name="ts_game"
-	 */
 	private Date ts_game = new Date();
 	/*
 	 * (non-Javadoc)
