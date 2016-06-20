@@ -279,6 +279,8 @@ public class Controller implements IController {
 						model.LoadNextMap();
 					}else{
 						view.printMessage("You won !");
+						model.resetLevel();
+						model.resetLives();
 						view.setState(States.MENU);
 					}
 				}
