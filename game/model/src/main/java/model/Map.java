@@ -9,18 +9,8 @@ import contract.TypeEntity;
  *
  */
 public class Map extends FAILEntity implements IMap{
-	/**
-	 * @uml.property  name="map"
-	 * @uml.associationEnd  multiplicity="(0 -1)"
-	 */
 	private IEntity[] map;
-	/**
-	 * @uml.property  name="width"
-	 */
 	private int width;
-	/**
-	 * @uml.property  name="height"
-	 */
 	private int height;
 	public Map(){
 		this(5,5);
