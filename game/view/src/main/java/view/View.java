@@ -194,4 +194,7 @@ public class View implements IView, Runnable {
 	public IMenu getMenu() {
 		return viewFrame.getViewPanel().getMenu();
 	}
+	public IModel getModel() {
+		return model;
+	}
 }

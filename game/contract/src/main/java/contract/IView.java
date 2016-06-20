@@ -25,4 +25,5 @@ public interface IView {
 	 */
 	States getState();
 	IMenu getMenu();
+	IModel getModel();
 }

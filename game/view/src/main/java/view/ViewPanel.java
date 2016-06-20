@@ -147,7 +147,6 @@ class ViewPanel extends JPanel implements Observer {
 	    height = (int) (img_height*s);
 	    int margin_x = (this.getWidth() - width)/2;
 	    int margin_y = (this.getHeight() - height)/2;
-
 		for(int x = 0; x < this.getWidth();){
 			for(int y = 0; y < this.getHeight();){
 				g.drawImage(ressources.getSprite("Sol"), x, y, null);
@@ -156,6 +155,9 @@ class ViewPanel extends JPanel implements Observer {
 			x += ressources.getSprite("Sol").getWidth();
 		}
 	    g.drawImage(img, margin_x, margin_y, width, height, null);
+	    g.setFont(ressources.getFont("StraightToHellBB", 100));
+	    if(this.getState()==States.GAME)
+	    	g.drawString(Integer.toString(this.viewFrame.getView().getModel().getPlayer().getLives()), 100, 100);
 	}
 	/**
 	 * Return the current view state
