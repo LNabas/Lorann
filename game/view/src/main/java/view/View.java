@@ -119,20 +119,18 @@ public class View implements IView, Runnable {
 			if((this.viewFrame.getController()!=null)
 					&& (new Date().getTime()-ts_player.getTime())>100){
 				IEntity entity = model.getMap().getPlayer();
-				if(model.getLives()>0){
+				if(entity.has_died()){
 					model.removeLife();
+					entity.updated_died_status();
 					if(model.getLives()>0){
 						model.Mappy();
 						entity.GainFB();
 					}else{
-						model.resetLives();;
+						this.printMessage("You loose !");
+						model.resetLives();
 						setState(States.MENU);
 						entity.GainFB();
 					}
-				}else{
-					model.resetLives();;
-					setState(States.MENU);
-					entity.GainFB();
 				}
 				boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_E];
 				boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S] || keys[KeyEvent.VK_W] || keys[KeyEvent.VK_X];
