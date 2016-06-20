@@ -121,6 +121,7 @@ public class View implements IView, Runnable {
 						entity.GainFB();
 					}else{
 						this.printMessage("You loose !");
+						model.resetLevel();
 						model.resetLives();
 						setState(States.MENU);
 						entity.GainFB();
