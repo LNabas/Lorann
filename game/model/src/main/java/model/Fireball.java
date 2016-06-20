@@ -14,8 +14,18 @@ import contract.VisualEntity;
  *
  */
 public class Fireball extends Entity{
+	/**
+	 * @uml.property  name="ox"
+	 */
 	int ox=0;
+	/**
+	 * @uml.property  name="oy"
+	 */
 	int oy=0;
+	/**
+	 * @uml.property  name="me"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	VisualEntity me = VisualEntity.FIREBALL;
 	public Fireball(int x, int y){
 		ox = x;

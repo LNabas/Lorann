@@ -1,0 +1,16 @@
+ERROR - 14:08:13: java.net.MalformedURLException: unknown protocol: pathmap
+WARNING - 14:08:28: Convert game
+ERROR - 14:08:28: org.xml.sax.SAXParseExceptionpublicId: /model/src/test/java/model/ModelTest.java; systemId: file:///model/src/test/java/model/ModelTest.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+ERROR - 14:08:28: org.xml.sax.SAXParseExceptionpublicId: /model/src/test/java/model/ModelTest.java; systemId: file:///model/src/test/java/model/ModelTest.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+WARNING - 14:08:47: Convert game
+ERROR - 14:08:47: org.xml.sax.SAXParseExceptionpublicId: /model/src/test/java/model/ModelTest.java; systemId: file:///model/src/test/java/model/ModelTest.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+ERROR - 14:08:47: org.xml.sax.SAXParseExceptionpublicId: /model/src/test/java/model/ModelTest.java; systemId: file:///model/src/test/java/model/ModelTest.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+WARNING - 14:09:12: Convert game
+ERROR - 14:09:12: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+ERROR - 14:09:12: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+WARNING - 14:09:16: Convert game
+ERROR - 14:09:16: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+ERROR - 14:09:16: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+WARNING - 14:09:24: Convert game
+ERROR - 14:09:24: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+ERROR - 14:09:24: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.

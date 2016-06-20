@@ -4,8 +4,7 @@
 package contract;
 
 /**
- * @author Maxence
- *
+ * @author  Maxence
  */
 public interface IEntity {
 	/**
@@ -15,7 +14,9 @@ public interface IEntity {
 	public boolean hit();
 	/**
 	 * get Permeability
-	 * @return Permeability
+	 * @return  Permeability
+	 * @uml.property  name="permeability"
+	 * @uml.associationEnd  
 	 */
 	public Permeability getPermeability();
 	/**
@@ -25,12 +26,16 @@ public interface IEntity {
 	public boolean isAlive();
 	/**
 	 * get type
-	 * @return the logical type
+	 * @return  the logical type
+	 * @uml.property  name="type"
+	 * @uml.associationEnd  
 	 */
 	public TypeEntity getType();
 	/**
 	 * get Visual type
-	 * @return the cosmetic type
+	 * @return  the cosmetic type
+	 * @uml.property  name="visualType"
+	 * @uml.associationEnd  
 	 */
 	public VisualEntity getVisualType();
 	

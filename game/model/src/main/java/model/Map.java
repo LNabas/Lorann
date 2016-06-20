@@ -9,8 +9,18 @@ import contract.TypeEntity;
  *
  */
 public class Map extends FAILEntity implements IMap{
+	/**
+	 * @uml.property  name="map"
+	 * @uml.associationEnd  multiplicity="(0 -1)"
+	 */
 	private IEntity[] map;
+	/**
+	 * @uml.property  name="width"
+	 */
 	private int width;
+	/**
+	 * @uml.property  name="height"
+	 */
 	private int height;
 	public Map(){
 		this(5,5);
@@ -53,14 +63,16 @@ public class Map extends FAILEntity implements IMap{
 	}
 	/**
 	 * get width
-	 * @return width
+	 * @return  width
+	 * @uml.property  name="width"
 	 */
 	public int getWidth() {
 		return width;
 	}
 	/**
 	 * get height
-	 * @return height
+	 * @return  height
+	 * @uml.property  name="height"
 	 */
 	public int getHeight() {
 		return height;

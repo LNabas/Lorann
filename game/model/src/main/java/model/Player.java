@@ -12,9 +12,22 @@ import contract.VisualEntity;
  *
  */
 public class Player extends Entity{
+	/**
+	 * @uml.property  name="lives"
+	 */
 	private int Lives = 11;
+	/**
+	 * @uml.property  name="fb"
+	 */
 	private boolean fb=true;
+	/**
+	 * @uml.property  name="has_died"
+	 */
 	private boolean has_died = false;
+	/**
+	 * @uml.property  name="me"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	VisualEntity me = VisualEntity.PLAYER;
 	public boolean isAlive() {
 		return Lives >0;
@@ -50,6 +63,10 @@ public class Player extends Entity{
 	public void updated_died_status() {
 		has_died=false;
 	}
+	/**
+	 * @return
+	 * @uml.property  name="lives"
+	 */
 	public int getLives(){
 		return Lives;
 	}

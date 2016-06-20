@@ -13,10 +13,27 @@ import contract.IMenu;
  *
  */
 public class Menu extends GraphicsBuilder implements IMenu{
+	/**
+	 * @uml.property  name="buttons"
+	 * @uml.associationEnd  qualifier="v:java.lang.String view.Button"
+	 */
 	private Map<String, Button> buttons = new HashMap<String, Button>();
+	/**
+	 * @uml.property  name="button_order"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="java.lang.String"
+	 */
 	private ArrayList<String> button_order = new ArrayList<String>();
+	/**
+	 * @uml.property  name="offset_y"
+	 */
 	private int offset_y = 0;
+	/**
+	 * @uml.property  name="margin_increment_y"
+	 */
 	private int margin_increment_y = 5;
+	/**
+	 * @uml.property  name="need_redraw"
+	 */
 	private boolean need_redraw = true;
 	/**
 	 * Constructor

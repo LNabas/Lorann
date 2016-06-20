@@ -17,13 +17,22 @@ class DBProperties extends Properties {
 	/** The Constant PROPERTIES_FILE_NAME. */
 	private final static String	PROPERTIES_FILE_NAME	= "model.properties";
 
-	/** The url. */
+	/**
+	 * The url.
+	 * @uml.property  name="url"
+	 */
 	private String							url										= "";
 
-	/** The login. */
+	/**
+	 * The login.
+	 * @uml.property  name="login"
+	 */
 	private String							login									= "";
 
-	/** The password. */
+	/**
+	 * The password.
+	 * @uml.property  name="password"
+	 */
 	private String							password							= "";
 
 	/**
@@ -48,8 +57,8 @@ class DBProperties extends Properties {
 
 	/**
 	 * Gets the url.
-	 *
-	 * @return the url
+	 * @return  the url
+	 * @uml.property  name="url"
 	 */
 	public String getUrl() {
 		return this.url;
@@ -57,9 +66,8 @@ class DBProperties extends Properties {
 
 	/**
 	 * Sets the url.
-	 *
-	 * @param url
-	 *          the new url
+	 * @param url  the new url
+	 * @uml.property  name="url"
 	 */
 	private void setUrl(final String url) {
 		this.url = url;
@@ -67,8 +75,8 @@ class DBProperties extends Properties {
 
 	/**
 	 * Gets the login.
-	 *
-	 * @return the login
+	 * @return  the login
+	 * @uml.property  name="login"
 	 */
 	public String getLogin() {
 		return this.login;
@@ -76,9 +84,8 @@ class DBProperties extends Properties {
 
 	/**
 	 * Sets the login.
-	 *
-	 * @param login
-	 *          the new login
+	 * @param login  the new login
+	 * @uml.property  name="login"
 	 */
 	private void setLogin(final String login) {
 		this.login = login;
@@ -86,8 +93,8 @@ class DBProperties extends Properties {
 
 	/**
 	 * Gets the password.
-	 *
-	 * @return the password
+	 * @return  the password
+	 * @uml.property  name="password"
 	 */
 	public String getPassword() {
 		return this.password;
@@ -95,9 +102,8 @@ class DBProperties extends Properties {
 
 	/**
 	 * Sets the password.
-	 *
-	 * @param password
-	 *          the new password
+	 * @param password  the new password
+	 * @uml.property  name="password"
 	 */
 	private void setPassword(final String password) {
 		this.password = password;

@@ -18,12 +18,29 @@ import contract.States;
  * @author Doc0160
  */
 public class View implements IView, Runnable {
-	/** The frame. */
+	/**
+	 * The frame.
+	 * @uml.property  name="viewFrame"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="view:view.ViewFrame"
+	 */
 	private final ViewFrame viewFrame;
 	//public ArrayList<KeyEvent> keys = new ArrayList<KeyEvent>();
+	/**
+	 * @uml.property  name="keys" multiplicity="(0 -1)" dimension="1"
+	 */
 	public boolean keys[] = new boolean[255];
+	/**
+	 * @uml.property  name="keys_used" multiplicity="(0 -1)" dimension="1"
+	 */
 	public boolean keys_used[] = new boolean[255];
+	/**
+	 * @uml.property  name="keys_released" multiplicity="(0 -1)" dimension="1"
+	 */
 	public boolean keys_released[] = new boolean[255];
+	/**
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private IModel model;
 	/**
 	 * Instantiates a new view.
@@ -94,7 +111,13 @@ public class View implements IView, Runnable {
 	public void printMessage(final String message) {
 		this.viewFrame.printMessage(message);
 	}
+	/**
+	 * @uml.property  name="ts_player"
+	 */
 	private Date ts_player = new Date();
+	/**
+	 * @uml.property  name="ts_game"
+	 */
 	private Date ts_game = new Date();
 	/*
 	 * (non-Javadoc)
@@ -194,6 +217,10 @@ public class View implements IView, Runnable {
 	public IMenu getMenu() {
 		return viewFrame.getViewPanel().getMenu();
 	}
+	/**
+	 * @return
+	 * @uml.property  name="model"
+	 */
 	public IModel getModel() {
 		return model;
 	}

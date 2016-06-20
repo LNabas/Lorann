@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class CFont {
+	/**
+	 * @uml.property  name="font"
+	 */
 	private Font font;
 	public CFont(String name) throws IOException, FontFormatException{
 		InputStream is = this.getClass().getClassLoader().getResourceAsStream(name+".ttf");
@@ -13,7 +16,8 @@ public class CFont {
 	}
 	/**
 	 * get font
-	 * @return Font
+	 * @return  Font
+	 * @uml.property  name="font"
 	 */
 	public Font getFont(){
 		return font;

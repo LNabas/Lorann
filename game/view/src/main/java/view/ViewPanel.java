@@ -20,15 +20,43 @@ import jaco.mp3.player.MP3Player;
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
+	/**
+	 * @uml.property  name="state"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private States state = States.MENU;
+	/**
+	 * @uml.property  name="ressources"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public RessourcesLoader ressources;
-	/** The view frame. */
+	/**
+	 * The view frame.
+	 * @uml.property  name="viewFrame"
+	 * @uml.associationEnd  multiplicity="(1 1)" inverse="viewPanel:view.ViewFrame"
+	 */
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	/**
+	 * @uml.property  name="menu_principal"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public Menu menu_principal;
+	/**
+	 * @uml.property  name="menu_options"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public Menu menu_options; 
+	/**
+	 * @uml.property  name="map"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public Map map;
+	/**
+	 * @uml.property  name="music"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	public MP3Player music;
 	/**
 	 * Instantiates a new view panel.
@@ -65,8 +93,8 @@ class ViewPanel extends JPanel implements Observer {
 
 	/**
 	 * Gets the view frame.
-	 *
-	 * @return the view frame
+	 * @return  the view frame
+	 * @uml.property  name="viewFrame"
 	 */
 	@SuppressWarnings("unused")
 	private ViewFrame getViewFrame() {
@@ -75,9 +103,8 @@ class ViewPanel extends JPanel implements Observer {
 
 	/**
 	 * Sets the view frame.
-	 *
-	 * @param viewFrame
-	 *          the new view frame
+	 * @param viewFrame  the new view frame
+	 * @uml.property  name="viewFrame"
 	 */
 	private void setViewFrame(final ViewFrame viewFrame) {
 		this.viewFrame = viewFrame;
@@ -161,14 +188,16 @@ class ViewPanel extends JPanel implements Observer {
 	}
 	/**
 	 * Return the current view state
-	 * @return internal state of the panel
+	 * @return  internal state of the panel
+	 * @uml.property  name="state"
 	 */
 	public States getState() {
 		return this.state;
 	}
 	/**
 	 * Set current view state
-	 * @param state
+	 * @param  state
+	 * @uml.property  name="state"
 	 */
 	public void setState(States s) {
 		state=s;

@@ -15,14 +15,37 @@ import contract.VisualEntity;
  * @author Romain, Lucas.
  */
 public class Controller implements IController {
+	/**
+	 * @uml.property  name="turn"
+	 */
 	private int turn = 0;
-	/** The view. */
+	/**
+	 * The view.
+	 * @uml.property  name="view"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private IView		view;
-	/** The model. */
+	/**
+	 * The model.
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private IModel	model;
+	/**
+	 * @uml.property  name="posMenu"
+	 */
 	private int posMenu = 0;
+	/**
+	 * @uml.property  name="posMenuOpt"
+	 */
 	private int posMenuOpt = 0;
+	/**
+	 * @uml.property  name="xFireBall"
+	 */
 	private int xFireBall = 0;
+	/**
+	 * @uml.property  name="yFireBall"
+	 */
 	private int yFireBall = 0;
 	/**
 	 * Instantiates a new controller.
@@ -45,17 +68,16 @@ public class Controller implements IController {
 	}
 	/**
 	 * Sets the view.
-	 *
-	 * @param view
-	 *          the new view
+	 * @param view  the new view
+	 * @uml.property  name="view"
 	 */
 	private void setView(final IView view) {
 		this.view = view;
 	}
 	/**
 	 * Sets the model.
-	 * @param model
-	 *          the new model
+	 * @param model  the new model
+	 * @uml.property  name="model"
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;

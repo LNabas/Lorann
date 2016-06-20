@@ -13,6 +13,9 @@ import contract.TypeEntity;
  *
  */
 public abstract class Demon extends Entity{
+	/**
+	 * @uml.property  name="randomGenerator"
+	 */
 	protected Random randomGenerator = new Random();
 	public boolean hit() {
 		return true;

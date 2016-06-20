@@ -14,6 +14,10 @@ import org.junit.BeforeClass;
  * @author Jean-Aymeric Diet
  */
 public class ModelTest {
+	/**
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  
+	 */
 	@SuppressWarnings("unused")
 	private Model model;
 

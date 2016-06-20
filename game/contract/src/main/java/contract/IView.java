@@ -2,8 +2,7 @@ package contract;
 
 /**
  * The Interface IView.
- *
- * @author Doc0160
+ * @author  Doc0160
  */
 public interface IView {
 
@@ -16,14 +15,25 @@ public interface IView {
 	void printMessage(final String message);
 	/**
 	 * set state
-	 * @param s state
+	 * @param s  state
+	 * @uml.property  name="state"
 	 */
 	void setState(States s);
 	/**
 	 * get state
-	 * @return States
+	 * @return  States
+	 * @uml.property  name="state"
+	 * @uml.associationEnd  
 	 */
 	States getState();
+	/**
+	 * @uml.property  name="menu"
+	 * @uml.associationEnd  
+	 */
 	IMenu getMenu();
+	/**
+	 * @uml.property  name="model"
+	 * @uml.associationEnd  
+	 */
 	IModel getModel();
 }

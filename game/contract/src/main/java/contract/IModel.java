@@ -4,25 +4,28 @@ import java.util.Observable;
 
 /**
  * The Interface IModel.
- *
- * @author Doc0160
+ * @author  Doc0160
  */
 public interface IModel {
 
 	/**
 	 * Gets the observable.
-	 *
-	 * @return the observable
+	 * @return  the observable
+	 * @uml.property  name="observable"
 	 */
 	Observable getObservable();
 	/**
 	 * Is it necessary ?
-	 * @return Player
+	 * @return  Player
+	 * @uml.property  name="player"
+	 * @uml.associationEnd  
 	 */
 	IEntity getPlayer();
 	/**
 	 * Return the entire map
-	 * @return Map
+	 * @return  Map
+	 * @uml.property  name="map"
+	 * @uml.associationEnd  
 	 */
 	IMap getMap();
 	int CurrentMap();

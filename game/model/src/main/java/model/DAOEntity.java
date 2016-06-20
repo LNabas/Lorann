@@ -13,7 +13,10 @@ import java.sql.SQLException;
  */
 abstract class DAOEntity<E extends FAILEntity> {
 
-	/** The connection. */
+	/**
+	 * The connection.
+	 * @uml.property  name="connection"
+	 */
 	private final Connection connection;
 
 	/**
@@ -30,8 +33,8 @@ abstract class DAOEntity<E extends FAILEntity> {
 
 	/**
 	 * Gets the connection.
-	 *
-	 * @return the connection
+	 * @return  the connection
+	 * @uml.property  name="connection"
 	 */
 	protected Connection getConnection() {
 		return this.connection;

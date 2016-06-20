@@ -13,9 +13,21 @@ import contract.VisualEntity;
  * @author Maxence
  */
 abstract class Entity implements IEntity{
+	/**
+	 * @uml.property  name="x"
+	 */
 	private int x;
+	/**
+	 * @uml.property  name="y"
+	 */
 	private int y;
+	/**
+	 * @uml.property  name="turn"
+	 */
 	protected int turn = 0;
+	/**
+	 * @uml.property  name="old_turn"
+	 */
 	protected int old_turn = 0;
 
 	public boolean hit() {
@@ -28,18 +40,34 @@ abstract class Entity implements IEntity{
 		return Permeability.IMPERMEABLE;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="x"
+	 */
 	public int getX() {
 		return x;
 	}
 
+	/**
+	 * @return
+	 * @uml.property  name="y"
+	 */
 	public int getY() {
 		return y;
 	}
 
+	/**
+	 * @param x
+	 * @uml.property  name="x"
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 
+	/**
+	 * @param y
+	 * @uml.property  name="y"
+	 */
 	public void setY(int y) {
 		this.y=y;
 	}

@@ -16,9 +16,25 @@ import java.util.Map;
  * @author Doc0160
  */
 public class RessourcesLoader {
+	/**
+	 * @uml.property  name="sprites"
+	 * @uml.associationEnd  qualifier="name:java.lang.String view.Sprite"
+	 */
 	private Map<String, Sprite> sprites = new HashMap<String, Sprite>();
+	/**
+	 * @uml.property  name="fonts"
+	 * @uml.associationEnd  qualifier="name:java.lang.String view.CFont"
+	 */
 	private Map<String, CFont> fonts = new HashMap<String, CFont>();
+	/**
+	 * @uml.property  name="colors"
+	 * @uml.associationEnd  qualifier="s:java.lang.String java.awt.Color"
+	 */
 	private Map<String, Color> colors = new HashMap<String, Color>();
+	/**
+	 * @uml.property  name="sounds"
+	 * @uml.associationEnd  qualifier="name:java.lang.String java.net.URL"
+	 */
 	private Map<String, URL> sounds = new HashMap<String, URL>();
 	public RessourcesLoader(){
 		loadColors();

@@ -10,30 +10,106 @@ import contract.VisualEntity;
  *
  */
 public class Map extends GraphicsBuilder{
+	/**
+	 * @uml.property  name="map"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private IMap map;
+	/**
+	 * @uml.property  name="sol"
+	 */
 	BufferedImage sol;
+	/**
+	 * @uml.property  name="skull"
+	 */
 	BufferedImage skull;
+	/**
+	 * @uml.property  name="hbone"
+	 */
 	BufferedImage hbone;
+	/**
+	 * @uml.property  name="vbone"
+	 */
 	BufferedImage vbone;
+	/**
+	 * @uml.property  name="lorann"
+	 */
 	BufferedImage lorann;
+	/**
+	 * @uml.property  name="lorannu"
+	 */
 	BufferedImage lorannu;
+	/**
+	 * @uml.property  name="lorannd"
+	 */
 	BufferedImage lorannd;
+	/**
+	 * @uml.property  name="lorannl"
+	 */
 	BufferedImage lorannl;
+	/**
+	 * @uml.property  name="lorannur"
+	 */
 	BufferedImage lorannur;
+	/**
+	 * @uml.property  name="lorannul"
+	 */
 	BufferedImage lorannul;
+	/**
+	 * @uml.property  name="lorannr"
+	 */
 	BufferedImage lorannr;
+	/**
+	 * @uml.property  name="loranndr"
+	 */
 	BufferedImage loranndr;
+	/**
+	 * @uml.property  name="loranndl"
+	 */
 	BufferedImage loranndl;
+	/**
+	 * @uml.property  name="fireball"
+	 */
 	BufferedImage fireball;
+	/**
+	 * @uml.property  name="fireball1"
+	 */
 	BufferedImage fireball1;
+	/**
+	 * @uml.property  name="fireball2"
+	 */
 	BufferedImage fireball2;
+	/**
+	 * @uml.property  name="fireball3"
+	 */
 	BufferedImage fireball3;
+	/**
+	 * @uml.property  name="fireball4"
+	 */
 	BufferedImage fireball4;
+	/**
+	 * @uml.property  name="key"
+	 */
 	BufferedImage key;
+	/**
+	 * @uml.property  name="paul"
+	 */
 	BufferedImage paul;
+	/**
+	 * @uml.property  name="henry"
+	 */
 	BufferedImage henry;
+	/**
+	 * @uml.property  name="pierre"
+	 */
 	BufferedImage pierre;
+	/**
+	 * @uml.property  name="charles"
+	 */
 	BufferedImage charles;
+	/**
+	 * @uml.property  name="purse"
+	 */
 	BufferedImage purse;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
@@ -91,6 +167,10 @@ public class Map extends GraphicsBuilder{
 		purse = ressources.getSpriteCopy("Sol");
 		purse.getGraphics().drawImage(ressources.getSprite("Purse"), 0, 0, null);
 	}
+	/**
+	 * @param m
+	 * @uml.property  name="map"
+	 */
 	public void setMap(IMap m){
 		map=m;
 	}

@@ -13,7 +13,14 @@ import contract.ButtonState;
  *
  */
 public class Button extends GraphicsBuilder{
+	/**
+	 * @uml.property  name="text"
+	 */
 	private String text = "";
+	/**
+	 * @uml.property  name="state"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private ButtonState state = ButtonState.NORMAL;
 	/**
 	 * set state
@@ -76,6 +83,10 @@ public class Button extends GraphicsBuilder{
 	public int getHeight(){
 		return bufferImage.getHeight();
 	}
+	/**
+	 * @return
+	 * @uml.property  name="state"
+	 */
 	public ButtonState getState() {
 		return state;
 	}

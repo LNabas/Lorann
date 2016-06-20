@@ -1,0 +1,2 @@
+ERROR - 14:09:24: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.
+ERROR - 14:09:24: org.xml.sax.SAXParseExceptionpublicId: /contract/src/main/java/contract/ButtonState.java; systemId: file:///contract/src/main/java/contract/ButtonState.java; lineNumber: 1; columnNumber: 1; Contenu non autorisé dans le prologue.

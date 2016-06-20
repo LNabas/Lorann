@@ -3,13 +3,13 @@ package view;
 import java.awt.Image;
 /**
  * Builder on graphics
- * @author Doc0160
- *
+ * @author  Doc0160
  */
 public interface IGraphicsBuilder {
 	/**
 	 * draw and return image
-	 * @return Image
+	 * @return  Image
+	 * @uml.property  name="image"
 	 */
 	public Image getImage();
 	/**

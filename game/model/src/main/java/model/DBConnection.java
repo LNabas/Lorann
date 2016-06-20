@@ -13,7 +13,10 @@ final class DBConnection {
 	/** The instance. */
 	private static DBConnection	INSTANCE	= null;
 
-	/** The connection. */
+	/**
+	 * The connection.
+	 * @uml.property  name="connection"
+	 */
 	private Connection					connection;
 
 	/**
@@ -52,8 +55,8 @@ final class DBConnection {
 
 	/**
 	 * Gets the connection.
-	 *
-	 * @return the connection
+	 * @return  the connection
+	 * @uml.property  name="connection"
 	 */
 	public Connection getConnection() {
 		return this.connection;
