@@ -16,7 +16,7 @@ import junit.framework.TestCase;
  * @author Maxence
  *
  */
-public class DemonTest extends Demon {
+public class PaulTest extends Paul {
 
 	/**
 	 * Test method for {@link model.Demon#hit()}.
