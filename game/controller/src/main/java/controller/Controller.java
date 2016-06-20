@@ -190,6 +190,7 @@ public class Controller implements IController {
 		case RETURN:
 			view.setState(States.MENU);
 			model.resetLevel();
+			model.resetLives();
 			view.getMenu().changeButtonState(posMenu+1, ButtonState.CLICKED);
 			return;
 		default:
