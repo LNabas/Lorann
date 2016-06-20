@@ -59,7 +59,7 @@ public abstract class Demon extends Entity{
 		map.kill(getX(), getY());
 	}
 
-	public TypeEntity getType() {
+	public TypeEntity getType() { 
 		return TypeEntity.DEMON;
 	}
 }
