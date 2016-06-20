@@ -16,6 +16,7 @@ public class Model extends Observable implements IModel {
 	private int lvl=1;
 	private boolean reload = true;
 	private IMap map;
+	private IMap back_map;
 	int difficulty = 1;
 
 	/**
@@ -43,6 +44,7 @@ public class Model extends Observable implements IModel {
 	 */
 	private void setMap(final IMap map) {
 		this.map = map;
+		this.back_map = map.clone();
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -60,6 +62,9 @@ public class Model extends Observable implements IModel {
 			} catch (final SQLException e) {
 				e.printStackTrace();
 			}
+			reload=false;
+		}else{
+			map = back_map.clone();
 		}
 	}
 
@@ -77,6 +82,7 @@ public class Model extends Observable implements IModel {
 	}
 
 	public void LoadNextMap() {
+		reload=true;
 		try {
 			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
 			if(daoMap.MaxMaps()>=lvl){

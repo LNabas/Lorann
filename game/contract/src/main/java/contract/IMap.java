@@ -54,4 +54,5 @@ public interface IMap extends Cloneable{
 	public IEntity getPlayer();
 	public void addFireball(int x, int y, int ox, int oy);
 	public void OpenDoor();
+	public IMap clone();
 }
