@@ -20,27 +20,12 @@ import contract.States;
 public class View implements IView, Runnable {
 	/**
 	 * The frame.
-	 * @uml.property  name="viewFrame"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="view:view.ViewFrame"
 	 */
 	private final ViewFrame viewFrame;
 	//public ArrayList<KeyEvent> keys = new ArrayList<KeyEvent>();
-	/**
-	 * @uml.property  name="keys" multiplicity="(0 -1)" dimension="1"
-	 */
 	public boolean keys[] = new boolean[255];
-	/**
-	 * @uml.property  name="keys_used" multiplicity="(0 -1)" dimension="1"
-	 */
 	public boolean keys_used[] = new boolean[255];
-	/**
-	 * @uml.property  name="keys_released" multiplicity="(0 -1)" dimension="1"
-	 */
 	public boolean keys_released[] = new boolean[255];
-	/**
-	 * @uml.property  name="model"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	private IModel model;
 	/**
 	 * Instantiates a new view.
@@ -134,16 +119,20 @@ public class View implements IView, Runnable {
 			if((this.viewFrame.getController()!=null)
 					&& (new Date().getTime()-ts_player.getTime())>100){
 				IEntity entity = model.getMap().getPlayer();
-				if(entity.has_died()){
-					entity.updated_died_status();
-					if(entity.isAlive()){
+				if(model.getLives()>0){
+					model.removeLife();
+					if(model.getLives()>0){
 						model.Mappy();
 						entity.GainFB();
 					}else{
-						model.getMap().getPlayer().setLive(11);
+						model.resetLives();;
 						setState(States.MENU);
 						entity.GainFB();
 					}
+				}else{
+					model.resetLives();;
+					setState(States.MENU);
+					entity.GainFB();
 				}
 				boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_E];
 				boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S] || keys[KeyEvent.VK_W] || keys[KeyEvent.VK_X];

@@ -38,4 +38,7 @@ public interface IModel {
 	void ForceRedraw();
 	void Mappy();
 	int Difficulty();
+	public void removeLife();
+	public void resetLives();
+	public int getLives();
 }

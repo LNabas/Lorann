@@ -184,7 +184,7 @@ class ViewPanel extends JPanel implements Observer {
 	    g.drawImage(img, margin_x, margin_y, width, height, null);
 	    g.setFont(ressources.getFont("StraightToHellBB", 100));
 	    if(this.getState()==States.GAME)
-	    	g.drawString(Integer.toString(this.viewFrame.getView().getModel().getPlayer().getLives()), 100, 100);
+	    	g.drawString(Integer.toString(this.viewFrame.getModel().getLives()), 100, 100);
 	}
 	/**
 	 * Return the current view state

@@ -54,10 +54,6 @@ public interface IMap extends Cloneable{
 	public void move(int origin_x, int origin_y, int new_x, int new_y);
 	public int getXof(IEntity e);
 	public int getYof(IEntity e);
-	/**
-	 * @uml.property  name="player"
-	 * @uml.associationEnd  
-	 */
 	public IEntity getPlayer();
 	public void addFireball(int x, int y, int ox, int oy);
 	public void OpenDoor();
