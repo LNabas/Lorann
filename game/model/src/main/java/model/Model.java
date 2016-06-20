@@ -131,4 +131,8 @@ public class Model extends Observable implements IModel {
 	public int getLives() {
 		return lives;
 	}
+
+	public void resetLevel() {
+		lvl=1;
+	}
 }

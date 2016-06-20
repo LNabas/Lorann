@@ -41,4 +41,5 @@ public interface IModel {
 	public void removeLife();
 	public void resetLives();
 	public int getLives();
+	void resetLevel();
 }
