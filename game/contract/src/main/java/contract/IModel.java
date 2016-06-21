@@ -42,5 +42,6 @@ public interface IModel {
 	public void resetLives();
 	public int getLives();
 	void resetLevel();
+	public void AddScore();
 	public int getScore();
 }

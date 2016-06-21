@@ -268,6 +268,9 @@ public class Controller implements IController {
 				case KEY:
 					model.getMap().OpenDoor();
 					break;
+				case ITEMGOOD:
+					model.AddScore();
+					break;
 				default:
 					break;
 				}
