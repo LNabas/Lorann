@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.FontFormatException;
+import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import contract.States;
 
 /**
  * The Class ViewFrame.
@@ -200,6 +202,9 @@ class ViewFrame extends JFrame implements KeyListener {
 			}else{
 				this.viewPanel.music.pause();
 			}
+			break;
+		case 'B':
+			Graphics g = viewPanel.getGraphics();
 			break;
 		default:
 			this.getController().orderPerform(View.keyCodeToControllerOrder(this.viewPanel.getState(), e.getKeyCode()));
