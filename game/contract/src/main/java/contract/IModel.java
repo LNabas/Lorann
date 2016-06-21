@@ -44,4 +44,5 @@ public interface IModel {
 	void resetLevel();
 	public void AddScore();
 	public int getScore();
+	public void ResetScore();
 }

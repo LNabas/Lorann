@@ -289,6 +289,7 @@ public class Controller implements IController {
 				}
 				if(target_entity.hit()){
 					entity.die(model.getMap());
+					model.ResetScore();
 				}
 				break;
 			default:

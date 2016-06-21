@@ -141,6 +141,10 @@ public class Model extends Observable implements IModel {
 	public void AddScore(){
 		score = score + 100;
 	}
+	
+	public void ResetScore(){
+		score = 0;
+	}
 
 	public void resetLevel() {
 		lvl=1;
