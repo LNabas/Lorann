@@ -283,7 +283,7 @@ public class Controller implements IController {
 						if(model.MaxMap()>model.CurrentMap()){
 							model.LoadNextMap();
 						}else{
-							view.printMessage("You won !");
+							view.printMessage("You won with "+Integer.toString(model.getScore())+" points!");
 							model.resetLevel();
 							model.resetLives();
 							view.setState(States.MENU);
@@ -316,28 +316,6 @@ public class Controller implements IController {
 					entity.setSprite(VisualEntity.PLAYER_L);
 				}
 				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
-<<<<<<< HEAD
-				break;
-			case IMPERMEABLE:
-				if(target_entity.getType()==TypeEntity.DOOROPEN){
-					if(model.MaxMap()>model.CurrentMap()){
-						model.LoadNextMap();
-					}else{
-						view.printMessage("You won with "+Integer.toString(model.getScore())+" points!");
-						model.resetLevel();
-						model.resetLives();
-						view.setState(States.MENU);
-					}
-				}
-				if(target_entity.hit()){
-					entity.die(model.getMap());
-					model.ResetScore();
-				}
-				break;
-			default:
-				break;
-=======
->>>>>>> branch 'master' of https://github.com/LNabas/Lorann
 			}
 		}
 	}
