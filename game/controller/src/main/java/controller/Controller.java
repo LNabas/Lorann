@@ -282,7 +282,7 @@ public class Controller implements IController {
 					if(model.MaxMap()>model.CurrentMap()){
 						model.LoadNextMap();
 					}else{
-						view.printMessage("You won !");
+						view.printMessage("You won with "+Integer.toString(model.getScore())+" points!");
 						model.resetLevel();
 						model.resetLives();
 						view.setState(States.MENU);

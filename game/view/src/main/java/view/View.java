@@ -119,7 +119,7 @@ public class View implements IView, Runnable {
 						model.Mappy();
 						entity.GainFB();
 					}else{
-						this.printMessage("You loose !");
+						this.printMessage("You loose with "+Integer.toString(model.getScore())+" points!");
 						model.resetLevel();
 						model.resetLives();
 						setState(States.MENU);
