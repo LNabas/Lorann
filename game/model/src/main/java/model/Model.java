@@ -16,6 +16,7 @@ public class Model extends Observable implements IModel {
 	private IMap map;
 	int difficulty = 1;
 	int lives = 11;
+	int score = 0;
 
 	/**
 	 * Instantiates a new model.
@@ -125,11 +126,16 @@ public class Model extends Observable implements IModel {
 	}
 
 	public void resetLives() {
-		lives=11;
+		lives = 11;
+		score = 0;
 	}
 
 	public int getLives() {
 		return lives;
+	}
+	
+	public int getScore() {
+		return score;
 	}
 
 	public void resetLevel() {
