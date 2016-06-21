@@ -10,9 +10,9 @@ public class MapTest extends Map{
 
 	@Test
 	public void testResize() {
-		resize(10,10);
+		resize(10,15);
 		assertEquals(10, getWidth());
-		assertEquals(10, getHeight());
+		assertEquals(15, getHeight());
 	}
 
 	@Test
