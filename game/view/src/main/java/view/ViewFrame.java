@@ -223,7 +223,6 @@ class ViewFrame extends JFrame implements KeyListener {
 				}
 			}
 			BufferedImage slorann = viewPanel.ressources.getSprite("SLORANN");
-			BufferedImage lorann = viewPanel.ressources.getSprite("LorannD");
 			BufferedImage kmhmh[] = {
 					viewPanel.ressources.getSprite("KAMEHAMEHA1"),
 					viewPanel.ressources.getSprite("KAMEHAMEHA2"),
@@ -252,6 +251,11 @@ class ViewFrame extends JFrame implements KeyListener {
 				try {
 					Thread.sleep(timing[i]);
 				} catch (InterruptedException e1) {}
+			}
+			for(int i = x-2; i>0; i--){
+				IEntity e2 = map.get(i, y-1);
+				if(e2==null || e2.getType()!=TypeEntity.KEY || e2.getType()!=TypeEntity.DOOROPEN || e2.getType()!=TypeEntity.DOORCLOSE)
+					map.kill(i, y-1);
 			}
 			music.stop();
 			this.viewPanel.music.play();
