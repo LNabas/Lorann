@@ -1,7 +1,9 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.IOException;
@@ -182,10 +184,15 @@ class ViewPanel extends JPanel implements Observer {
 			x += ressources.getSprite("Sol").getWidth();
 		}
 	    g.drawImage(img, margin_x, margin_y, width, height, null);
-	    g.setFont(ressources.getFont("StraightToHellBB", 100));
 	    if(this.getState()==States.GAME){
-	    	g.drawString(Integer.toString(this.viewFrame.getModel().getLives()), 100, 100);
-	    	g.drawString(Integer.toString(this.viewFrame.getModel().getScore()), 100, 200);
+	    	Font f = ressources.getFont("StraightToHellBB", (int)(s*50));
+	    	g.setFont(f);
+	    	g.setColor(ressources.getColor("Gold"));
+	    	FontMetrics metrics = g.getFontMetrics(f);
+	    	String sLives = Integer.toString(this.viewFrame.getModel().getLives());
+	    	String sScore = Integer.toString(this.viewFrame.getModel().getScore());
+	    	g.drawString(sLives, metrics.stringWidth(sLives)/4, metrics.getHeight()/2+3);
+	    	g.drawString(sScore, metrics.stringWidth(sScore)/4, metrics.getHeight()+6);
 	    }
 	}
 	/**
