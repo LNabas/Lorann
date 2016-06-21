@@ -63,11 +63,11 @@ public class Fireball extends Entity{
 			default:
 				break;
 			}
-			if(x<map.getWidth() && y < map.getHeight() && x>0 && y>0){
+			if(x+ox < map.getWidth() && y+oy < map.getHeight() && x+ox>0 && y+oy>0){ 
 				IEntity e = map.get(x + ox, y + oy);
 				if(e==null){
 					map.move(x, y, x + ox, y + oy);
-				}else{
+				}else{ 
 					switch(e.getType()){
 					case DEMON:
 						map.kill(x + ox, y + oy);
