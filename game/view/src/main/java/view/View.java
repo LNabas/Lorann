@@ -104,19 +104,18 @@ public class View implements IView, Runnable {
 	 * @see java.lang.Runnable#run()
 	 */
 	public void run() {
-		if(this.viewFrame.getViewPanel().getState() == States.GAME){
+		if(this.viewFrame.getViewPanel().getState() == States.GAME && this.viewFrame.getController()!=null){
 			if((this.viewFrame.getController()!=null)
 					&& ((new Date().getTime()-ts_game.getTime())>(400/model.Difficulty()))){
 				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
-				ts_game = new Date();
-				for(int i = 0; i<keys.length; i++){
+				/*for(int i = 0; i<keys.length; i++){
 					keys_used[i]=true;
 					keys_released[i]=true;
 					keys[i]=false;
-				}
+				}*/
+				ts_game = new Date();
 			}
-			if((this.viewFrame.getController()!=null)
-					&& (new Date().getTime()-ts_player.getTime())>100){
+			if((new Date().getTime()-ts_player.getTime())>100){
 				IEntity entity = model.getMap().getPlayer();
 				if(entity.has_died()){
 					model.removeLife();
@@ -178,11 +177,11 @@ public class View implements IView, Runnable {
 				ts_player = new Date();
 			}
 		}
-		try {
+		/*try {
 			Thread.sleep(10);
 		} catch (InterruptedException e) {
 			//e.printStackTrace();
-		}
+		}*/
 		SwingUtilities.invokeLater(this);
 	}
 
