@@ -255,7 +255,9 @@ class ViewFrame extends JFrame implements KeyListener {
 				if(e2==null || (e2.getType()!=TypeEntity.KEY && e2.getType()!=TypeEntity.DOOROPEN && e2.getType()!=TypeEntity.DOORCLOSE))
 					map.kill(i, y-1);
 			}
-			music.stop();
+			try {
+				Thread.sleep(2100);
+			} catch (InterruptedException e1) {}
 			music=null;
 			System.gc();
 			this.viewPanel.music.play();

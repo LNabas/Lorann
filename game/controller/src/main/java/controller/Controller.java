@@ -258,24 +258,65 @@ public class Controller implements IController {
 	public void checkCasePlayer(IEntity entity, int offset_x, int offset_y){
 		int posx = entity.getX();
 		int posy = entity.getY();
-		IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
-		if(target_entity != null && entity!=null){
-			switch(target_entity.getPermeability()){
-			case PERMEABLE:
-				switch(target_entity.getType()){
-				case RFB:
-					entity.GainFB();
+		if(posx+offset_x>0 && posx+offset_x<=model.getMap().getWidth() && posy+offset_y>0 && posy+offset_y<=model.getMap().getHeight()){
+			IEntity target_entity =  model.getMap().get(posx+offset_x, posy+offset_y);
+			if(target_entity != null && entity!=null){
+				switch(target_entity.getPermeability()){
+				case PERMEABLE:
+					switch(target_entity.getType()){
+					case RFB:
+						entity.GainFB();
+						break;
+					case KEY:
+						model.getMap().OpenDoor();
+						break;
+					case ITEMGOOD:
+						model.AddScore();
+						break;
+					default:
+						break;
+					}
+					model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 					break;
-				case KEY:
-					model.getMap().OpenDoor();
-					break;
-				case ITEMGOOD:
-					model.AddScore();
+				case IMPERMEABLE:
+					if(target_entity.getType()==TypeEntity.DOOROPEN){
+						if(model.MaxMap()>model.CurrentMap()){
+							model.LoadNextMap();
+						}else{
+							view.printMessage("You won !");
+							model.resetLevel();
+							model.resetLives();
+							view.setState(States.MENU);
+						}
+					}
+					if(target_entity.hit()){
+						entity.die(model.getMap());
+						model.ResetScore();
+					}
 					break;
 				default:
 					break;
 				}
+			}else if(entity!=null){
+				if((offset_y==1)&&(offset_x==1)){
+					entity.setSprite(VisualEntity.PLAYER_DR);
+				}else if((offset_y==1)&&(offset_x==-1)){
+					entity.setSprite(VisualEntity.PLAYER_DL);
+				}else if((offset_y==-1)&&(offset_x==1)){
+					entity.setSprite(VisualEntity.PLAYER_UR);
+				}else if((offset_y==-1)&&(offset_x==-1)){
+					entity.setSprite(VisualEntity.PLAYER_UL);
+				}else if(offset_y==-1){
+					entity.setSprite(VisualEntity.PLAYER_U);
+				}else if(offset_y==1){
+					entity.setSprite(VisualEntity.PLAYER_D);
+				}else if(offset_x==1){
+					entity.setSprite(VisualEntity.PLAYER_R);
+				}else if(offset_x==-1){
+					entity.setSprite(VisualEntity.PLAYER_L);
+				}
 				model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
+<<<<<<< HEAD
 				break;
 			case IMPERMEABLE:
 				if(target_entity.getType()==TypeEntity.DOOROPEN){
@@ -295,27 +336,9 @@ public class Controller implements IController {
 				break;
 			default:
 				break;
+=======
+>>>>>>> branch 'master' of https://github.com/LNabas/Lorann
 			}
-		}else if(entity!=null){
-			if((offset_y==1)&&(offset_x==1)){
-				entity.setSprite(VisualEntity.PLAYER_DR);
-			}else if((offset_y==1)&&(offset_x==-1)){
-				entity.setSprite(VisualEntity.PLAYER_DL);
-			}else if((offset_y==-1)&&(offset_x==1)){
-				entity.setSprite(VisualEntity.PLAYER_UR);
-			}else if((offset_y==-1)&&(offset_x==-1)){
-				entity.setSprite(VisualEntity.PLAYER_UL);
-			}else if(offset_y==-1){
-				entity.setSprite(VisualEntity.PLAYER_U);
-			}else if(offset_y==1){
-				entity.setSprite(VisualEntity.PLAYER_D);
-			}else if(offset_x==1){
-				entity.setSprite(VisualEntity.PLAYER_R);
-			}else if(offset_x==-1){
-				entity.setSprite(VisualEntity.PLAYER_L);
-			}
-			model.getMap().move(posx, posy, posx+offset_x, posy+offset_y);
 		}
-		
 	}
 }
