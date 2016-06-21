@@ -79,7 +79,8 @@ class ViewPanel extends JPanel implements Observer {
 		 music.setShuffle(true);
 		 music.setRepeat(true);
 		 for(Entry<String, URL> v : ressources.getSounds().entrySet()){
-			 music.addToPlayList(ressources.getSound(v.getKey()));
+			 if(v.getKey()!="KMHMH")
+				 music.addToPlayList(ressources.getSound(v.getKey()));
 		 }
 		 music.play();
 		 //

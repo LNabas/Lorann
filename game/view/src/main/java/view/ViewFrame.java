@@ -16,7 +16,6 @@ import contract.IEntity;
 import contract.IMap;
 import contract.IModel;
 import contract.IView;
-import contract.States;
 import contract.TypeEntity;
 
 /**
@@ -25,7 +24,6 @@ import contract.TypeEntity;
  * @author Doc0160
  */
 class ViewFrame extends JFrame implements KeyListener {
-
 	/**
 	 * The model.
 	 */
@@ -258,6 +256,8 @@ class ViewFrame extends JFrame implements KeyListener {
 					map.kill(i, y-1);
 			}
 			music.stop();
+			music=null;
+			System.gc();
 			this.viewPanel.music.play();
 			break;
 		default:
