@@ -36,4 +36,5 @@ public interface IView {
 	 * @uml.associationEnd  
 	 */
 	IModel getModel();
+	void resetKeys();
 }

@@ -22,6 +22,9 @@ import jaco.mp3.player.MP3Player;
  * @author Doc0160
  */
 class ViewPanel extends JPanel implements Observer {
+	public int margin_x = 0;
+	public int margin_y = 0;
+	public float s;
 	/**
 	 * @uml.property  name="state"
 	 * @uml.associationEnd  multiplicity="(1 1)"
@@ -171,11 +174,11 @@ class ViewPanel extends JPanel implements Observer {
 		int img_height = img.getHeight(null);
 	    float scale_w = getScaleFactor(img_width, width);
 	    float scale_h = getScaleFactor(img_height, height);
-	    float s = Math.min(scale_h, scale_w);
+	    s = Math.min(scale_h, scale_w);
 	    width = (int) (img_width*s);
 	    height = (int) (img_height*s);
-	    int margin_x = (this.getWidth() - width)/2;
-	    int margin_y = (this.getHeight() - height)/2;
+	    margin_x = (this.getWidth() - width)/2;
+	    margin_y = (this.getHeight() - height)/2;
 		for(int x = 0; x < this.getWidth();){
 			for(int y = 0; y < this.getHeight();){
 				g.drawImage(ressources.getSprite("Sol"), x, y, null);
