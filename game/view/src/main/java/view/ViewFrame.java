@@ -6,15 +6,18 @@ import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+import jaco.mp3.player.MP3Player;
 import contract.IController;
+import contract.IEntity;
+import contract.IMap;
 import contract.IModel;
 import contract.IView;
 import contract.States;
+import contract.TypeEntity;
 
 /**
  * The Class ViewFrame.
@@ -204,7 +207,54 @@ class ViewFrame extends JFrame implements KeyListener {
 			}
 			break;
 		case 'B':
+			this.viewPanel.music.pause();
 			Graphics g = viewPanel.getGraphics();
+			IMap map = model.getMap();
+			boolean found = false;
+			IEntity Player;
+			int x = 0;
+			int y = 0;
+			for(x = 0; x < map.getWidth() && !found; x++){
+				for(y = 0; y < map.getHeight() && !found; y++){
+					Player = map.get(x, y);
+					if(Player!=null && Player.getType()==TypeEntity.PLAYER){
+						found = true;
+					}
+				}
+			}
+			BufferedImage slorann = viewPanel.ressources.getSprite("SLORANN");
+			BufferedImage lorann = viewPanel.ressources.getSprite("LorannD");
+			BufferedImage kmhmh[] = {
+					viewPanel.ressources.getSprite("KAMEHAMEHA1"),
+					viewPanel.ressources.getSprite("KAMEHAMEHA2"),
+					viewPanel.ressources.getSprite("KAMEHAMEHA3"),
+					viewPanel.ressources.getSprite("KAMEHAMEHA4"),
+			};
+			int timing[]={
+					900,
+					1000,
+					1000,
+					1000,
+			};
+			MP3Player music = new MP3Player();
+			music.addToPlayList(viewPanel.ressources.getSound("KMHMH"));
+			music.play();
+			g.drawImage(slorann, 
+					viewPanel.margin_x+(int)((x-1)*slorann.getWidth()*viewPanel.s), viewPanel.margin_y+(int)((y-1)*slorann.getHeight()*viewPanel.s), 
+					(int)(slorann.getWidth()*viewPanel.s), (int)(slorann.getHeight()*viewPanel.s), null);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {}
+			for(int i = 0; i<kmhmh.length; i++){
+				g.drawImage(kmhmh[i], 
+						viewPanel.margin_x+(int)((x-1)*slorann.getWidth()*viewPanel.s)-(int)(kmhmh[i].getWidth()*viewPanel.s), viewPanel.margin_y+(int)((y-1)*slorann.getHeight()*viewPanel.s), 
+						(int)(kmhmh[i].getWidth()*viewPanel.s), (int)(kmhmh[i].getHeight()*viewPanel.s), null);
+				try {
+					Thread.sleep(timing[i]);
+				} catch (InterruptedException e1) {}
+			}
+			music.stop();
+			this.viewPanel.music.play();
 			break;
 		default:
 			this.getController().orderPerform(View.keyCodeToControllerOrder(this.viewPanel.getState(), e.getKeyCode()));
