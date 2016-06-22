@@ -25,15 +25,7 @@ class ViewPanel extends JPanel implements Observer {
 	public int margin_x = 0;
 	public int margin_y = 0;
 	public float s;
-	/**
-	 * @uml.property  name="state"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	private States state = States.MENU;
-	/**
-	 * @uml.property  name="ressources"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	public RessourcesLoader ressources;
 	/**
 	 * The view frame.

@@ -105,11 +105,7 @@ public class View implements IView, Runnable {
 	 */
 	public void run() {
 		if(this.viewFrame.getViewPanel().getState() == States.GAME && this.viewFrame.getController()!=null){
-			if((this.viewFrame.getController()!=null)
-					&& ((new Date().getTime()-ts_game.getTime())>(400/model.Difficulty()))){
-				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
-				ts_game = new Date();
-			}else if((new Date().getTime()-ts_player.getTime())>100){
+			if((new Date().getTime()-ts_player.getTime())>100){
 				IEntity entity = model.getMap().getPlayer();
 				if(entity.has_died()){
 					model.removeLife();
@@ -118,64 +114,64 @@ public class View implements IView, Runnable {
 						model.Mappy();
 						entity.GainFB();
 					}else{
-						this.printMessage("You loose with "+Integer.toString(model.getScore())+" points!");
+						this.printMessage("You loose with !");
 						model.resetLevel();
 						model.resetLives();
 						setState(States.MENU);
 						entity.GainFB();
 					}
 				}
-				boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_E];
-				boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S] || keys[KeyEvent.VK_W] || keys[KeyEvent.VK_X];
-				boolean left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_Q] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_W];
-				boolean right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D] || keys[KeyEvent.VK_E] || keys[KeyEvent.VK_X];
-				boolean fb = keys[KeyEvent.VK_SPACE];
 				boolean r_return = keys[KeyEvent.VK_BACK_SPACE] || keys[KeyEvent.VK_ESCAPE];
-				if(up && left){
-					this.viewFrame.getController().orderPerform(ControllerOrder.UP_LEFT);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannUL"));
-				}else if(up && right){
-					this.viewFrame.getController().orderPerform(ControllerOrder.UP_RIGHT);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannUR"));
-				}else if(down && right){
-					this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_RIGHT);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannDR"));
-				}else if(down && left){
-					this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_LEFT);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannDL"));
-				}else if(left){
-					this.viewFrame.getController().orderPerform(ControllerOrder.LEFT);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannL"));
-				}else if(right){
-					this.viewFrame.getController().orderPerform(ControllerOrder.RIGHT);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannR"));
-				}else if(up){
-					this.viewFrame.getController().orderPerform(ControllerOrder.UP);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannU"));
-				}else if(down){
-					this.viewFrame.getController().orderPerform(ControllerOrder.DOWN);
-					this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannD"));
-				}
-				if(fb){
-					this.viewFrame.getController().orderPerform(ControllerOrder.RAINBOW_FIREBALL);
-				}
 				if(r_return){
 					this.viewFrame.getController().orderPerform(ControllerOrder.RETURN);
-				}
-				for(int i = 0; i<keys.length; i++){
-					keys_used[i]=true;
-					if(keys_released[i]){
-						keys[i]=false;
+				}else{
+					boolean up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_Z] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_E];
+					boolean left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_Q] || keys[KeyEvent.VK_A] || keys[KeyEvent.VK_W];
+					boolean right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D] || keys[KeyEvent.VK_E] || keys[KeyEvent.VK_X];
+					if(up && left){
+						this.viewFrame.getController().orderPerform(ControllerOrder.UP_LEFT);
+						this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannUL"));
+					}else if(up && right){
+						this.viewFrame.getController().orderPerform(ControllerOrder.UP_RIGHT);
+						this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannUR"));
+					}else if(up){
+						this.viewFrame.getController().orderPerform(ControllerOrder.UP);
+						this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannU"));
+					}else{
+						boolean down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S] || keys[KeyEvent.VK_W] || keys[KeyEvent.VK_X];
+						if(down && right){
+							this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_RIGHT);
+							this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannDR"));
+						}else if(down && left){
+							this.viewFrame.getController().orderPerform(ControllerOrder.DOWN_LEFT);
+							this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannDL"));
+						}else if(left){
+							this.viewFrame.getController().orderPerform(ControllerOrder.LEFT);
+							this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannL"));
+						}else if(right){
+							this.viewFrame.getController().orderPerform(ControllerOrder.RIGHT);
+							this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannR"));
+						}else if(down){
+							this.viewFrame.getController().orderPerform(ControllerOrder.DOWN);
+							this.viewFrame.setIconImage(this.viewFrame.getViewPanel().ressources.getSprite("LorannD"));
+						}
 					}
+					boolean fb = keys[KeyEvent.VK_SPACE];
+					if(fb){
+						this.viewFrame.getController().orderPerform(ControllerOrder.RAINBOW_FIREBALL);
+					}
+					resetKeys();
+					ts_player = new Date();
 				}
-				ts_player = new Date();
+			}else if(((new Date().getTime()-ts_game.getTime())>(400/model.Difficulty()))){
+				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
+				ts_game = new Date();
 			}
+		}else{
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {}
 		}
-		/*try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			//e.printStackTrace();
-		}*/
 		SwingUtilities.invokeLater(this);
 	}
 
@@ -199,16 +195,33 @@ public class View implements IView, Runnable {
 	}
 	/**
 	 * @return
-	 * @uml.property  name="model"
 	 */
 	public IModel getModel() {
 		return model;
 	}
 	public void resetKeys() {
-		for(int i = 0; i<keys.length; i++){
-			keys_used[i]=true;
-			keys_released[i]=true;
-			keys[i]=false;
-		}
+		int keyss[] = {
+				KeyEvent.VK_BACK_SPACE,
+				KeyEvent.VK_ESCAPE,
+				KeyEvent.VK_SPACE,
+				KeyEvent.VK_UP,
+				KeyEvent.VK_DOWN,
+				KeyEvent.VK_LEFT,
+				KeyEvent.VK_RIGHT,
+				KeyEvent.VK_A,
+				KeyEvent.VK_Z,
+				KeyEvent.VK_E,
+				KeyEvent.VK_Q,
+				KeyEvent.VK_S,
+				KeyEvent.VK_D,
+				KeyEvent.VK_W,
+				KeyEvent.VK_X,
+			};
+			for(int i : keyss){
+				keys_used[i]=true;
+				if(keys_released[i]){
+					keys[i]=false;
+				}
+			}
 	}
 }

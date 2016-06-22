@@ -13,7 +13,7 @@ public class Paul extends Demon {
 			boolean found = false;
 			int nx = 0;
 			int ny = 0;
-			int radius = 10;
+			int radius = 5;
 			for(nx = -radius; nx<radius && !found; nx++){
 				for(ny = -radius; ny<radius && !found; ny++){
 					int nnx = nx+x;

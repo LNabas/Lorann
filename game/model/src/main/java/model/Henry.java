@@ -40,7 +40,7 @@ public class Henry extends Demon {
 					super.move(map, x, y);
 				}
 			}else{
-				radius = 10;
+				radius = 5;
 				for(nx = -radius; nx<radius && !found; nx++){
 					for(ny = -radius; ny<radius && !found; ny++){
 						int nnx = nx+x;
