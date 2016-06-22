@@ -9,7 +9,6 @@ public interface IGraphicsBuilder {
 	/**
 	 * draw and return image
 	 * @return  Image
-	 * @uml.property  name="image"
 	 */
 	public Image getImage();
 	/**

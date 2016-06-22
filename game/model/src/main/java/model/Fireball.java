@@ -63,7 +63,6 @@ public class Fireball extends Entity{
 			default:
 				break;
 			}
-			if(x+ox <= map.getWidth() && y+oy <= map.getHeight() && x+ox>0 && y+oy>0){ 
 				IEntity e = map.get(x + ox, y + oy);
 				if(e==null){
 					map.move(x, y, x + ox, y + oy);
@@ -86,7 +85,6 @@ public class Fireball extends Entity{
 				}
 			}
 		}
-	}
 	public void die(IMap map) {
 		// TODO Auto-generated method stub
 	}

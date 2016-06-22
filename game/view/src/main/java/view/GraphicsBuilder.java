@@ -11,19 +11,10 @@ import java.awt.image.BufferedImage;
  *
  */
 public class GraphicsBuilder implements IGraphicsBuilder{
-	/**
-	 * @uml.property  name="ressources"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	protected RessourcesLoader ressources;
-	/**
-	 * @uml.property  name="bufferImage"
-	 */
 	protected BufferedImage bufferImage;
-	/**
-	 * @uml.property  name="graphics"
-	 */
 	protected Graphics graphics;
+	protected boolean need_redraw = true;
 	/**
 	 * Constructor
 	 * @param r RessourceLoader

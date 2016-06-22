@@ -172,13 +172,15 @@ class ViewPanel extends JPanel implements Observer {
 	    height = (int) (img_height*s);
 	    margin_x = (this.getWidth() - width)/2;
 	    margin_y = (this.getHeight() - height)/2;
-		for(int x = 0; x < this.getWidth();){
-			for(int y = 0; y < this.getHeight();){
-				g.drawImage(ressources.getSprite("Sol"), x, y, null);
-				y += ressources.getSprite("Sol").getHeight();
+	    if(this.state==States.MENU || this.state==States.MENU_OPTIONS){
+			for(int x = 0; x < this.getWidth();){
+				for(int y = 0; y < this.getHeight();){
+					g.drawImage(ressources.getSprite("Sol"), x, y, null);
+					y += ressources.getSprite("Sol").getHeight();
+				}
+				x += ressources.getSprite("Sol").getWidth();
 			}
-			x += ressources.getSprite("Sol").getWidth();
-		}
+	    }
 	    g.drawImage(img, margin_x, margin_y, width, height, null);
 	    if(this.getState()==States.GAME){
 	    	Font f = ressources.getFont("StraightToHellBB", (int)(s*50));

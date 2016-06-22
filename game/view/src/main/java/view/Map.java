@@ -10,58 +10,18 @@ import contract.VisualEntity;
  *
  */
 public class Map extends GraphicsBuilder{
-	/**
-	 * @uml.property  name="map"
-	 * @uml.associationEnd  multiplicity="(1 1)"
-	 */
 	private IMap map;
-	/**
-	 * @uml.property  name="sol"
-	 */
 	BufferedImage sol;
-	/**
-	 * @uml.property  name="skull"
-	 */
 	BufferedImage skull;
-	/**
-	 * @uml.property  name="hbone"
-	 */
 	BufferedImage hbone;
-	/**
-	 * @uml.property  name="vbone"
-	 */
 	BufferedImage vbone;
-	/**
-	 * @uml.property  name="lorann"
-	 */
 	BufferedImage lorann;
-	/**
-	 * @uml.property  name="lorannu"
-	 */
 	BufferedImage lorannu;
-	/**
-	 * @uml.property  name="lorannd"
-	 */
 	BufferedImage lorannd;
-	/**
-	 * @uml.property  name="lorannl"
-	 */
 	BufferedImage lorannl;
-	/**
-	 * @uml.property  name="lorannur"
-	 */
 	BufferedImage lorannur;
-	/**
-	 * @uml.property  name="lorannul"
-	 */
 	BufferedImage lorannul;
-	/**
-	 * @uml.property  name="lorannr"
-	 */
 	BufferedImage lorannr;
-	/**
-	 * @uml.property  name="loranndr"
-	 */
 	BufferedImage loranndr;
 	/**
 	 * @uml.property  name="loranndl"
@@ -107,9 +67,8 @@ public class Map extends GraphicsBuilder{
 	 * @uml.property  name="charles"
 	 */
 	BufferedImage charles;
-	/**
-	 * @uml.property  name="purse"
-	 */
+	BufferedImage dc;
+	BufferedImage don;
 	BufferedImage purse;
 	public Map(RessourcesLoader r, IMap map) {
 		super(r);
@@ -166,119 +125,118 @@ public class Map extends GraphicsBuilder{
 		//
 		purse = ressources.getSpriteCopy("Sol");
 		purse.getGraphics().drawImage(ressources.getSprite("Purse"), 0, 0, null);
+		//
+		dc = ressources.getSpriteCopy("Sol");
+		dc.getGraphics().drawImage(ressources.getSprite("DC"), 0, 0, null);
+		don = ressources.getSpriteCopy("Sol");
+		don.getGraphics().drawImage(ressources.getSprite("DO"), 0, 0, null);
 	}
 	/**
 	 * @param m
-	 * @uml.property  name="map"
 	 */
 	public void setMap(IMap m){
 		map=m;
+		need_redraw=true;
 	}
 	public Image getImage() {
-		if(true){
-		BufferedImage dc = ressources.getSpriteCopy("Sol");
-		dc.getGraphics().drawImage(ressources.getSprite("DC"), 0, 0, null);
-		BufferedImage don = ressources.getSpriteCopy("Sol");
-		don.getGraphics().drawImage(ressources.getSprite("DO"), 0, 0, null);
-		if(map==null){
-			System.exit(0);
-		}
-		setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
-		for(int i = 0; i < map.getWidth(); i++){
-			for(int j = 0; j < map.getHeight(); j++){
-				VisualEntity t = VisualEntity.FLOOR;
-				if(map.get(i, j) != null){
-					t = map.get(i, j).getVisualType();
-					if(t==null){
-						t = VisualEntity.FLOOR;
+		if(need_redraw){
+			need_redraw=false;
+			setSize(paul.getWidth()*map.getWidth(), paul.getHeight()*map.getHeight());
+			for(int i = 0; i < map.getWidth(); i++){
+				for(int j = 0; j < map.getHeight(); j++){
+					VisualEntity t = VisualEntity.FLOOR;
+					if(map.get(i, j) != null){
+						t = map.get(i, j).getVisualType();
+						if(t==null){
+							t = VisualEntity.FLOOR;
+						}
+					}
+					switch(t){
+					case CHARLES:
+						drawImage(charles, i*charles.getWidth(), j*charles.getHeight());
+						break;
+					case PIERRE:
+						drawImage(pierre, i*pierre.getWidth(), j*pierre.getHeight());
+						break;
+					case HENRY:
+						drawImage(henry, i*henry.getWidth(), j*henry.getHeight());
+						break;
+					case PAUL:
+						drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
+						break;
+					case PLAYER:
+						drawImage(lorann, i*lorann.getWidth(), j*lorann.getHeight());
+						break;
+					case PLAYER_U:
+						drawImage(lorannu, i*lorannu.getWidth(), j*lorannu.getHeight());
+						break;
+					case PLAYER_UR:
+						drawImage(lorannur, i*lorannur.getWidth(), j*lorannur.getHeight());
+						break;
+					case PLAYER_UL:
+						drawImage(lorannul, i*lorannul.getWidth(), j*lorannul.getHeight());
+						break;
+					case PLAYER_D:
+						drawImage(lorannd, i*lorannd.getWidth(), j*lorannd.getHeight());
+						break;
+					case PLAYER_DR:
+						drawImage(loranndr, i*loranndr.getWidth(), j*loranndr.getHeight());
+						break;
+					case PLAYER_DL:
+						drawImage(loranndl, i*loranndl.getWidth(), j*loranndl.getHeight());
+						break;
+					case PLAYER_L:
+						drawImage(lorannl, i*lorannl.getWidth(), j*lorannl.getHeight());
+						break;
+					case PLAYER_R:
+						drawImage(lorannr, i*lorannr.getWidth(), j*lorannr.getHeight());
+						break;
+					case ITEMGOOD:
+						drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
+						break;
+					case KEY:
+						drawImage(key, i*key.getWidth(), j*key.getHeight());
+						break;
+					case SKULL:
+						drawImage(skull, i*skull.getWidth(), j*skull.getHeight());
+						break;
+					case HORIZONTAL_BONE:
+						drawImage(hbone, i*hbone.getWidth(), j*hbone.getHeight());
+						break;
+					case VERTICAL_BONE:
+						drawImage(vbone, i*vbone.getWidth(), j*vbone.getHeight());
+						break;
+					case FLOOR:
+						drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+						break;
+					case FIREBALL:
+						drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
+						break;
+					case FIREBALL1:
+						drawImage(fireball1, i*fireball1.getWidth(), j*fireball1.getHeight());
+						break;
+					case FIREBALL2:
+						drawImage(fireball2, i*fireball2.getWidth(), j*fireball2.getHeight());
+						break;
+					case FIREBALL3:
+						drawImage(fireball3, i*fireball3.getWidth(), j*fireball3.getHeight());
+						break;
+					case FIREBALL4:
+						drawImage(fireball4, i*fireball4.getWidth(), j*fireball4.getHeight());
+						break;
+					case DOOR_OPEN:
+						drawImage(don, i*don.getWidth(), j*don.getHeight());
+						break;
+					case DOOR_CLOSED:
+						drawImage(dc, i*dc.getWidth(), j*dc.getHeight());
+						break;
+					default:
+						drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
+						System.out.println(t);
+						break;
 					}
 				}
-				switch(t){
-				case CHARLES:
-					drawImage(charles, i*charles.getWidth(), j*charles.getHeight());
-					break;
-				case PIERRE:
-					drawImage(pierre, i*pierre.getWidth(), j*pierre.getHeight());
-					break;
-				case HENRY:
-					drawImage(henry, i*henry.getWidth(), j*henry.getHeight());
-					break;
-				case PAUL:
-					drawImage(paul, i*paul.getWidth(), j*paul.getHeight());
-					break;
-				case PLAYER:
-					drawImage(lorann, i*lorann.getWidth(), j*lorann.getHeight());
-					break;
-				case PLAYER_U:
-					drawImage(lorannu, i*lorannu.getWidth(), j*lorannu.getHeight());
-					break;
-				case PLAYER_UR:
-					drawImage(lorannur, i*lorannur.getWidth(), j*lorannur.getHeight());
-					break;
-				case PLAYER_UL:
-					drawImage(lorannul, i*lorannul.getWidth(), j*lorannul.getHeight());
-					break;
-				case PLAYER_D:
-					drawImage(lorannd, i*lorannd.getWidth(), j*lorannd.getHeight());
-					break;
-				case PLAYER_DR:
-					drawImage(loranndr, i*loranndr.getWidth(), j*loranndr.getHeight());
-					break;
-				case PLAYER_DL:
-					drawImage(loranndl, i*loranndl.getWidth(), j*loranndl.getHeight());
-					break;
-				case PLAYER_L:
-					drawImage(lorannl, i*lorannl.getWidth(), j*lorannl.getHeight());
-					break;
-				case PLAYER_R:
-					drawImage(lorannr, i*lorannr.getWidth(), j*lorannr.getHeight());
-					break;
-				case ITEMGOOD:
-					drawImage(purse, i*purse.getWidth(), j*purse.getHeight());
-					break;
-				case KEY:
-					drawImage(key, i*key.getWidth(), j*key.getHeight());
-					break;
-				case SKULL:
-					drawImage(skull, i*skull.getWidth(), j*skull.getHeight());
-					break;
-				case HORIZONTAL_BONE:
-					drawImage(hbone, i*hbone.getWidth(), j*hbone.getHeight());
-					break;
-				case VERTICAL_BONE:
-					drawImage(vbone, i*vbone.getWidth(), j*vbone.getHeight());
-					break;
-				case FLOOR:
-					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
-					break;
-				case FIREBALL:
-					drawImage(fireball, i*fireball.getWidth(), j*fireball.getHeight());
-					break;
-				case FIREBALL1:
-					drawImage(fireball1, i*fireball1.getWidth(), j*fireball1.getHeight());
-					break;
-				case FIREBALL2:
-					drawImage(fireball2, i*fireball2.getWidth(), j*fireball2.getHeight());
-					break;
-				case FIREBALL3:
-					drawImage(fireball3, i*fireball3.getWidth(), j*fireball3.getHeight());
-					break;
-				case FIREBALL4:
-					drawImage(fireball4, i*fireball4.getWidth(), j*fireball4.getHeight());
-					break;
-				case DOOR_OPEN:
-					drawImage(don, i*don.getWidth(), j*don.getHeight());
-					break;
-				case DOOR_CLOSED:
-					drawImage(dc, i*dc.getWidth(), j*dc.getHeight());
-					break;
-				default:
-					drawImage(sol, i*sol.getWidth(), j*sol.getHeight());
-					System.out.println(t);
-					break;
-				}
 			}
-		}
 		}
 		return bufferImage;
 	}
