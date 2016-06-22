@@ -109,8 +109,7 @@ public class View implements IView, Runnable {
 					&& ((new Date().getTime()-ts_game.getTime())>(400/model.Difficulty()))){
 				this.viewFrame.getController().orderPerform(ControllerOrder.TICK);
 				ts_game = new Date();
-			}
-			if((new Date().getTime()-ts_player.getTime())>100){
+			}else if((new Date().getTime()-ts_player.getTime())>100){
 				IEntity entity = model.getMap().getPlayer();
 				if(entity.has_died()){
 					model.removeLife();
