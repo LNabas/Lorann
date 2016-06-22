@@ -23,49 +23,16 @@ public class Map extends GraphicsBuilder{
 	BufferedImage lorannul;
 	BufferedImage lorannr;
 	BufferedImage loranndr;
-	/**
-	 * @uml.property  name="loranndl"
-	 */
 	BufferedImage loranndl;
-	/**
-	 * @uml.property  name="fireball"
-	 */
 	BufferedImage fireball;
-	/**
-	 * @uml.property  name="fireball1"
-	 */
 	BufferedImage fireball1;
-	/**
-	 * @uml.property  name="fireball2"
-	 */
 	BufferedImage fireball2;
-	/**
-	 * @uml.property  name="fireball3"
-	 */
 	BufferedImage fireball3;
-	/**
-	 * @uml.property  name="fireball4"
-	 */
 	BufferedImage fireball4;
-	/**
-	 * @uml.property  name="key"
-	 */
 	BufferedImage key;
-	/**
-	 * @uml.property  name="paul"
-	 */
 	BufferedImage paul;
-	/**
-	 * @uml.property  name="henry"
-	 */
 	BufferedImage henry;
-	/**
-	 * @uml.property  name="pierre"
-	 */
 	BufferedImage pierre;
-	/**
-	 * @uml.property  name="charles"
-	 */
 	BufferedImage charles;
 	BufferedImage dc;
 	BufferedImage don;
